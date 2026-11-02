@@ -118,12 +118,12 @@
    "id": "C01",
    "name": "Agencias de financiación de la innovación empresarial",
    "top_terms": [
-    "empresas",
     "convocatorias",
+    "empresas",
     "innovacion",
     "financiacion",
-    "convocatorias financiacion",
     "empresa",
+    "convocatorias financiacion",
     "proyectos",
     "postulacion"
    ],
@@ -131,6 +131,7 @@
     "F02": 6,
     "F03": 2,
     "F01": 1,
+    "F04": 1,
     "F10": 1,
     "F12": 1
    },
@@ -145,6 +146,7 @@
     "CT219",
     "CT310",
     "CT409",
+    "CT417",
     "CT511"
    ]
   },
@@ -162,8 +164,8 @@
     "propiedad"
    ],
    "topics": {
-    "F06": 13,
-    "F03": 11,
+    "F03": 17,
+    "F06": 15,
     "F04": 3,
     "F07": 1
    },
@@ -187,9 +189,17 @@
     "CT403",
     "CT404",
     "CT407",
-    "CT410",
     "CT411",
     "CT412",
+    "CT415",
+    "CT418",
+    "CT419",
+    "CT422",
+    "CT427",
+    "CT428",
+    "CT432",
+    "CT433",
+    "CT434",
     "CT502",
     "CT503",
     "CT504",
@@ -207,8 +217,8 @@
     "incubacion",
     "aceleracion mentoria",
     "incubacion aceleracion",
-    "uno",
     "startup",
+    "uno",
     "base tecnologica"
    ],
    "topics": {
@@ -236,15 +246,15 @@
    "top_terms": [
     "laboratorios",
     "equipos",
-    "social",
+    "reserva",
     "infraestructura",
-    "instalaciones",
     "acceso",
-    "civil",
-    "sociedad civil"
+    "social",
+    "formacion",
+    "infraestructura laboratorios"
    ],
    "topics": {
-    "F07": 3,
+    "F07": 4,
     "F01": 2
    },
    "members": [
@@ -252,6 +262,7 @@
     "CT106",
     "CT210",
     "CT327",
+    "CT424",
     "CT506"
    ]
   },
@@ -259,19 +270,20 @@
    "id": "C05",
    "name": "Observatorios, indicadores y ciencia abierta",
    "top_terms": [
-    "datos",
-    "repositorios",
     "indicadores",
+    "datos",
     "observatorio",
-    "ciencia abierta",
+    "repositorios",
     "ciencia",
-    "abierta",
-    "sistemas"
+    "ciencia abierta",
+    "indicadores ctei",
+    "investigacion"
    ],
    "topics": {
-    "F08": 9,
+    "F08": 12,
     "F14": 3,
-    "F13": 2
+    "F13": 2,
+    "F09": 1
    },
    "members": [
     "CT107",
@@ -286,6 +298,10 @@
     "CT306",
     "CT307",
     "CT322",
+    "CT416",
+    "CT421",
+    "CT429",
+    "CT435",
     "CT510",
     "CT513"
    ]
@@ -295,20 +311,20 @@
    "name": "Registro de actores, perfiles de investigadores y sistemas CRIS",
    "top_terms": [
     "investigador",
-    "directorio",
     "perfil",
+    "directorio",
     "investigacion",
+    "cv",
     "datos",
     "actores",
-    "directorio actores",
-    "cv"
+    "directorio actores"
    ],
    "topics": {
-    "F13": 13,
+    "F13": 15,
     "F01": 9,
-    "F02": 4,
+    "F02": 5,
+    "F12": 4,
     "F06": 2,
-    "F12": 2,
     "F03": 1,
     "F08": 1,
     "F09": 1
@@ -339,6 +355,11 @@
     "CT406",
     "CT413",
     "CT414",
+    "CT420",
+    "CT425",
+    "CT426",
+    "CT430",
+    "CT431",
     "CT500",
     "CT501",
     "CT507",
@@ -468,18 +489,18 @@
  "matrix": {
   "scope": null,
   "topic": null,
-  "entries": 102,
+  "entries": 121,
   "by_scope": {
    "bogota": 9,
-   "nacional": 18,
-   "latam": 25,
-   "internacional": 50
+   "nacional": 19,
+   "latam": 33,
+   "internacional": 60
   },
   "actores": [
    {
     "label": "universidad",
     "name": "Universidad o institución de educación superior",
-    "count": 65,
+    "count": 72,
     "entries": [
      "CT100",
      "CT103",
@@ -538,6 +559,13 @@
      "CT404",
      "CT408",
      "CT413",
+     "CT415",
+     "CT416",
+     "CT418",
+     "CT421",
+     "CT422",
+     "CT424",
+     "CT429",
      "CT500",
      "CT502",
      "CT503",
@@ -549,15 +577,15 @@
     ],
     "by_scope": {
      "bogota": 5,
-     "nacional": 11,
-     "latam": 17,
-     "internacional": 32
+     "nacional": 12,
+     "latam": 22,
+     "internacional": 33
     }
    },
    {
     "label": "empresa",
     "name": "Empresa establecida",
-    "count": 57,
+    "count": 67,
     "entries": [
      "CT100",
      "CT101",
@@ -605,9 +633,19 @@
      "CT404",
      "CT407",
      "CT408",
-     "CT410",
      "CT411",
      "CT412",
+     "CT415",
+     "CT416",
+     "CT417",
+     "CT419",
+     "CT422",
+     "CT427",
+     "CT428",
+     "CT432",
+     "CT433",
+     "CT434",
+     "CT435",
      "CT502",
      "CT503",
      "CT506",
@@ -619,15 +657,15 @@
     ],
     "by_scope": {
      "bogota": 5,
-     "nacional": 10,
-     "latam": 14,
-     "internacional": 28
+     "nacional": 11,
+     "latam": 18,
+     "internacional": 33
     }
    },
    {
     "label": "investigador",
     "name": "Investigador o investigadora",
-    "count": 51,
+    "count": 63,
     "entries": [
      "CT108",
      "CT109",
@@ -675,6 +713,18 @@
      "CT408",
      "CT413",
      "CT414",
+     "CT418",
+     "CT420",
+     "CT421",
+     "CT425",
+     "CT426",
+     "CT427",
+     "CT428",
+     "CT430",
+     "CT431",
+     "CT432",
+     "CT433",
+     "CT434",
      "CT501",
      "CT502",
      "CT507",
@@ -684,14 +734,14 @@
     "by_scope": {
      "bogota": 0,
      "nacional": 7,
-     "latam": 17,
-     "internacional": 27
+     "latam": 20,
+     "internacional": 36
     }
    },
    {
     "label": "centro-investigacion",
     "name": "Centro de investigación",
-    "count": 47,
+    "count": 50,
     "entries": [
      "CT108",
      "CT109",
@@ -733,7 +783,10 @@
      "CT401",
      "CT402",
      "CT404",
-     "CT410",
+     "CT415",
+     "CT427",
+     "CT433",
+     "CT435",
      "CT500",
      "CT504",
      "CT509",
@@ -744,14 +797,14 @@
     "by_scope": {
      "bogota": 1,
      "nacional": 8,
-     "latam": 14,
-     "internacional": 24
+     "latam": 15,
+     "internacional": 26
     }
    },
    {
     "label": "gobierno-nacional",
     "name": "Gobierno nacional o ministerio",
-    "count": 34,
+    "count": 35,
     "entries": [
      "CT100",
      "CT103",
@@ -780,6 +833,7 @@
      "CT303",
      "CT304",
      "CT408",
+     "CT415",
      "CT501",
      "CT507",
      "CT510",
@@ -791,14 +845,14 @@
     "by_scope": {
      "bogota": 2,
      "nacional": 9,
-     "latam": 17,
+     "latam": 18,
      "internacional": 6
     }
    },
    {
     "label": "agencia-financiadora",
     "name": "Agencia o fondo público de financiación",
-    "count": 26,
+    "count": 29,
     "entries": [
      "CT104",
      "CT109",
@@ -824,6 +878,9 @@
      "CT323",
      "CT324",
      "CT413",
+     "CT425",
+     "CT426",
+     "CT429",
      "CT504",
      "CT508"
     ],
@@ -831,13 +888,13 @@
      "bogota": 1,
      "nacional": 2,
      "latam": 10,
-     "internacional": 13
+     "internacional": 16
     }
    },
    {
     "label": "startup",
     "name": "Startup o empresa de base tecnológica",
-    "count": 22,
+    "count": 23,
     "entries": [
      "CT101",
      "CT102",
@@ -860,12 +917,13 @@
      "CT314",
      "CT315",
      "CT325",
-     "CT408"
+     "CT408",
+     "CT419"
     ],
     "by_scope": {
      "bogota": 3,
      "nacional": 4,
-     "latam": 7,
+     "latam": 8,
      "internacional": 8
     }
    },
@@ -904,7 +962,7 @@
    {
     "label": "emprendedor",
     "name": "Emprendedor o emprendedora",
-    "count": 17,
+    "count": 18,
     "entries": [
      "CT100",
      "CT103",
@@ -922,19 +980,20 @@
      "CT310",
      "CT315",
      "CT325",
+     "CT419",
      "CT509"
     ],
     "by_scope": {
      "bogota": 2,
      "nacional": 3,
-     "latam": 9,
+     "latam": 10,
      "internacional": 3
     }
    },
    {
     "label": "gobierno-local",
     "name": "Gobierno local o regional",
-    "count": 16,
+    "count": 17,
     "entries": [
      "CT100",
      "CT101",
@@ -949,6 +1008,7 @@
      "CT204",
      "CT215",
      "CT412",
+     "CT416",
      "CT500",
      "CT505",
      "CT506"
@@ -956,14 +1016,14 @@
     "by_scope": {
      "bogota": 7,
      "nacional": 5,
-     "latam": 3,
+     "latam": 4,
      "internacional": 1
     }
    },
    {
     "label": "evaluador-jurado",
     "name": "Evaluador, par o jurado",
-    "count": 12,
+    "count": 15,
     "entries": [
      "CT101",
      "CT104",
@@ -976,13 +1036,91 @@
      "CT325",
      "CT405",
      "CT406",
-     "CT409"
+     "CT409",
+     "CT417",
+     "CT420",
+     "CT426"
     ],
     "by_scope": {
      "bogota": 2,
      "nacional": 2,
+     "latam": 3,
+     "internacional": 8
+    }
+   },
+   {
+    "label": "oficina-transferencia",
+    "name": "Oficina de transferencia de resultados",
+    "count": 13,
+    "entries": [
+     "CT105",
+     "CT110",
+     "CT118",
+     "CT119",
+     "CT312",
+     "CT313",
+     "CT317",
+     "CT415",
+     "CT418",
+     "CT421",
+     "CT503",
+     "CT509",
+     "CT512"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 4,
+     "latam": 4,
+     "internacional": 4
+    }
+   },
+   {
+    "label": "mentor-experto",
+    "name": "Mentor o experto",
+    "count": 12,
+    "entries": [
+     "CT102",
+     "CT114",
+     "CT115",
+     "CT208",
+     "CT305",
+     "CT308",
+     "CT325",
+     "CT403",
+     "CT432",
+     "CT434",
+     "CT502",
+     "CT515"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 3,
      "latam": 1,
      "internacional": 7
+    }
+   },
+   {
+    "label": "grupo-investigacion",
+    "name": "Grupo de investigación",
+    "count": 11,
+    "entries": [
+     "CT105",
+     "CT108",
+     "CT110",
+     "CT118",
+     "CT200",
+     "CT216",
+     "CT219",
+     "CT318",
+     "CT425",
+     "CT430",
+     "CT508"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 3,
+     "latam": 4,
+     "internacional": 3
     }
    },
    {
@@ -1032,71 +1170,24 @@
     }
    },
    {
-    "label": "mentor-experto",
-    "name": "Mentor o experto",
-    "count": 10,
+    "label": "gestor-programa",
+    "name": "Gestor del programa u operador público",
+    "count": 8,
     "entries": [
-     "CT102",
-     "CT114",
-     "CT115",
-     "CT208",
-     "CT305",
-     "CT308",
-     "CT325",
-     "CT403",
-     "CT502",
-     "CT515"
+     "CT106",
+     "CT405",
+     "CT406",
+     "CT409",
+     "CT417",
+     "CT420",
+     "CT429",
+     "CT435"
     ],
     "by_scope": {
      "bogota": 1,
-     "nacional": 3,
-     "latam": 1,
+     "nacional": 0,
+     "latam": 2,
      "internacional": 5
-    }
-   },
-   {
-    "label": "oficina-transferencia",
-    "name": "Oficina de transferencia de resultados",
-    "count": 10,
-    "entries": [
-     "CT105",
-     "CT110",
-     "CT118",
-     "CT119",
-     "CT312",
-     "CT313",
-     "CT317",
-     "CT503",
-     "CT509",
-     "CT512"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 4,
-     "latam": 1,
-     "internacional": 4
-    }
-   },
-   {
-    "label": "grupo-investigacion",
-    "name": "Grupo de investigación",
-    "count": 9,
-    "entries": [
-     "CT105",
-     "CT108",
-     "CT110",
-     "CT118",
-     "CT200",
-     "CT216",
-     "CT219",
-     "CT318",
-     "CT508"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 3,
-     "latam": 4,
-     "internacional": 1
     }
    },
    {
@@ -1153,23 +1244,6 @@
      "nacional": 2,
      "latam": 1,
      "internacional": 1
-    }
-   },
-   {
-    "label": "gestor-programa",
-    "name": "Gestor del programa u operador público",
-    "count": 4,
-    "entries": [
-     "CT106",
-     "CT405",
-     "CT406",
-     "CT409"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 0,
-     "latam": 0,
-     "internacional": 3
     }
    },
    {
@@ -1244,7 +1318,7 @@
    {
     "label": "observatorio-indicadores",
     "name": "Observatorio e indicadores",
-    "count": 25,
+    "count": 29,
     "entries": [
      "CT105",
      "CT107",
@@ -1270,19 +1344,23 @@
      "CT318",
      "CT323",
      "CT325",
+     "CT416",
+     "CT421",
+     "CT429",
+     "CT435",
      "CT508"
     ],
     "by_scope": {
      "bogota": 2,
      "nacional": 4,
-     "latam": 10,
-     "internacional": 9
+     "latam": 12,
+     "internacional": 11
     }
    },
    {
     "label": "convocatorias",
     "name": "Publicación y gestión de convocatorias",
-    "count": 24,
+    "count": 25,
     "entries": [
      "CT104",
      "CT109",
@@ -1307,13 +1385,52 @@
      "CT406",
      "CT409",
      "CT413",
-     "CT414"
+     "CT414",
+     "CT425"
     ],
     "by_scope": {
      "bogota": 1,
      "nacional": 4,
      "latam": 7,
-     "internacional": 12
+     "internacional": 13
+    }
+   },
+   {
+    "label": "perfil-investigador",
+    "name": "Perfil o CV del investigador",
+    "count": 25,
+    "entries": [
+     "CT108",
+     "CT200",
+     "CT205",
+     "CT206",
+     "CT209",
+     "CT211",
+     "CT213",
+     "CT311",
+     "CT316",
+     "CT317",
+     "CT318",
+     "CT319",
+     "CT320",
+     "CT323",
+     "CT324",
+     "CT413",
+     "CT414",
+     "CT425",
+     "CT426",
+     "CT430",
+     "CT431",
+     "CT501",
+     "CT507",
+     "CT508",
+     "CT514"
+    ],
+    "by_scope": {
+     "bogota": 0,
+     "nacional": 2,
+     "latam": 8,
+     "internacional": 15
     }
    },
    {
@@ -1356,7 +1473,7 @@
    {
     "label": "emparejamiento-oferta-demanda",
     "name": "Emparejamiento de oferta y demanda",
-    "count": 22,
+    "count": 24,
     "entries": [
      "CT114",
      "CT118",
@@ -1376,6 +1493,8 @@
      "CT404",
      "CT412",
      "CT413",
+     "CT428",
+     "CT433",
      "CT504",
      "CT512",
      "CT517",
@@ -1385,41 +1504,68 @@
      "bogota": 0,
      "nacional": 3,
      "latam": 3,
-     "internacional": 16
+     "internacional": 18
     }
    },
    {
-    "label": "perfil-investigador",
-    "name": "Perfil o CV del investigador",
-    "count": 21,
+    "label": "red-expertos",
+    "name": "Red de expertos",
+    "count": 19,
     "entries": [
      "CT108",
-     "CT200",
-     "CT205",
+     "CT114",
      "CT206",
-     "CT209",
      "CT211",
-     "CT213",
-     "CT311",
-     "CT316",
-     "CT317",
-     "CT318",
+     "CT301",
+     "CT305",
+     "CT308",
+     "CT312",
      "CT319",
-     "CT320",
-     "CT323",
-     "CT324",
-     "CT413",
-     "CT414",
-     "CT501",
-     "CT507",
-     "CT508",
-     "CT514"
+     "CT325",
+     "CT403",
+     "CT405",
+     "CT406",
+     "CT425",
+     "CT426",
+     "CT430",
+     "CT434",
+     "CT502",
+     "CT515"
+    ],
+    "by_scope": {
+     "bogota": 0,
+     "nacional": 3,
+     "latam": 2,
+     "internacional": 14
+    }
+   },
+   {
+    "label": "catalogo-servicios",
+    "name": "Catálogo de servicios u oferta",
+    "count": 16,
+    "entries": [
+     "CT114",
+     "CT118",
+     "CT215",
+     "CT216",
+     "CT302",
+     "CT303",
+     "CT313",
+     "CT314",
+     "CT326",
+     "CT327",
+     "CT400",
+     "CT402",
+     "CT403",
+     "CT427",
+     "CT509",
+     "CT511"
     ],
     "by_scope": {
      "bogota": 0,
      "nacional": 2,
-     "latam": 8,
-     "internacional": 11
+     "latam": 4,
+     "internacional": 10
     }
    },
    {
@@ -1452,59 +1598,59 @@
     }
    },
    {
-    "label": "catalogo-servicios",
-    "name": "Catálogo de servicios u oferta",
+    "label": "eventos-networking",
+    "name": "Eventos y relacionamiento",
     "count": 15,
     "entries": [
-     "CT114",
+     "CT100",
+     "CT102",
+     "CT103",
+     "CT106",
+     "CT116",
      "CT118",
-     "CT215",
-     "CT216",
-     "CT302",
-     "CT303",
-     "CT313",
+     "CT204",
+     "CT208",
+     "CT219",
+     "CT305",
+     "CT308",
      "CT314",
-     "CT326",
-     "CT327",
-     "CT400",
      "CT402",
-     "CT403",
-     "CT509",
-     "CT511"
+     "CT408",
+     "CT420"
     ],
     "by_scope": {
-     "bogota": 0,
+     "bogota": 4,
      "nacional": 2,
      "latam": 4,
-     "internacional": 9
+     "internacional": 5
     }
    },
    {
-    "label": "red-expertos",
-    "name": "Red de expertos",
+    "label": "gestion-pi-patentes",
+    "name": "Gestión de propiedad intelectual y patentes",
     "count": 15,
     "entries": [
-     "CT108",
-     "CT114",
-     "CT206",
-     "CT211",
-     "CT301",
-     "CT305",
-     "CT308",
+     "CT101",
+     "CT109",
+     "CT119",
+     "CT202",
+     "CT212",
      "CT312",
-     "CT319",
-     "CT325",
-     "CT403",
-     "CT405",
-     "CT406",
-     "CT502",
-     "CT515"
+     "CT313",
+     "CT317",
+     "CT402",
+     "CT407",
+     "CT411",
+     "CT415",
+     "CT418",
+     "CT509",
+     "CT518"
     ],
     "by_scope": {
-     "bogota": 0,
-     "nacional": 3,
-     "latam": 2,
-     "internacional": 10
+     "bogota": 1,
+     "nacional": 2,
+     "latam": 5,
+     "internacional": 7
     }
    },
    {
@@ -1535,62 +1681,9 @@
     }
    },
    {
-    "label": "eventos-networking",
-    "name": "Eventos y relacionamiento",
-    "count": 14,
-    "entries": [
-     "CT100",
-     "CT102",
-     "CT103",
-     "CT106",
-     "CT116",
-     "CT118",
-     "CT204",
-     "CT208",
-     "CT219",
-     "CT305",
-     "CT308",
-     "CT314",
-     "CT402",
-     "CT408"
-    ],
-    "by_scope": {
-     "bogota": 4,
-     "nacional": 2,
-     "latam": 3,
-     "internacional": 5
-    }
-   },
-   {
-    "label": "gestion-pi-patentes",
-    "name": "Gestión de propiedad intelectual y patentes",
-    "count": 13,
-    "entries": [
-     "CT101",
-     "CT109",
-     "CT119",
-     "CT202",
-     "CT212",
-     "CT312",
-     "CT313",
-     "CT317",
-     "CT402",
-     "CT407",
-     "CT411",
-     "CT509",
-     "CT518"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 2,
-     "latam": 3,
-     "internacional": 7
-    }
-   },
-   {
     "label": "licenciamiento",
     "name": "Licenciamiento de tecnología",
-    "count": 10,
+    "count": 11,
     "entries": [
      "CT100",
      "CT118",
@@ -1600,64 +1693,21 @@
      "CT313",
      "CT401",
      "CT407",
+     "CT418",
      "CT503",
      "CT509"
     ],
     "by_scope": {
      "bogota": 1,
      "nacional": 2,
-     "latam": 2,
-     "internacional": 5
-    }
-   },
-   {
-    "label": "formacion",
-    "name": "Formación y capacitación",
-    "count": 9,
-    "entries": [
-     "CT103",
-     "CT104",
-     "CT105",
-     "CT119",
-     "CT204",
-     "CT214",
-     "CT217",
-     "CT218",
-     "CT327"
-    ],
-    "by_scope": {
-     "bogota": 3,
-     "nacional": 1,
-     "latam": 4,
-     "internacional": 1
-    }
-   },
-   {
-    "label": "seguimiento-informes",
-    "name": "Seguimiento e informes de avance",
-    "count": 9,
-    "entries": [
-     "CT102",
-     "CT105",
-     "CT106",
-     "CT215",
-     "CT301",
-     "CT307",
-     "CT311",
-     "CT317",
-     "CT324"
-    ],
-    "by_scope": {
-     "bogota": 3,
-     "nacional": 0,
-     "latam": 1,
+     "latam": 3,
      "internacional": 5
     }
    },
    {
     "label": "vigilancia-tecnologica",
     "name": "Vigilancia tecnológica",
-    "count": 9,
+    "count": 11,
     "entries": [
      "CT101",
      "CT118",
@@ -1667,19 +1717,21 @@
      "CT313",
      "CT314",
      "CT408",
-     "CT411"
+     "CT411",
+     "CT419",
+     "CT421"
     ],
     "by_scope": {
      "bogota": 1,
      "nacional": 2,
-     "latam": 1,
+     "latam": 3,
      "internacional": 5
     }
    },
    {
     "label": "acceso-laboratorios",
     "name": "Acceso a laboratorios e infraestructura",
-    "count": 8,
+    "count": 10,
     "entries": [
      "CT101",
      "CT105",
@@ -1688,33 +1740,107 @@
      "CT312",
      "CT326",
      "CT327",
-     "CT400"
+     "CT400",
+     "CT424",
+     "CT427"
     ],
     "by_scope": {
      "bogota": 2,
      "nacional": 1,
-     "latam": 1,
-     "internacional": 4
+     "latam": 2,
+     "internacional": 5
     }
    },
    {
     "label": "diagnostico-capacidades",
     "name": "Diagnóstico de capacidades o madurez",
-    "count": 7,
+    "count": 10,
     "entries": [
      "CT101",
      "CT107",
      "CT113",
      "CT114",
      "CT304",
-     "CT410",
+     "CT416",
+     "CT417",
+     "CT422",
+     "CT435",
      "CT500"
     ],
     "by_scope": {
      "bogota": 3,
-     "nacional": 2,
-     "latam": 0,
+     "nacional": 3,
+     "latam": 2,
      "internacional": 2
+    }
+   },
+   {
+    "label": "formacion",
+    "name": "Formación y capacitación",
+    "count": 10,
+    "entries": [
+     "CT103",
+     "CT104",
+     "CT105",
+     "CT119",
+     "CT204",
+     "CT214",
+     "CT217",
+     "CT218",
+     "CT327",
+     "CT424"
+    ],
+    "by_scope": {
+     "bogota": 3,
+     "nacional": 1,
+     "latam": 5,
+     "internacional": 1
+    }
+   },
+   {
+    "label": "retos-innovacion-abierta",
+    "name": "Retos de innovación abierta",
+    "count": 10,
+    "entries": [
+     "CT100",
+     "CT116",
+     "CT212",
+     "CT314",
+     "CT315",
+     "CT409",
+     "CT419",
+     "CT432",
+     "CT433",
+     "CT434"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 1,
+     "latam": 2,
+     "internacional": 6
+    }
+   },
+   {
+    "label": "seguimiento-informes",
+    "name": "Seguimiento e informes de avance",
+    "count": 10,
+    "entries": [
+     "CT102",
+     "CT105",
+     "CT106",
+     "CT215",
+     "CT301",
+     "CT307",
+     "CT311",
+     "CT317",
+     "CT324",
+     "CT435"
+    ],
+    "by_scope": {
+     "bogota": 3,
+     "nacional": 0,
+     "latam": 1,
+     "internacional": 6
     }
    },
    {
@@ -1796,25 +1922,6 @@
     }
    },
    {
-    "label": "retos-innovacion-abierta",
-    "name": "Retos de innovación abierta",
-    "count": 6,
-    "entries": [
-     "CT100",
-     "CT116",
-     "CT212",
-     "CT314",
-     "CT315",
-     "CT409"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 1,
-     "latam": 1,
-     "internacional": 3
-    }
-   },
-   {
     "label": "gestion-proyectos",
     "name": "Gestión de proyectos",
     "count": 5,
@@ -1867,6 +1974,22 @@
     }
    },
    {
+    "label": "hoja-de-ruta",
+    "name": "Hoja de ruta o plan de intervención",
+    "count": 3,
+    "entries": [
+     "CT101",
+     "CT114",
+     "CT422"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 2,
+     "latam": 0,
+     "internacional": 0
+    }
+   },
+   {
     "label": "cofinanciacion",
     "name": "Cofinanciación",
     "count": 2,
@@ -1882,31 +2005,17 @@
     }
    },
    {
-    "label": "hoja-de-ruta",
-    "name": "Hoja de ruta o plan de intervención",
-    "count": 2,
-    "entries": [
-     "CT101",
-     "CT114"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 1,
-     "latam": 0,
-     "internacional": 0
-    }
-   },
-   {
     "label": "reserva-equipos",
     "name": "Reserva de equipos",
-    "count": 1,
+    "count": 2,
     "entries": [
-     "CT327"
+     "CT327",
+     "CT424"
     ],
     "by_scope": {
      "bogota": 0,
      "nacional": 0,
-     "latam": 0,
+     "latam": 1,
      "internacional": 1
     }
    }
@@ -1915,7 +2024,7 @@
    {
     "label": "colaboracion-investigacion",
     "name": "Colaboración en investigación",
-    "count": 28,
+    "count": 31,
     "entries": [
      "CT100",
      "CT105",
@@ -1938,6 +2047,9 @@
      "CT326",
      "CT404",
      "CT408",
+     "CT415",
+     "CT428",
+     "CT430",
      "CT502",
      "CT503",
      "CT504",
@@ -1949,14 +2061,14 @@
     "by_scope": {
      "bogota": 2,
      "nacional": 6,
-     "latam": 8,
-     "internacional": 12
+     "latam": 9,
+     "internacional": 14
     }
    },
    {
     "label": "postulacion",
     "name": "Postulación a una convocatoria",
-    "count": 28,
+    "count": 29,
     "entries": [
      "CT101",
      "CT102",
@@ -1985,12 +2097,13 @@
      "CT324",
      "CT409",
      "CT413",
-     "CT414"
+     "CT414",
+     "CT420"
     ],
     "by_scope": {
      "bogota": 3,
      "nacional": 6,
-     "latam": 11,
+     "latam": 12,
      "internacional": 8
     }
    },
@@ -2037,7 +2150,7 @@
    {
     "label": "emparejamiento",
     "name": "Emparejamiento entre quien ofrece y quien demanda",
-    "count": 23,
+    "count": 26,
     "entries": [
      "CT101",
      "CT114",
@@ -2059,6 +2172,9 @@
      "CT403",
      "CT404",
      "CT412",
+     "CT425",
+     "CT428",
+     "CT433",
      "CT512",
      "CT515",
      "CT518"
@@ -2067,13 +2183,13 @@
      "bogota": 1,
      "nacional": 2,
      "latam": 2,
-     "internacional": 18
+     "internacional": 21
     }
    },
    {
     "label": "consorcio-alianza",
     "name": "Consorcio o alianza",
-    "count": 16,
+    "count": 19,
     "entries": [
      "CT100",
      "CT103",
@@ -2088,6 +2204,9 @@
      "CT301",
      "CT302",
      "CT308",
+     "CT415",
+     "CT425",
+     "CT428",
      "CT506",
      "CT511",
      "CT516"
@@ -2095,43 +2214,14 @@
     "by_scope": {
      "bogota": 4,
      "nacional": 4,
-     "latam": 4,
-     "internacional": 4
-    }
-   },
-   {
-    "label": "transferencia-licencia",
-    "name": "Transferencia o licencia de tecnología",
-    "count": 16,
-    "entries": [
-     "CT100",
-     "CT118",
-     "CT216",
-     "CT302",
-     "CT303",
-     "CT312",
-     "CT313",
-     "CT314",
-     "CT401",
-     "CT402",
-     "CT407",
-     "CT411",
-     "CT503",
-     "CT509",
-     "CT517",
-     "CT518"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 2,
-     "latam": 2,
-     "internacional": 11
+     "latam": 5,
+     "internacional": 6
     }
    },
    {
     "label": "reporte-indicadores",
     "name": "Reporte de indicadores",
-    "count": 14,
+    "count": 17,
     "entries": [
      "CT102",
      "CT105",
@@ -2146,19 +2236,52 @@
      "CT307",
      "CT311",
      "CT317",
-     "CT324"
+     "CT324",
+     "CT416",
+     "CT429",
+     "CT435"
     ],
     "by_scope": {
      "bogota": 4,
      "nacional": 4,
-     "latam": 2,
-     "internacional": 4
+     "latam": 3,
+     "internacional": 6
+    }
+   },
+   {
+    "label": "transferencia-licencia",
+    "name": "Transferencia o licencia de tecnología",
+    "count": 17,
+    "entries": [
+     "CT100",
+     "CT118",
+     "CT216",
+     "CT302",
+     "CT303",
+     "CT312",
+     "CT313",
+     "CT314",
+     "CT401",
+     "CT402",
+     "CT407",
+     "CT411",
+     "CT418",
+     "CT503",
+     "CT509",
+     "CT517",
+     "CT518"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 2,
+     "latam": 3,
+     "internacional": 11
     }
    },
    {
     "label": "contratacion-servicios",
     "name": "Contratación de servicios entre actores",
-    "count": 10,
+    "count": 12,
     "entries": [
      "CT101",
      "CT102",
@@ -2169,19 +2292,21 @@
      "CT312",
      "CT326",
      "CT327",
-     "CT403"
+     "CT403",
+     "CT427",
+     "CT433"
     ],
     "by_scope": {
      "bogota": 2,
      "nacional": 1,
      "latam": 3,
-     "internacional": 4
+     "internacional": 6
     }
    },
    {
     "label": "evaluacion-pares",
     "name": "Evaluación por pares",
-    "count": 8,
+    "count": 11,
     "entries": [
      "CT108",
      "CT200",
@@ -2190,13 +2315,58 @@
      "CT311",
      "CT324",
      "CT405",
-     "CT406"
+     "CT406",
+     "CT417",
+     "CT420",
+     "CT426"
     ],
     "by_scope": {
      "bogota": 0,
      "nacional": 1,
+     "latam": 4,
+     "internacional": 6
+    }
+   },
+   {
+    "label": "reto-solucion",
+    "name": "Reto propuesto por un actor y resuelto por otro",
+    "count": 9,
+    "entries": [
+     "CT103",
+     "CT116",
+     "CT212",
+     "CT314",
+     "CT315",
+     "CT409",
+     "CT419",
+     "CT432",
+     "CT434"
+    ],
+    "by_scope": {
+     "bogota": 1,
+     "nacional": 1,
      "latam": 2,
      "internacional": 5
+    }
+   },
+   {
+    "label": "seleccion-jurados",
+    "name": "Selección por panel o jurados",
+    "count": 7,
+    "entries": [
+     "CT101",
+     "CT104",
+     "CT116",
+     "CT311",
+     "CT406",
+     "CT409",
+     "CT426"
+    ],
+    "by_scope": {
+     "bogota": 2,
+     "nacional": 1,
+     "latam": 0,
+     "internacional": 4
     }
    },
    {
@@ -2216,44 +2386,6 @@
      "nacional": 1,
      "latam": 4,
      "internacional": 0
-    }
-   },
-   {
-    "label": "reto-solucion",
-    "name": "Reto propuesto por un actor y resuelto por otro",
-    "count": 6,
-    "entries": [
-     "CT103",
-     "CT116",
-     "CT212",
-     "CT314",
-     "CT315",
-     "CT409"
-    ],
-    "by_scope": {
-     "bogota": 1,
-     "nacional": 1,
-     "latam": 1,
-     "internacional": 3
-    }
-   },
-   {
-    "label": "seleccion-jurados",
-    "name": "Selección por panel o jurados",
-    "count": 6,
-    "entries": [
-     "CT101",
-     "CT104",
-     "CT116",
-     "CT311",
-     "CT406",
-     "CT409"
-    ],
-    "by_scope": {
-     "bogota": 2,
-     "nacional": 1,
-     "latam": 0,
-     "internacional": 3
     }
    },
    {
@@ -2277,17 +2409,18 @@
    {
     "label": "seguimiento-hitos",
     "name": "Seguimiento por hitos",
-    "count": 3,
+    "count": 4,
     "entries": [
      "CT114",
      "CT215",
-     "CT301"
+     "CT301",
+     "CT435"
     ],
     "by_scope": {
      "bogota": 0,
      "nacional": 1,
      "latam": 1,
-     "internacional": 1
+     "internacional": 2
     }
    },
    {
@@ -2359,23 +2492,23 @@
    "top5": [
     {
      "id": "CT103",
-     "sim": 0.431
+     "sim": 0.428
     },
     {
      "id": "CT106",
-     "sim": 0.41
+     "sim": 0.409
     },
     {
      "id": "CT118",
-     "sim": 0.388
+     "sim": 0.387
+    },
+    {
+     "id": "CT415",
+     "sim": 0.379
     },
     {
      "id": "CT111",
-     "sim": 0.381
-    },
-    {
-     "id": "CT503",
-     "sim": 0.38
+     "sim": 0.379
     }
    ]
   },
@@ -2436,15 +2569,15 @@
    "top5": [
     {
      "id": "CT114",
-     "sim": 0.393
+     "sim": 0.387
     },
     {
      "id": "CT212",
-     "sim": 0.355
+     "sim": 0.354
     },
     {
      "id": "CT116",
-     "sim": 0.354
+     "sim": 0.353
     },
     {
      "id": "CT102",
@@ -2508,19 +2641,19 @@
    "top5": [
     {
      "id": "CT208",
-     "sim": 0.456
+     "sim": 0.453
     },
     {
      "id": "CT305",
-     "sim": 0.379
-    },
-    {
-     "id": "CT215",
-     "sim": 0.354
+     "sim": 0.378
     },
     {
      "id": "CT113",
-     "sim": 0.353
+     "sim": 0.351
+    },
+    {
+     "id": "CT215",
+     "sim": 0.351
     },
     {
      "id": "CT101",
@@ -2583,19 +2716,19 @@
     },
     {
      "id": "CT100",
-     "sim": 0.431
+     "sim": 0.428
     },
     {
      "id": "CT113",
-     "sim": 0.403
+     "sim": 0.404
     },
     {
      "id": "CT408",
-     "sim": 0.376
+     "sim": 0.378
     },
     {
      "id": "CT116",
-     "sim": 0.368
+     "sim": 0.364
     }
    ]
   },
@@ -2647,11 +2780,11 @@
    "top5": [
     {
      "id": "CT203",
-     "sim": 0.42
+     "sim": 0.418
     },
     {
      "id": "CT212",
-     "sim": 0.376
+     "sim": 0.377
     },
     {
      "id": "CT101",
@@ -2659,7 +2792,7 @@
     },
     {
      "id": "CT116",
-     "sim": 0.338
+     "sim": 0.337
     },
     {
      "id": "CT301",
@@ -2719,23 +2852,23 @@
    "top5": [
     {
      "id": "CT106",
-     "sim": 0.361
-    },
-    {
-     "id": "CT119",
-     "sim": 0.342
+     "sim": 0.358
     },
     {
      "id": "CT317",
-     "sim": 0.342
+     "sim": 0.339
+    },
+    {
+     "id": "CT119",
+     "sim": 0.338
     },
     {
      "id": "CT307",
-     "sim": 0.334
+     "sim": 0.33
     },
     {
      "id": "CT506",
-     "sim": 0.303
+     "sim": 0.3
     }
    ]
   },
@@ -2791,19 +2924,19 @@
     },
     {
      "id": "CT100",
-     "sim": 0.41
+     "sim": 0.409
     },
     {
      "id": "CT105",
-     "sim": 0.361
+     "sim": 0.358
     },
     {
      "id": "CT103",
-     "sim": 0.353
+     "sim": 0.352
     },
     {
      "id": "CT307",
-     "sim": 0.324
+     "sim": 0.322
     }
    ]
   },
@@ -2852,24 +2985,24 @@
    "relacionados": [],
    "top5": [
     {
+     "id": "CT416",
+     "sim": 0.512
+    },
+    {
      "id": "CT117",
-     "sim": 0.4
+     "sim": 0.399
     },
     {
      "id": "CT112",
-     "sim": 0.385
+     "sim": 0.381
     },
     {
      "id": "CT306",
-     "sim": 0.38
+     "sim": 0.378
     },
     {
-     "id": "CT304",
-     "sim": 0.35
-    },
-    {
-     "id": "CT101",
-     "sim": 0.334
+     "id": "CT435",
+     "sim": 0.368
     }
    ]
   },
@@ -2938,15 +3071,15 @@
    "top5": [
     {
      "id": "CT200",
-     "sim": 0.576
+     "sim": 0.569
     },
     {
      "id": "CT206",
-     "sim": 0.519
+     "sim": 0.514
     },
     {
      "id": "CT324",
-     "sim": 0.487
+     "sim": 0.482
     },
     {
      "id": "CT209",
@@ -2954,7 +3087,7 @@
     },
     {
      "id": "CT213",
-     "sim": 0.435
+     "sim": 0.433
     }
    ]
   },
@@ -3028,19 +3161,19 @@
     },
     {
      "id": "CT111",
-     "sim": 0.478
+     "sim": 0.479
     },
     {
      "id": "CT201",
-     "sim": 0.466
+     "sim": 0.464
     },
     {
      "id": "CT209",
-     "sim": 0.452
+     "sim": 0.453
     },
     {
      "id": "CT301",
-     "sim": 0.45
+     "sim": 0.449
     }
    ]
   },
@@ -3100,15 +3233,15 @@
    "top5": [
     {
      "id": "CT111",
-     "sim": 0.433
+     "sim": 0.432
     },
     {
      "id": "CT109",
-     "sim": 0.408
+     "sim": 0.409
     },
     {
      "id": "CT119",
-     "sim": 0.402
+     "sim": 0.398
     },
     {
      "id": "CT108",
@@ -3179,19 +3312,19 @@
     },
     {
      "id": "CT109",
-     "sim": 0.478
+     "sim": 0.479
     },
     {
      "id": "CT110",
-     "sim": 0.433
+     "sim": 0.432
     },
     {
      "id": "CT202",
      "sim": 0.432
     },
     {
-     "id": "CT119",
-     "sim": 0.39
+     "id": "CT205",
+     "sim": 0.389
     }
    ]
   },
@@ -3242,23 +3375,23 @@
    "top5": [
     {
      "id": "CT207",
-     "sim": 0.631
+     "sim": 0.627
     },
     {
      "id": "CT117",
-     "sim": 0.547
+     "sim": 0.543
     },
     {
      "id": "CT217",
-     "sim": 0.525
+     "sim": 0.522
     },
     {
      "id": "CT218",
-     "sim": 0.516
+     "sim": 0.51
     },
     {
-     "id": "CT306",
-     "sim": 0.483
+     "id": "CT214",
+     "sim": 0.48
     }
    ]
   },
@@ -3311,23 +3444,23 @@
    "top5": [
     {
      "id": "CT208",
-     "sim": 0.5
+     "sim": 0.499
     },
     {
      "id": "CT115",
-     "sim": 0.477
+     "sim": 0.476
     },
     {
      "id": "CT103",
-     "sim": 0.403
+     "sim": 0.404
     },
     {
      "id": "CT102",
-     "sim": 0.353
+     "sim": 0.351
     },
     {
      "id": "CT215",
-     "sim": 0.328
+     "sim": 0.329
     }
    ]
   },
@@ -3383,23 +3516,23 @@
    "top5": [
     {
      "id": "CT403",
-     "sim": 0.403
+     "sim": 0.398
     },
     {
      "id": "CT101",
-     "sim": 0.393
+     "sim": 0.387
+    },
+    {
+     "id": "CT422",
+     "sim": 0.385
     },
     {
      "id": "CT305",
-     "sim": 0.314
+     "sim": 0.313
     },
     {
      "id": "CT215",
-     "sim": 0.311
-    },
-    {
-     "id": "CT303",
-     "sim": 0.308
+     "sim": 0.31
     }
    ]
   },
@@ -3452,22 +3585,22 @@
    "top5": [
     {
      "id": "CT113",
-     "sim": 0.477
+     "sim": 0.476
     },
     {
      "id": "CT208",
-     "sim": 0.387
+     "sim": 0.385
     },
     {
      "id": "CT102",
-     "sim": 0.341
+     "sim": 0.339
     },
     {
      "id": "CT325",
-     "sim": 0.293
+     "sim": 0.292
     },
     {
-     "id": "CT101",
+     "id": "CT103",
      "sim": 0.292
     }
    ]
@@ -3543,23 +3676,23 @@
    "top5": [
     {
      "id": "CT204",
-     "sim": 0.419
+     "sim": 0.421
     },
     {
      "id": "CT315",
-     "sim": 0.388
+     "sim": 0.377
     },
     {
-     "id": "CT409",
+     "id": "CT208",
      "sim": 0.369
     },
     {
      "id": "CT103",
-     "sim": 0.368
+     "sim": 0.364
     },
     {
-     "id": "CT208",
-     "sim": 0.368
+     "id": "CT409",
+     "sim": 0.362
     }
    ]
   },
@@ -3618,23 +3751,23 @@
    "top5": [
     {
      "id": "CT112",
-     "sim": 0.547
+     "sim": 0.543
+    },
+    {
+     "id": "CT416",
+     "sim": 0.44
     },
     {
      "id": "CT201",
-     "sim": 0.401
-    },
-    {
-     "id": "CT107",
      "sim": 0.4
     },
     {
-     "id": "CT207",
-     "sim": 0.394
+     "id": "CT107",
+     "sim": 0.399
     },
     {
-     "id": "CT506",
-     "sim": 0.371
+     "id": "CT207",
+     "sim": 0.393
     }
    ]
   },
@@ -3689,23 +3822,23 @@
    "top5": [
     {
      "id": "CT313",
-     "sim": 0.565
+     "sim": 0.562
     },
     {
      "id": "CT503",
-     "sim": 0.488
+     "sim": 0.486
     },
     {
      "id": "CT402",
-     "sim": 0.487
+     "sim": 0.486
     },
     {
      "id": "CT512",
-     "sim": 0.47
+     "sim": 0.468
     },
     {
      "id": "CT401",
-     "sim": 0.454
+     "sim": 0.452
     }
    ]
   },
@@ -3762,24 +3895,24 @@
    "relacionados": [],
    "top5": [
     {
+     "id": "CT415",
+     "sim": 0.403
+    },
+    {
      "id": "CT110",
-     "sim": 0.402
+     "sim": 0.398
     },
     {
      "id": "CT111",
-     "sim": 0.39
+     "sim": 0.388
     },
     {
      "id": "CT100",
-     "sim": 0.353
-    },
-    {
-     "id": "CT105",
-     "sim": 0.342
+     "sim": 0.349
     },
     {
      "id": "CT109",
-     "sim": 0.341
+     "sim": 0.338
     }
    ]
   },
@@ -3852,19 +3985,19 @@
     },
     {
      "id": "CT206",
-     "sim": 0.578
+     "sim": 0.577
     },
     {
      "id": "CT108",
-     "sim": 0.576
+     "sim": 0.569
     },
     {
      "id": "CT323",
-     "sim": 0.534
+     "sim": 0.533
     },
     {
      "id": "CT205",
-     "sim": 0.528
+     "sim": 0.529
     }
    ]
   },
@@ -3918,23 +4051,23 @@
    "top5": [
     {
      "id": "CT300",
-     "sim": 0.522
+     "sim": 0.519
     },
     {
      "id": "CT109",
-     "sim": 0.466
+     "sim": 0.464
     },
     {
      "id": "CT206",
-     "sim": 0.434
+     "sim": 0.432
     },
     {
      "id": "CT205",
-     "sim": 0.424
+     "sim": 0.421
     },
     {
      "id": "CT207",
-     "sim": 0.42
+     "sim": 0.417
     }
    ]
   },
@@ -3991,24 +4124,24 @@
    "relacionados": [],
    "top5": [
     {
-     "id": "CT203",
-     "sim": 0.435
-    },
-    {
      "id": "CT111",
      "sim": 0.432
     },
     {
+     "id": "CT203",
+     "sim": 0.43
+    },
+    {
      "id": "CT212",
-     "sim": 0.405
+     "sim": 0.404
+    },
+    {
+     "id": "CT415",
+     "sim": 0.387
     },
     {
      "id": "CT309",
-     "sim": 0.379
-    },
-    {
-     "id": "CT517",
-     "sim": 0.371
+     "sim": 0.378
     }
    ]
   },
@@ -4065,23 +4198,23 @@
    "top5": [
     {
      "id": "CT212",
-     "sim": 0.63
+     "sim": 0.626
     },
     {
      "id": "CT215",
-     "sim": 0.491
+     "sim": 0.488
     },
     {
      "id": "CT310",
-     "sim": 0.442
+     "sim": 0.437
     },
     {
      "id": "CT202",
-     "sim": 0.435
+     "sim": 0.43
     },
     {
      "id": "CT104",
-     "sim": 0.42
+     "sim": 0.418
     }
    ]
   },
@@ -4145,19 +4278,19 @@
     },
     {
      "id": "CT116",
-     "sim": 0.419
+     "sim": 0.421
     },
     {
      "id": "CT208",
-     "sim": 0.402
+     "sim": 0.403
     },
     {
      "id": "CT408",
-     "sim": 0.379
+     "sim": 0.381
     },
     {
      "id": "CT219",
-     "sim": 0.374
+     "sim": 0.373
     }
    ]
   },
@@ -4220,15 +4353,15 @@
     },
     {
      "id": "CT213",
-     "sim": 0.555
+     "sim": 0.556
     },
     {
      "id": "CT200",
-     "sim": 0.528
+     "sim": 0.529
     },
     {
      "id": "CT211",
-     "sim": 0.522
+     "sim": 0.52
     }
    ]
   },
@@ -4295,19 +4428,19 @@
    "top5": [
     {
      "id": "CT200",
-     "sim": 0.578
+     "sim": 0.577
     },
     {
      "id": "CT316",
-     "sim": 0.534
-    },
-    {
-     "id": "CT108",
-     "sim": 0.519
+     "sim": 0.533
     },
     {
      "id": "CT209",
-     "sim": 0.517
+     "sim": 0.518
+    },
+    {
+     "id": "CT108",
+     "sim": 0.514
     },
     {
      "id": "CT207",
@@ -4373,7 +4506,7 @@
    "top5": [
     {
      "id": "CT112",
-     "sim": 0.631
+     "sim": 0.627
     },
     {
      "id": "CT217",
@@ -4381,15 +4514,15 @@
     },
     {
      "id": "CT214",
-     "sim": 0.559
+     "sim": 0.557
     },
     {
      "id": "CT300",
-     "sim": 0.55
+     "sim": 0.548
     },
     {
      "id": "CT306",
-     "sim": 0.548
+     "sim": 0.546
     }
    ]
   },
@@ -4445,11 +4578,11 @@
    "top5": [
     {
      "id": "CT113",
-     "sim": 0.5
+     "sim": 0.499
     },
     {
      "id": "CT102",
-     "sim": 0.456
+     "sim": 0.453
     },
     {
      "id": "CT215",
@@ -4457,11 +4590,11 @@
     },
     {
      "id": "CT219",
-     "sim": 0.436
+     "sim": 0.435
     },
     {
      "id": "CT305",
-     "sim": 0.422
+     "sim": 0.421
     }
    ]
   },
@@ -4525,11 +4658,11 @@
     },
     {
      "id": "CT323",
-     "sim": 0.551
+     "sim": 0.549
     },
     {
      "id": "CT206",
-     "sim": 0.517
+     "sim": 0.518
     }
    ]
   },
@@ -4580,7 +4713,7 @@
    "top5": [
     {
      "id": "CT214",
-     "sim": 0.49
+     "sim": 0.489
     },
     {
      "id": "CT207",
@@ -4588,11 +4721,11 @@
     },
     {
      "id": "CT326",
-     "sim": 0.405
+     "sim": 0.4
     },
     {
      "id": "CT510",
-     "sim": 0.394
+     "sim": 0.393
     },
     {
      "id": "CT217",
@@ -4658,23 +4791,23 @@
    "top5": [
     {
      "id": "CT205",
-     "sim": 0.522
+     "sim": 0.52
     },
     {
      "id": "CT209",
-     "sim": 0.501
+     "sim": 0.5
     },
     {
      "id": "CT206",
-     "sim": 0.478
+     "sim": 0.477
     },
     {
      "id": "CT200",
-     "sim": 0.428
+     "sim": 0.427
     },
     {
      "id": "CT213",
-     "sim": 0.422
+     "sim": 0.421
     }
    ]
   },
@@ -4751,7 +4884,7 @@
    "top5": [
     {
      "id": "CT203",
-     "sim": 0.63
+     "sim": 0.626
     },
     {
      "id": "CT215",
@@ -4759,7 +4892,7 @@
     },
     {
      "id": "CT202",
-     "sim": 0.405
+     "sim": 0.404
     },
     {
      "id": "CT208",
@@ -4767,7 +4900,7 @@
     },
     {
      "id": "CT104",
-     "sim": 0.376
+     "sim": 0.377
     }
    ]
   },
@@ -4824,23 +4957,23 @@
    "top5": [
     {
      "id": "CT205",
-     "sim": 0.555
+     "sim": 0.556
     },
     {
      "id": "CT209",
-     "sim": 0.481
+     "sim": 0.482
     },
     {
      "id": "CT200",
-     "sim": 0.459
+     "sim": 0.458
     },
     {
      "id": "CT206",
-     "sim": 0.457
+     "sim": 0.456
     },
     {
      "id": "CT309",
-     "sim": 0.453
+     "sim": 0.452
     }
    ]
   },
@@ -4900,23 +5033,23 @@
    "top5": [
     {
      "id": "CT217",
-     "sim": 0.573
+     "sim": 0.571
     },
     {
      "id": "CT207",
-     "sim": 0.559
+     "sim": 0.557
     },
     {
      "id": "CT510",
-     "sim": 0.494
+     "sim": 0.491
     },
     {
      "id": "CT210",
-     "sim": 0.49
+     "sim": 0.489
     },
     {
      "id": "CT112",
-     "sim": 0.482
+     "sim": 0.48
     }
    ]
   },
@@ -4974,7 +5107,7 @@
    "top5": [
     {
      "id": "CT203",
-     "sim": 0.491
+     "sim": 0.488
     },
     {
      "id": "CT212",
@@ -4986,11 +5119,11 @@
     },
     {
      "id": "CT202",
-     "sim": 0.367
+     "sim": 0.366
     },
     {
      "id": "CT102",
-     "sim": 0.354
+     "sim": 0.351
     }
    ]
   },
@@ -5053,11 +5186,11 @@
     },
     {
      "id": "CT304",
-     "sim": 0.459
+     "sim": 0.46
     },
     {
      "id": "CT118",
-     "sim": 0.427
+     "sim": 0.425
     },
     {
      "id": "CT213",
@@ -5130,11 +5263,11 @@
    "top5": [
     {
      "id": "CT218",
-     "sim": 0.64
+     "sim": 0.636
     },
     {
      "id": "CT214",
-     "sim": 0.573
+     "sim": 0.571
     },
     {
      "id": "CT207",
@@ -5142,11 +5275,11 @@
     },
     {
      "id": "CT112",
-     "sim": 0.525
+     "sim": 0.522
     },
     {
      "id": "CT510",
-     "sim": 0.438
+     "sim": 0.437
     }
    ]
   },
@@ -5197,23 +5330,23 @@
    "top5": [
     {
      "id": "CT217",
-     "sim": 0.64
+     "sim": 0.636
     },
     {
      "id": "CT207",
-     "sim": 0.519
+     "sim": 0.517
     },
     {
      "id": "CT112",
-     "sim": 0.516
+     "sim": 0.51
     },
     {
      "id": "CT214",
-     "sim": 0.446
+     "sim": 0.443
     },
     {
      "id": "CT507",
-     "sim": 0.404
+     "sim": 0.403
     }
    ]
   },
@@ -5267,7 +5400,7 @@
    "top5": [
     {
      "id": "CT208",
-     "sim": 0.436
+     "sim": 0.435
     },
     {
      "id": "CT111",
@@ -5275,11 +5408,11 @@
     },
     {
      "id": "CT100",
-     "sim": 0.376
+     "sim": 0.375
     },
     {
      "id": "CT204",
-     "sim": 0.374
+     "sim": 0.373
     },
     {
      "id": "CT213",
@@ -5337,19 +5470,19 @@
    "top5": [
     {
      "id": "CT306",
-     "sim": 0.643
+     "sim": 0.642
     },
     {
      "id": "CT323",
-     "sim": 0.572
+     "sim": 0.571
     },
     {
      "id": "CT207",
-     "sim": 0.55
+     "sim": 0.548
     },
     {
      "id": "CT201",
-     "sim": 0.522
+     "sim": 0.519
     },
     {
      "id": "CT318",
@@ -5413,19 +5546,19 @@
    "top5": [
     {
      "id": "CT311",
-     "sim": 0.609
+     "sim": 0.6
     },
     {
      "id": "CT324",
-     "sim": 0.552
+     "sim": 0.546
     },
     {
      "id": "CT109",
-     "sim": 0.45
+     "sim": 0.449
     },
     {
      "id": "CT206",
-     "sim": 0.408
+     "sim": 0.405
     },
     {
      "id": "CT308",
@@ -5484,7 +5617,7 @@
    "top5": [
     {
      "id": "CT402",
-     "sim": 0.519
+     "sim": 0.516
     },
     {
      "id": "CT303",
@@ -5492,11 +5625,11 @@
     },
     {
      "id": "CT404",
-     "sim": 0.499
+     "sim": 0.496
     },
     {
      "id": "CT401",
-     "sim": 0.49
+     "sim": 0.489
     },
     {
      "id": "CT314",
@@ -5554,7 +5687,7 @@
    "top5": [
     {
      "id": "CT313",
-     "sim": 0.525
+     "sim": 0.523
     },
     {
      "id": "CT216",
@@ -5570,7 +5703,7 @@
     },
     {
      "id": "CT304",
-     "sim": 0.499
+     "sim": 0.5
     }
    ]
   },
@@ -5624,15 +5757,15 @@
    "top5": [
     {
      "id": "CT303",
-     "sim": 0.499
+     "sim": 0.5
     },
     {
      "id": "CT216",
-     "sim": 0.459
+     "sim": 0.46
     },
     {
-     "id": "CT410",
-     "sim": 0.397
+     "id": "CT416",
+     "sim": 0.371
     },
     {
      "id": "CT306",
@@ -5696,7 +5829,7 @@
    "top5": [
     {
      "id": "CT308",
-     "sim": 0.558
+     "sim": 0.556
     },
     {
      "id": "CT325",
@@ -5704,15 +5837,15 @@
     },
     {
      "id": "CT208",
-     "sim": 0.422
+     "sim": 0.421
     },
     {
      "id": "CT102",
-     "sim": 0.379
+     "sim": 0.378
     },
     {
      "id": "CT303",
-     "sim": 0.369
+     "sim": 0.37
     }
    ]
   },
@@ -5763,19 +5896,19 @@
    "top5": [
     {
      "id": "CT300",
-     "sim": 0.643
+     "sim": 0.642
     },
     {
      "id": "CT323",
-     "sim": 0.569
+     "sim": 0.567
     },
     {
      "id": "CT207",
-     "sim": 0.548
+     "sim": 0.546
     },
     {
      "id": "CT112",
-     "sim": 0.483
+     "sim": 0.479
     },
     {
      "id": "CT320",
@@ -5829,23 +5962,23 @@
    "top5": [
     {
      "id": "CT317",
-     "sim": 0.514
+     "sim": 0.512
     },
     {
      "id": "CT316",
-     "sim": 0.476
+     "sim": 0.469
+    },
+    {
+     "id": "CT435",
+     "sim": 0.455
     },
     {
      "id": "CT300",
-     "sim": 0.445
+     "sim": 0.443
     },
     {
-     "id": "CT207",
-     "sim": 0.409
-    },
-    {
-     "id": "CT311",
-     "sim": 0.388
+     "id": "CT429",
+     "sim": 0.426
     }
    ]
   },
@@ -5901,23 +6034,23 @@
    "top5": [
     {
      "id": "CT305",
-     "sim": 0.558
+     "sim": 0.556
     },
     {
      "id": "CT309",
-     "sim": 0.461
+     "sim": 0.456
     },
     {
      "id": "CT302",
-     "sim": 0.432
-    },
-    {
-     "id": "CT303",
      "sim": 0.431
     },
     {
+     "id": "CT303",
+     "sim": 0.429
+    },
+    {
      "id": "CT314",
-     "sim": 0.414
+     "sim": 0.412
     }
    ]
   },
@@ -5974,20 +6107,20 @@
      "sim": 0.481
     },
     {
-     "id": "CT308",
-     "sim": 0.461
+     "id": "CT404",
+     "sim": 0.457
     },
     {
-     "id": "CT404",
-     "sim": 0.458
+     "id": "CT308",
+     "sim": 0.456
+    },
+    {
+     "id": "CT428",
+     "sim": 0.454
     },
     {
      "id": "CT213",
-     "sim": 0.453
-    },
-    {
-     "id": "CT512",
-     "sim": 0.451
+     "sim": 0.452
     }
    ]
   },
@@ -6042,23 +6175,23 @@
    "top5": [
     {
      "id": "CT203",
-     "sim": 0.442
+     "sim": 0.437
     },
     {
      "id": "CT208",
-     "sim": 0.392
+     "sim": 0.391
     },
     {
      "id": "CT212",
      "sim": 0.373
     },
     {
-     "id": "CT306",
+     "id": "CT301",
      "sim": 0.372
     },
     {
-     "id": "CT301",
-     "sim": 0.372
+     "id": "CT306",
+     "sim": 0.37
     }
    ]
   },
@@ -6113,23 +6246,23 @@
    "top5": [
     {
      "id": "CT324",
-     "sim": 0.681
+     "sim": 0.671
     },
     {
      "id": "CT301",
-     "sim": 0.609
+     "sim": 0.6
+    },
+    {
+     "id": "CT426",
+     "sim": 0.46
     },
     {
      "id": "CT206",
-     "sim": 0.416
+     "sim": 0.41
     },
     {
      "id": "CT413",
-     "sim": 0.412
-    },
-    {
-     "id": "CT414",
-     "sim": 0.396
+     "sim": 0.41
     }
    ]
   },
@@ -6193,23 +6326,23 @@
    "top5": [
     {
      "id": "CT313",
-     "sim": 0.463
+     "sim": 0.46
     },
     {
      "id": "CT326",
-     "sim": 0.448
+     "sim": 0.444
+    },
+    {
+     "id": "CT427",
+     "sim": 0.432
     },
     {
      "id": "CT314",
-     "sim": 0.415
+     "sim": 0.417
     },
     {
      "id": "CT407",
-     "sim": 0.396
-    },
-    {
-     "id": "CT303",
-     "sim": 0.391
+     "sim": 0.395
     }
    ]
   },
@@ -6268,15 +6401,15 @@
    "top5": [
     {
      "id": "CT118",
-     "sim": 0.565
-    },
-    {
-     "id": "CT402",
-     "sim": 0.525
+     "sim": 0.562
     },
     {
      "id": "CT303",
-     "sim": 0.525
+     "sim": 0.523
+    },
+    {
+     "id": "CT402",
+     "sim": 0.523
     },
     {
      "id": "CT314",
@@ -6284,7 +6417,7 @@
     },
     {
      "id": "CT401",
-     "sim": 0.497
+     "sim": 0.495
     }
    ]
   },
@@ -6348,7 +6481,7 @@
     },
     {
      "id": "CT402",
-     "sim": 0.491
+     "sim": 0.49
     },
     {
      "id": "CT302",
@@ -6356,7 +6489,7 @@
     },
     {
      "id": "CT315",
-     "sim": 0.471
+     "sim": 0.46
     }
    ]
   },
@@ -6402,24 +6535,24 @@
    "relacionados": [],
    "top5": [
     {
+     "id": "CT432",
+     "sim": 0.499
+    },
+    {
+     "id": "CT419",
+     "sim": 0.492
+    },
+    {
      "id": "CT314",
-     "sim": 0.471
+     "sim": 0.46
+    },
+    {
+     "id": "CT434",
+     "sim": 0.416
     },
     {
      "id": "CT116",
-     "sim": 0.388
-    },
-    {
-     "id": "CT303",
-     "sim": 0.297
-    },
-    {
-     "id": "CT409",
-     "sim": 0.296
-    },
-    {
-     "id": "CT305",
-     "sim": 0.287
+     "sim": 0.377
     }
    ]
   },
@@ -6472,23 +6605,23 @@
    "top5": [
     {
      "id": "CT319",
-     "sim": 0.623
+     "sim": 0.622
     },
     {
      "id": "CT323",
-     "sim": 0.623
+     "sim": 0.62
     },
     {
      "id": "CT318",
-     "sim": 0.593
+     "sim": 0.589
     },
     {
      "id": "CT317",
-     "sim": 0.543
+     "sim": 0.539
     },
     {
      "id": "CT320",
-     "sim": 0.535
+     "sim": 0.533
     }
    ]
   },
@@ -6542,23 +6675,23 @@
    "top5": [
     {
      "id": "CT316",
-     "sim": 0.543
+     "sim": 0.539
     },
     {
      "id": "CT307",
-     "sim": 0.514
-    },
-    {
-     "id": "CT323",
-     "sim": 0.476
+     "sim": 0.512
     },
     {
      "id": "CT319",
-     "sim": 0.474
+     "sim": 0.473
+    },
+    {
+     "id": "CT323",
+     "sim": 0.471
     },
     {
      "id": "CT318",
-     "sim": 0.465
+     "sim": 0.463
     }
    ]
   },
@@ -6621,19 +6754,19 @@
    "top5": [
     {
      "id": "CT316",
-     "sim": 0.593
+     "sim": 0.589
     },
     {
      "id": "CT319",
-     "sim": 0.577
+     "sim": 0.576
     },
     {
      "id": "CT323",
-     "sim": 0.526
+     "sim": 0.523
     },
     {
      "id": "CT322",
-     "sim": 0.517
+     "sim": 0.511
     },
     {
      "id": "CT300",
@@ -6687,23 +6820,23 @@
    "top5": [
     {
      "id": "CT316",
-     "sim": 0.623
+     "sim": 0.622
     },
     {
      "id": "CT318",
-     "sim": 0.577
+     "sim": 0.576
     },
     {
      "id": "CT320",
-     "sim": 0.501
+     "sim": 0.502
     },
     {
      "id": "CT323",
-     "sim": 0.494
+     "sim": 0.492
     },
     {
      "id": "CT317",
-     "sim": 0.474
+     "sim": 0.473
     }
    ]
   },
@@ -6758,11 +6891,11 @@
    "top5": [
     {
      "id": "CT323",
-     "sim": 0.572
+     "sim": 0.571
     },
     {
      "id": "CT321",
-     "sim": 0.568
+     "sim": 0.57
     },
     {
      "id": "CT209",
@@ -6770,11 +6903,11 @@
     },
     {
      "id": "CT316",
-     "sim": 0.535
+     "sim": 0.533
     },
     {
      "id": "CT322",
-     "sim": 0.507
+     "sim": 0.505
     }
    ]
   },
@@ -6826,15 +6959,15 @@
     },
     {
      "id": "CT322",
-     "sim": 0.603
+     "sim": 0.6
     },
     {
      "id": "CT320",
-     "sim": 0.568
+     "sim": 0.57
     },
     {
      "id": "CT316",
-     "sim": 0.53
+     "sim": 0.528
     },
     {
      "id": "CT209",
@@ -6891,23 +7024,23 @@
    "top5": [
     {
      "id": "CT513",
-     "sim": 0.615
+     "sim": 0.611
     },
     {
      "id": "CT321",
-     "sim": 0.603
+     "sim": 0.6
     },
     {
      "id": "CT318",
-     "sim": 0.517
+     "sim": 0.511
     },
     {
      "id": "CT320",
-     "sim": 0.507
+     "sim": 0.505
     },
     {
      "id": "CT323",
-     "sim": 0.464
+     "sim": 0.461
     }
    ]
   },
@@ -6960,7 +7093,7 @@
    "top5": [
     {
      "id": "CT316",
-     "sim": 0.623
+     "sim": 0.62
     },
     {
      "id": "CT321",
@@ -6968,15 +7101,15 @@
     },
     {
      "id": "CT320",
-     "sim": 0.572
+     "sim": 0.571
     },
     {
      "id": "CT300",
-     "sim": 0.572
+     "sim": 0.571
     },
     {
      "id": "CT306",
-     "sim": 0.569
+     "sim": 0.567
     }
    ]
   },
@@ -7032,23 +7165,23 @@
    "top5": [
     {
      "id": "CT311",
-     "sim": 0.681
+     "sim": 0.671
     },
     {
      "id": "CT301",
-     "sim": 0.552
+     "sim": 0.546
     },
     {
      "id": "CT206",
-     "sim": 0.5
+     "sim": 0.497
     },
     {
      "id": "CT200",
-     "sim": 0.493
+     "sim": 0.489
     },
     {
      "id": "CT108",
-     "sim": 0.487
+     "sim": 0.482
     }
    ]
   },
@@ -7111,7 +7244,7 @@
     },
     {
      "id": "CT204",
-     "sim": 0.368
+     "sim": 0.369
     },
     {
      "id": "CT216",
@@ -7119,11 +7252,11 @@
     },
     {
      "id": "CT304",
-     "sim": 0.352
+     "sim": 0.354
     },
     {
      "id": "CT208",
-     "sim": 0.349
+     "sim": 0.347
     }
    ]
   },
@@ -7174,23 +7307,23 @@
    "top5": [
     {
      "id": "CT327",
-     "sim": 0.588
+     "sim": 0.573
+    },
+    {
+     "id": "CT427",
+     "sim": 0.509
     },
     {
      "id": "CT312",
-     "sim": 0.448
+     "sim": 0.444
     },
     {
      "id": "CT400",
-     "sim": 0.416
+     "sim": 0.411
     },
     {
      "id": "CT210",
-     "sim": 0.405
-    },
-    {
-     "id": "CT303",
-     "sim": 0.352
+     "sim": 0.4
     }
    ]
   },
@@ -7240,23 +7373,23 @@
    "top5": [
     {
      "id": "CT326",
-     "sim": 0.588
+     "sim": 0.573
+    },
+    {
+     "id": "CT427",
+     "sim": 0.507
+    },
+    {
+     "id": "CT424",
+     "sim": 0.464
     },
     {
      "id": "CT400",
-     "sim": 0.407
+     "sim": 0.399
     },
     {
      "id": "CT307",
-     "sim": 0.36
-    },
-    {
-     "id": "CT210",
-     "sim": 0.353
-    },
-    {
-     "id": "CT312",
-     "sim": 0.344
+     "sim": 0.356
     }
    ]
   },
@@ -7306,23 +7439,23 @@
    "top5": [
     {
      "id": "CT404",
-     "sim": 0.61
+     "sim": 0.601
+    },
+    {
+     "id": "CT427",
+     "sim": 0.569
     },
     {
      "id": "CT402",
-     "sim": 0.549
+     "sim": 0.544
     },
     {
      "id": "CT401",
-     "sim": 0.517
+     "sim": 0.513
     },
     {
      "id": "CT412",
-     "sim": 0.499
-    },
-    {
-     "id": "CT403",
-     "sim": 0.448
+     "sim": 0.496
     }
    ]
   },
@@ -7372,23 +7505,23 @@
    "top5": [
     {
      "id": "CT402",
-     "sim": 0.627
+     "sim": 0.622
     },
     {
      "id": "CT404",
-     "sim": 0.596
+     "sim": 0.592
     },
     {
      "id": "CT412",
-     "sim": 0.566
+     "sim": 0.562
     },
     {
      "id": "CT518",
-     "sim": 0.523
+     "sim": 0.521
     },
     {
      "id": "CT400",
-     "sim": 0.517
+     "sim": 0.513
     }
    ]
   },
@@ -7440,23 +7573,23 @@
    "top5": [
     {
      "id": "CT401",
-     "sim": 0.627
+     "sim": 0.622
     },
     {
      "id": "CT518",
-     "sim": 0.551
+     "sim": 0.55
     },
     {
      "id": "CT400",
-     "sim": 0.549
+     "sim": 0.544
     },
     {
      "id": "CT404",
-     "sim": 0.539
+     "sim": 0.536
     },
     {
      "id": "CT313",
-     "sim": 0.525
+     "sim": 0.523
     }
    ]
   },
@@ -7508,23 +7641,23 @@
    "top5": [
     {
      "id": "CT515",
-     "sim": 0.511
+     "sim": 0.501
     },
     {
-     "id": "CT400",
-     "sim": 0.448
+     "id": "CT433",
+     "sim": 0.484
     },
     {
-     "id": "CT404",
-     "sim": 0.44
+     "id": "CT428",
+     "sim": 0.459
     },
     {
-     "id": "CT412",
-     "sim": 0.427
+     "id": "CT434",
+     "sim": 0.459
     },
     {
-     "id": "CT402",
-     "sim": 0.418
+     "id": "CT427",
+     "sim": 0.453
     }
    ]
   },
@@ -7572,23 +7705,23 @@
    "top5": [
     {
      "id": "CT400",
-     "sim": 0.61
+     "sim": 0.601
     },
     {
      "id": "CT401",
-     "sim": 0.596
+     "sim": 0.592
     },
     {
      "id": "CT402",
-     "sim": 0.539
+     "sim": 0.536
+    },
+    {
+     "id": "CT428",
+     "sim": 0.525
     },
     {
      "id": "CT412",
-     "sim": 0.522
-    },
-    {
-     "id": "CT512",
-     "sim": 0.501
+     "sim": 0.521
     }
    ]
   },
@@ -7636,23 +7769,23 @@
    "top5": [
     {
      "id": "CT406",
-     "sim": 0.634
+     "sim": 0.619
     },
     {
-     "id": "CT409",
-     "sim": 0.393
+     "id": "CT426",
+     "sim": 0.54
     },
     {
-     "id": "CT301",
-     "sim": 0.35
+     "id": "CT420",
+     "sim": 0.488
     },
     {
-     "id": "CT515",
-     "sim": 0.345
+     "id": "CT434",
+     "sim": 0.449
     },
     {
-     "id": "CT414",
-     "sim": 0.335
+     "id": "CT417",
+     "sim": 0.423
     }
    ]
   },
@@ -7700,23 +7833,23 @@
    "top5": [
     {
      "id": "CT405",
-     "sim": 0.634
+     "sim": 0.619
+    },
+    {
+     "id": "CT426",
+     "sim": 0.581
     },
     {
      "id": "CT409",
-     "sim": 0.524
+     "sim": 0.515
     },
     {
-     "id": "CT311",
-     "sim": 0.391
+     "id": "CT420",
+     "sim": 0.417
     },
     {
-     "id": "CT301",
-     "sim": 0.357
-    },
-    {
-     "id": "CT324",
-     "sim": 0.322
+     "id": "CT417",
+     "sim": 0.406
     }
    ]
   },
@@ -7762,23 +7895,23 @@
    "top5": [
     {
      "id": "CT411",
-     "sim": 0.623
+     "sim": 0.616
     },
     {
      "id": "CT401",
-     "sim": 0.485
+     "sim": 0.483
+    },
+    {
+     "id": "CT418",
+     "sim": 0.481
     },
     {
      "id": "CT518",
-     "sim": 0.468
+     "sim": 0.467
     },
     {
      "id": "CT313",
-     "sim": 0.464
-    },
-    {
-     "id": "CT402",
-     "sim": 0.461
+     "sim": 0.463
     }
    ]
   },
@@ -7830,23 +7963,23 @@
    "top5": [
     {
      "id": "CT204",
-     "sim": 0.379
+     "sim": 0.381
     },
     {
      "id": "CT103",
-     "sim": 0.376
+     "sim": 0.378
+    },
+    {
+     "id": "CT415",
+     "sim": 0.355
     },
     {
      "id": "CT314",
-     "sim": 0.349
+     "sim": 0.348
     },
     {
      "id": "CT100",
      "sim": 0.327
-    },
-    {
-     "id": "CT404",
-     "sim": 0.322
     }
    ]
   },
@@ -7896,84 +8029,23 @@
    "top5": [
     {
      "id": "CT406",
-     "sim": 0.524
+     "sim": 0.515
+    },
+    {
+     "id": "CT432",
+     "sim": 0.392
     },
     {
      "id": "CT405",
-     "sim": 0.393
+     "sim": 0.382
     },
     {
-     "id": "CT116",
-     "sim": 0.369
+     "id": "CT434",
+     "sim": 0.375
     },
     {
-     "id": "CT311",
-     "sim": 0.353
-    },
-    {
-     "id": "CT414",
-     "sim": 0.318
-    }
-   ]
-  },
-  {
-   "id": "CT410",
-   "file": "CT410.md",
-   "titulo": "Evaluation method of maturity of scientific and technological achievements transformation in power industry based on coupling weighting method",
-   "tipo": "patente",
-   "alcance": "internacional",
-   "pais": "China",
-   "operador": "CSG Electric Power Research Institute; China Southern Power Grid Co Ltd",
-   "anio": 2020,
-   "temas": [
-    "F04",
-    "F06"
-   ],
-   "actores": [
-    "empresa",
-    "centro-investigacion"
-   ],
-   "servicios": [
-    "diagnostico-capacidades"
-   ],
-   "interacciones": [],
-   "evidencia": [
-    "CN111325635A",
-    "https://patents.google.com/patent/CN111325635A/en"
-   ],
-   "consultado": "2026-11-01",
-   "secciones": {
-    "descripcion": "Solicitud que describe un método para evaluar la madurez de conversión de resultados de investigación en el sector eléctrico. Construye un sistema de indicadores, asigna pesos por un método de ponderación combinada y calcula la madurez.",
-    "actores": "Empresas del sector eléctrico y su instituto de investigación, que evalúan sus propios resultados antes de transferirlos.",
-    "servicios": "- Sistema de indicadores en tres dimensiones: elementos técnicos, de mercado y de apoyo a la conversión.\n- Ponderación de indicadores y cálculo de la madurez de conversión.",
-    "interacciones": "No descritas en el resumen; el método sirve como insumo para decidir qué resultados llevar a transferencia.",
-    "modelo_operacion": "Solicitud de una empresa de red eléctrica y su instituto de investigación. La página indica estado Pending. Según el resumen, los indicadores se basan en el informe anual chino de conversión de resultados y en normas de una asociación de servicios científicos y tecnológicos.",
-    "tecnologia": "Método de ponderación combinada de indicadores. No se publica software.",
-    "ideas": "- Complementar la madurez tecnológica de un resultado con su madurez de mercado y con las condiciones de apoyo disponibles.\n- Usar ese diagnóstico para priorizar qué resultados de universidades y centros se presentan a las empresas.",
-    "evidencia": "- Publicación CN111325635A, ficha en Google Patents: https://patents.google.com/patent/CN111325635A/en (consultado el 2026-11-01)."
-   },
-   "cluster": "C02",
-   "relacionados": [],
-   "top5": [
-    {
-     "id": "CT412",
-     "sim": 0.418
-    },
-    {
-     "id": "CT401",
-     "sim": 0.408
-    },
-    {
-     "id": "CT407",
-     "sim": 0.403
-    },
-    {
-     "id": "CT304",
-     "sim": 0.397
-    },
-    {
-     "id": "CT411",
-     "sim": 0.395
+     "id": "CT420",
+     "sim": 0.368
     }
    ]
   },
@@ -8020,11 +8092,11 @@
    "top5": [
     {
      "id": "CT407",
-     "sim": 0.623
+     "sim": 0.616
     },
     {
      "id": "CT402",
-     "sim": 0.446
+     "sim": 0.443
     },
     {
      "id": "CT518",
@@ -8036,7 +8108,7 @@
     },
     {
      "id": "CT401",
-     "sim": 0.415
+     "sim": 0.413
     }
    ]
   },
@@ -8083,7 +8155,7 @@
    "top5": [
     {
      "id": "CT401",
-     "sim": 0.566
+     "sim": 0.562
     },
     {
      "id": "CT518",
@@ -8091,15 +8163,15 @@
     },
     {
      "id": "CT404",
-     "sim": 0.522
+     "sim": 0.521
     },
     {
      "id": "CT402",
-     "sim": 0.513
+     "sim": 0.511
     },
     {
      "id": "CT400",
-     "sim": 0.499
+     "sim": 0.496
     }
    ]
   },
@@ -8150,23 +8222,23 @@
    "top5": [
     {
      "id": "CT414",
-     "sim": 0.618
+     "sim": 0.614
     },
     {
      "id": "CT324",
-     "sim": 0.478
+     "sim": 0.476
     },
     {
      "id": "CT320",
-     "sim": 0.448
+     "sim": 0.447
     },
     {
      "id": "CT209",
-     "sim": 0.444
+     "sim": 0.442
     },
     {
      "id": "CT205",
-     "sim": 0.438
+     "sim": 0.437
     }
    ]
   },
@@ -8212,23 +8284,1312 @@
    "top5": [
     {
      "id": "CT413",
-     "sim": 0.618
+     "sim": 0.614
+    },
+    {
+     "id": "CT425",
+     "sim": 0.469
+    },
+    {
+     "id": "CT431",
+     "sim": 0.427
     },
     {
      "id": "CT324",
-     "sim": 0.408
+     "sim": 0.406
     },
     {
      "id": "CT311",
-     "sim": 0.396
+     "sim": 0.395
+    }
+   ]
+  },
+  {
+   "id": "CT415",
+   "file": "CT415.md",
+   "titulo": "Processo para implementação de ecossistema de inovação entre IES",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Universidade Federal do Sul e Sudeste do Pará",
+   "anio": 2021,
+   "temas": [
+    "F06",
+    "F01"
+   ],
+   "actores": [
+    "universidad",
+    "centro-investigacion",
+    "gobierno-nacional",
+    "empresa",
+    "oficina-transferencia"
+   ],
+   "servicios": [
+    "gestion-pi-patentes"
+   ],
+   "interacciones": [
+    "consorcio-alianza",
+    "colaboracion-investigacion"
+   ],
+   "evidencia": [
+    "BR102021020242A2",
+    "https://patents.google.com/patent/BR102021020242A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, publicada el 2023-04-18, que describe un proceso de seis etapas para montar un ecosistema de innovación entre instituciones de educación superior. Según el resumen, el ecosistema se apoya en la interacción de gobierno, universidad, instituciones de investigación, mercado y creadores, y su resultado es una red que induce la innovación entre esas instituciones.",
+    "actores": "Instituciones de educación superior, instituciones científicas y tecnológicas, gobierno, empresas e inventores o creadores. La universidad es el eje que convoca a los demás.",
+    "servicios": "- Creación de una institución científica, tecnológica y de innovación (ICT) con su política de innovación reglamentada.\n- Conformación de un núcleo de innovación tecnológica, equivalente a una oficina de transferencia.\n- Registro y tabulación de contratos y convenios.\n- Acuerdos de asociación con entidades públicas y privadas para investigación y desarrollo conjuntos.",
+    "interacciones": "Acuerdos de asociación entre las ICT y entidades públicas o privadas para actividades conjuntas de investigación científica y tecnológica y para desarrollar productos, servicios o procesos.",
+    "modelo_operacion": "Titular: una universidad federal brasileña. La reivindicación describe un procedimiento organizativo y no un programa informático; la página no muestra el estado de la solicitud.",
+    "tecnologia": "No publicada. La clasificación asignada es G06Q50/00.",
+    "ideas": "- Registrar en el directorio de actores la política de innovación y la oficina de transferencia de cada institución, como prueba de madurez institucional.\n- Llevar un inventario público de convenios y contratos entre universidades, empresas y entidades públicas.\n- Ordenar el acompañamiento a una institución nueva en el ecosistema por etapas, de la política de innovación a los primeros acuerdos de asociación.",
+    "evidencia": "- Publicación BR102021020242A2, ficha en Google Patents: https://patents.google.com/patent/BR102021020242A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT418",
+     "sim": 0.451
     },
     {
-     "id": "CT205",
-     "sim": 0.352
+     "id": "CT119",
+     "sim": 0.403
+    },
+    {
+     "id": "CT509",
+     "sim": 0.398
+    },
+    {
+     "id": "CT202",
+     "sim": 0.387
+    },
+    {
+     "id": "CT100",
+     "sim": 0.379
+    }
+   ]
+  },
+  {
+   "id": "CT416",
+   "file": "CT416.md",
+   "titulo": "Método de modelamento de inovação tecnológica para planejamento e desenvolvimento regional",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Universidade Tecnológica Federal do Paraná",
+   "anio": 2016,
+   "temas": [
+    "F08",
+    "F04"
+   ],
+   "actores": [
+    "empresa",
+    "gobierno-local",
+    "universidad"
+   ],
+   "servicios": [
+    "observatorio-indicadores",
+    "diagnostico-capacidades"
+   ],
+   "interacciones": [
+    "reporte-indicadores"
+   ],
+   "evidencia": [
+    "BR102016016240A2",
+    "https://patents.google.com/patent/BR102016016240A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, publicada el 2018-02-06, sobre un método para modelar la innovación tecnológica de las empresas de un conglomerado industrial. El método mide cuánto contribuye cada empresa al desarrollo de su región y señala sus puntos débiles en actividades de innovación.",
+    "actores": "Empresas que forman parte de conglomerados industriales y quienes planifican el desarrollo regional.",
+    "servicios": "- Modelo de análisis con indicadores de innovación, cooperación, promoción de políticas, ubicación geográfica y condiciones socioeconómicas.\n- Evaluación del grado de contribución de cada empresa al desarrollo regional.\n- Identificación de debilidades de la empresa en actividades de innovación.",
+    "interacciones": "Las empresas aportan información para los indicadores y reciben un diagnóstico que sirve a la planificación de la región. La cooperación entre empresas es uno de los factores medidos.",
+    "modelo_operacion": "Titular: una universidad tecnológica federal brasileña. La página no muestra el estado de la solicitud.",
+    "tecnologia": "No publicada. Clasificación G06Q50/00, G06Q50/10 y G06Q50/26.",
+    "ideas": "- Construir un tablero territorial que agregue los diagnósticos de capacidades por localidad o sector de Bogotá.\n- Incluir la cooperación con otros actores como indicador propio en la caracterización de cada empresa.\n- Devolver a cada empresa su posición frente al promedio de su conglomerado, como incentivo para actualizar sus datos.",
+    "evidencia": "- Publicación BR102016016240A2, ficha en Google Patents: https://patents.google.com/patent/BR102016016240A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C05",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT107",
+     "sim": 0.512
+    },
+    {
+     "id": "CT435",
+     "sim": 0.475
+    },
+    {
+     "id": "CT422",
+     "sim": 0.47
+    },
+    {
+     "id": "CT117",
+     "sim": 0.44
+    },
+    {
+     "id": "CT417",
+     "sim": 0.42
+    }
+   ]
+  },
+  {
+   "id": "CT417",
+   "file": "CT417.md",
+   "titulo": "Sistema de avaliação do conteúdo de inovação",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "GT Consultoria e Inovação Pesquisa e Desenvolvimento de Sistemas Ltda",
+   "anio": 2021,
+   "temas": [
+    "F04",
+    "F12"
+   ],
+   "actores": [
+    "empresa",
+    "gestor-programa",
+    "evaluador-jurado"
+   ],
+   "servicios": [
+    "diagnostico-capacidades"
+   ],
+   "interacciones": [
+    "evaluacion-pares"
+   ],
+   "evidencia": [
+    "BR102021021205A2",
+    "https://patents.google.com/patent/BR102021021205A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, publicada el 2023-05-09, que describe un sistema para evaluar el contenido innovador de un proyecto. Tiene dos subsistemas: uno clasifica la novedad según su alcance geográfico y otro la califica con cuatro factores (grado de innovación, naturaleza de las actividades, compromiso y barreras tecnológicas).",
+    "actores": "Empresas que gestionan proyectos de innovación y quienes deben valorar su riesgo y su mérito.",
+    "servicios": "- Puntuación numérica continua de cero a diez para el alcance de la novedad (por ejemplo, empresa, país o mundo).\n- Categorización del proyecto según los cuatro factores de influencia.\n- Insumos cuantitativos sobre fragilidades y beneficios de cada proyecto.",
+    "interacciones": "Quien evalúa aplica la misma rúbrica a cada proyecto, lo que permite comparar propuestas con criterios explícitos.",
+    "modelo_operacion": "Titular: una consultora brasileña de innovación. La familia incluye una solicitud en Portugal (PT118270A). La página no muestra el estado de la solicitud brasileña.",
+    "tecnologia": "No publicada. Clasificación G06Q10/00.",
+    "ideas": "- Adoptar una rúbrica explícita de novedad y barreras tecnológicas en la evaluación de propuestas de las convocatorias.\n- Pedir al proponente una autoevaluación con la misma escala antes de la revisión por jurados.\n- Usar la calificación del alcance de la novedad para orientar qué propuestas necesitan vigilancia tecnológica.",
+    "evidencia": "- Publicación BR102021021205A2, ficha en Google Patents: https://patents.google.com/patent/BR102021021205A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C01",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT420",
+     "sim": 0.481
     },
     {
      "id": "CT405",
-     "sim": 0.335
+     "sim": 0.423
+    },
+    {
+     "id": "CT416",
+     "sim": 0.42
+    },
+    {
+     "id": "CT406",
+     "sim": 0.406
+    },
+    {
+     "id": "CT435",
+     "sim": 0.383
+    }
+   ]
+  },
+  {
+   "id": "CT418",
+   "file": "CT418.md",
+   "titulo": "Processo de valoração de tecnologias protegidas por patentes ou por registros de programas de computador",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Fundação Universidade Federal do Vale do São Francisco",
+   "anio": 2021,
+   "temas": [
+    "F06"
+   ],
+   "actores": [
+    "oficina-transferencia",
+    "investigador",
+    "universidad"
+   ],
+   "servicios": [
+    "gestion-pi-patentes",
+    "licenciamiento"
+   ],
+   "interacciones": [
+    "transferencia-licencia"
+   ],
+   "evidencia": [
+    "BR102021007443A2",
+    "https://patents.google.com/patent/BR102021007443A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, publicada el 2022-10-25, sobre un proceso informático para valorar tecnologías protegidas por patentes o por registros de programas de computador. Lo distintivo, según el resumen, son las orientaciones didácticas que guían al usuario mientras diligencia la información y la integración automática entre inventores y responsables de la valoración.",
+    "actores": "Inventores o autores de la tecnología y el responsable institucional de la valoración, por lo general en una oficina de transferencia.",
+    "servicios": "- Clasificación de la tecnología como patente o como programa de computador.\n- Invitación del sistema al inventor para que describa el desarrollo y las características de la tecnología.\n- Textos explicativos y ejemplos durante el diligenciamiento.\n- Notificaciones al administrador sobre el avance del proceso.",
+    "interacciones": "El administrador invita al inventor; el inventor aporta la información con ayuda de las orientaciones y el administrador completa la valoración. El proceso puede repetirse en ciclos hasta que la información esté completa.",
+    "modelo_operacion": "Titular: una universidad federal brasileña. La página no muestra el estado de la solicitud.",
+    "tecnologia": "No publicada. Clasificación G06F16/00, G06F16/30 y G06F16/35.",
+    "ideas": "- Ofrecer a las oficinas de transferencia un formulario guiado de valoración que el investigador diligencia con ayuda contextual.\n- Registrar la valoración como paso previo a publicar una tecnología en el catálogo de oferta.\n- Medir el tiempo entre la invitación al inventor y la valoración terminada como indicador de servicio.",
+    "evidencia": "- Publicación BR102021007443A2, ficha en Google Patents: https://patents.google.com/patent/BR102021007443A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT509",
+     "sim": 0.553
+    },
+    {
+     "id": "CT421",
+     "sim": 0.518
+    },
+    {
+     "id": "CT313",
+     "sim": 0.484
+    },
+    {
+     "id": "CT407",
+     "sim": 0.481
+    },
+    {
+     "id": "CT415",
+     "sim": 0.451
+    }
+   ]
+  },
+  {
+   "id": "CT419",
+   "file": "CT419.md",
+   "titulo": "Processo de identificação de problemas para fins de inovação",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Marcos Rogério Mazieri; Luc Marie Quoniam; Dênis Leonardo Zaniro",
+   "anio": 2024,
+   "temas": [
+    "F03",
+    "F04"
+   ],
+   "actores": [
+    "empresa",
+    "startup",
+    "emprendedor"
+   ],
+   "servicios": [
+    "retos-innovacion-abierta",
+    "vigilancia-tecnologica"
+   ],
+   "interacciones": [
+    "reto-solucion"
+   ],
+   "evidencia": [
+    "BR102024016444A2",
+    "https://patents.google.com/patent/BR102024016444A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, presentada el 2024-08-12 y publicada el 2026-02-24, que describe un proceso para identificar, analizar y priorizar problemas que vale la pena resolver con innovación. Integra los dominios de mercado, tecnología y requisitos de usuario de forma iterativa e incluye una fase de validación del problema con datos de mercado y opiniones de clientes.",
+    "actores": "Organizaciones que gestionan innovación y desarrollo de productos. El resumen no restringe el tipo de organización.",
+    "servicios": "- Análisis del contexto con herramientas como DOFA, PESTEL y escenarios.\n- Priorización de problemas por relevancia e impacto.\n- Validación del problema frente a datos de mercado y retroalimentación de clientes.",
+    "interacciones": "El proceso se apoya en la retroalimentación de clientes y usuarios para confirmar que un problema merece una iniciativa de innovación.",
+    "modelo_operacion": "Titulares: tres personas naturales. La página no muestra el estado de la solicitud.",
+    "tecnologia": "No publicada. Clasificación G06Q10/063.",
+    "ideas": "- Antes de publicar un reto o una necesidad en la plataforma, pedir al demandante que valide el problema con usuarios o datos de mercado.\n- Ofrecer a empresas y pymes una plantilla guiada para formular su necesidad de servicios CTeI.\n- Priorizar las demandas recibidas por impacto antes de buscar oferentes.",
+    "evidencia": "- Publicación BR102024016444A2, ficha en Google Patents: https://patents.google.com/patent/BR102024016444A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT315",
+     "sim": 0.492
+    },
+    {
+     "id": "CT432",
+     "sim": 0.45
+    },
+    {
+     "id": "CT434",
+     "sim": 0.368
+    },
+    {
+     "id": "CT314",
+     "sim": 0.365
+    },
+    {
+     "id": "CT212",
+     "sim": 0.336
+    }
+   ]
+  },
+  {
+   "id": "CT420",
+   "file": "CT420.md",
+   "titulo": "Sistema de gerenciamento de conferências científicas",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Fundação Educacional da Região de Joinville",
+   "anio": 2016,
+   "temas": [
+    "F12",
+    "F09"
+   ],
+   "actores": [
+    "investigador",
+    "evaluador-jurado",
+    "gestor-programa"
+   ],
+   "servicios": [
+    "eventos-networking"
+   ],
+   "interacciones": [
+    "postulacion",
+    "evaluacion-pares"
+   ],
+   "evidencia": [
+    "BR102016023022A2",
+    "https://patents.google.com/patent/BR102016023022A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, publicada el 2018-05-02, sobre un sistema para gestionar conferencias científicas. Distingue tres tipos de agentes (autores de artículos, evaluadores y administradores) que trabajan en tres plataformas conectadas: una general, una de evaluación y una de administración.",
+    "actores": "Autores que envían trabajos, evaluadores que los revisan y administradores del evento.",
+    "servicios": "- Plataforma general con módulos de usuario, de trabajos y tablero.\n- Plataforma de evaluación para los revisores.\n- Plataforma de administración que define los permisos de cada agente.",
+    "interacciones": "Los autores postulan trabajos, los evaluadores los revisan y los administradores controlan qué información ve cada uno. El sistema comparte la información de forma selectiva según esos permisos.",
+    "modelo_operacion": "Titular: una fundación educativa de Joinville (Santa Catarina). La página no muestra el estado de la solicitud.",
+    "tecnologia": "No publicada. Clasificación G06Q10/00 y G06F16/00.",
+    "ideas": "- Separar en la plataforma los espacios del proponente, del evaluador y del administrador de una convocatoria, con permisos definidos por este último.\n- Reutilizar el mismo flujo para eventos de divulgación de resultados entre actores del ecosistema.\n- Ofrecer a cada perfil un tablero con el estado de sus postulaciones o revisiones.",
+    "evidencia": "- Publicación BR102016023022A2, ficha en Google Patents: https://patents.google.com/patent/BR102016023022A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C06",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT405",
+     "sim": 0.488
+    },
+    {
+     "id": "CT417",
+     "sim": 0.481
+    },
+    {
+     "id": "CT406",
+     "sim": 0.417
+    },
+    {
+     "id": "CT311",
+     "sim": 0.383
+    },
+    {
+     "id": "CT426",
+     "sim": 0.369
+    }
+   ]
+  },
+  {
+   "id": "CT421",
+   "file": "CT421.md",
+   "titulo": "Método para identificar, extrair e contar non-patent citation (NPC) e método para extrair textos de documentos de patentes",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "Brasil",
+   "operador": "Instituto Federal de Educação, Ciência e Tecnologia do Piauí; Universidade Federal de Sergipe",
+   "anio": 2024,
+   "temas": [
+    "F08",
+    "F06"
+   ],
+   "actores": [
+    "oficina-transferencia",
+    "investigador",
+    "universidad"
+   ],
+   "servicios": [
+    "vigilancia-tecnologica",
+    "observatorio-indicadores"
+   ],
+   "interacciones": [],
+   "evidencia": [
+    "BR102024001111A2",
+    "https://patents.google.com/patent/BR102024001111A2/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud brasileña de patente de invención, presentada el 2024-01-19 y publicada el 2025-08-05, sobre un método informático para identificar, extraer y contar las citas no patentarias (artículos, libros y otras fuentes) que aparecen en documentos de patente. Los solicitantes afirman que no encontraron reglas eficientes para esa minería en el estado de la técnica.",
+    "actores": "Quienes analizan documentos de patente: oficinas de transferencia, grupos de vigilancia tecnológica e investigadores en estudios de ciencia y tecnología.",
+    "servicios": "- Extracción del texto de la memoria descriptiva de la patente.\n- Preprocesamiento del texto.\n- Identificación de citas no patentarias con expresiones regulares organizadas por capas.\n- Extracción, posprocesamiento y conteo de las citas.",
+    "interacciones": "No describe interacciones entre actores; es una herramienta de análisis de información.",
+    "modelo_operacion": "Solicitantes: un instituto federal de educación, ciencia y tecnología y una universidad federal brasileños. La página no muestra el estado de la solicitud.",
+    "tecnologia": "Expresiones regulares sobre el texto de la patente. Clasificación G06F16/00 y G06F16/90.",
+    "ideas": "- Medir cuántas patentes citan artículos de grupos de investigación de Bogotá, como indicador del vínculo entre ciencia y tecnología.\n- Enlazar perfiles de investigadores con las patentes que citan su producción.\n- Incluir este conteo en los informes de vigilancia tecnológica que se ofrezcan a empresas.",
+    "evidencia": "- Publicación BR102024001111A2, ficha en Google Patents: https://patents.google.com/patent/BR102024001111A2/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C05",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT418",
+     "sim": 0.518
+    },
+    {
+     "id": "CT416",
+     "sim": 0.413
+    },
+    {
+     "id": "CT317",
+     "sim": 0.401
+    },
+    {
+     "id": "CT415",
+     "sim": 0.372
+    },
+    {
+     "id": "CT411",
+     "sim": 0.37
+    }
+   ]
+  },
+  {
+   "id": "CT422",
+   "file": "CT422.md",
+   "titulo": "Proceso para el diagnóstico de la estructura de la explicitación del conocimiento en las empresas",
+   "tipo": "patente",
+   "alcance": "nacional",
+   "pais": "Colombia",
+   "operador": "Universidad Antonio Nariño",
+   "anio": 2017,
+   "temas": [
+    "F04"
+   ],
+   "actores": [
+    "empresa",
+    "universidad"
+   ],
+   "servicios": [
+    "diagnostico-capacidades",
+    "hoja-de-ruta"
+   ],
+   "interacciones": [],
+   "evidencia": [
+    "CO2017007980A1",
+    "https://patents.google.com/patent/CO2017007980A1/es"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud colombiana de patente, presentada el 2017-08-04 y publicada el 2018-02-09, sobre un método apoyado por computador que usa ciencia de redes para diagnosticar cómo una empresa hace explícito su conocimiento. Con ese diagnóstico propone actividades de mejora orientadas a la productividad.",
+    "actores": "Empresas que quieren conocer el estado de su gestión del conocimiento. La universidad solicitante aporta el método.",
+    "servicios": "- Captura de información de la empresa y construcción de una red.\n- Cálculo de indicadores sobre la estructura de esa red.\n- Verificación de que la información almacenada sea suficiente.\n- Segmentación, informe de diagnóstico y propuesta de actividades de mejora.",
+    "interacciones": "No describe interacciones entre varios actores; la empresa entrega información y recibe un diagnóstico con recomendaciones.",
+    "modelo_operacion": "Titular: una universidad privada colombiana. La página no muestra el estado de la solicitud.",
+    "tecnologia": "Análisis de redes sobre la información de la empresa. La página no detalla el software.",
+    "ideas": "- Incluir la gestión del conocimiento como dimensión del diagnóstico de capacidades que precede a la hoja de ruta.\n- Convertir el informe de diagnóstico en una lista de actividades de mejora que un integrador de servicios pueda ejecutar.\n- Registrar este tipo de métodos universitarios como servicios ofertables en el directorio.",
+    "evidencia": "- Publicación CO2017007980A1, ficha en Google Patents: https://patents.google.com/patent/CO2017007980A1/es (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT416",
+     "sim": 0.47
+    },
+    {
+     "id": "CT114",
+     "sim": 0.385
+    },
+    {
+     "id": "CT417",
+     "sim": 0.372
+    },
+    {
+     "id": "CT435",
+     "sim": 0.318
+    },
+    {
+     "id": "CT304",
+     "sim": 0.297
+    }
+   ]
+  },
+  {
+   "id": "CT424",
+   "file": "CT424.md",
+   "titulo": "Sistema de laboratorio remoto",
+   "tipo": "patente",
+   "alcance": "latam",
+   "pais": "México",
+   "operador": "Instituto Tecnológico y de Estudios Superiores de Monterrey",
+   "anio": 2018,
+   "temas": [
+    "F07",
+    "F11"
+   ],
+   "actores": [
+    "universidad"
+   ],
+   "servicios": [
+    "acceso-laboratorios",
+    "reserva-equipos",
+    "formacion"
+   ],
+   "interacciones": [],
+   "evidencia": [
+    "WO2020122700A1",
+    "https://patents.google.com/patent/WO2020122700A1/es"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, con prioridad mexicana de 2018-12-13 y publicada el 2020-06-18, que describe un laboratorio remoto para aprender circuitos eléctricos, electrónicos y de control. Los estudiantes hacen experimentos con corriente directa y alterna sin estar en el laboratorio, a través de un servidor, equipos diseñados para ello y una plataforma web.",
+    "actores": "Estudiantes y docentes de ingeniería. La institución que opera el laboratorio pone los equipos.",
+    "servicios": "- Reserva de la estación de trabajo desde la plataforma web.\n- Descarga de la aplicación para acceder a las prácticas.\n- Realización de experimentos a distancia sobre equipos reales.",
+    "interacciones": "No describe interacciones entre organizaciones; la relación es entre el usuario y el laboratorio que presta acceso remoto.",
+    "modelo_operacion": "Titular: una universidad privada mexicana. La familia incluye una solicitud en China (CN111325362A). La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Servidor, equipos de adquisición de señales, el sistema NI ELVIS y una plataforma web de reservas.",
+    "ideas": "- Ofrecer en el catálogo de servicios el acceso remoto a equipos de laboratorio, con reserva en línea.\n- Permitir que colegios, pymes o centros de formación usen laboratorios universitarios sin desplazarse.\n- Registrar el uso de cada equipo para medir la capacidad instalada que se comparte en el ecosistema.",
+    "evidencia": "- Publicación WO2020122700A1, ficha en Google Patents: https://patents.google.com/patent/WO2020122700A1/es (consultado el 2026-11-01)."
+   },
+   "cluster": "C04",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT327",
+     "sim": 0.464
+    },
+    {
+     "id": "CT400",
+     "sim": 0.329
+    },
+    {
+     "id": "CT210",
+     "sim": 0.316
+    },
+    {
+     "id": "CT326",
+     "sim": 0.309
+    },
+    {
+     "id": "CT427",
+     "sim": 0.281
+    }
+   ]
+  },
+  {
+   "id": "CT425",
+   "file": "CT425.md",
+   "titulo": "Requests for proposals management systems and methods",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Estados Unidos",
+   "operador": "RAND Corporation",
+   "anio": 2010,
+   "temas": [
+    "F02",
+    "F03"
+   ],
+   "actores": [
+    "investigador",
+    "agencia-financiadora",
+    "grupo-investigacion"
+   ],
+   "servicios": [
+    "convocatorias",
+    "perfil-investigador",
+    "red-expertos"
+   ],
+   "interacciones": [
+    "emparejamiento",
+    "consorcio-alianza"
+   ],
+   "evidencia": [
+    "US20120041769A1",
+    "https://patents.google.com/patent/US20120041769A1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud estadounidense, con prioridad de 2010-08-13 y publicada el 2012-02-16, sobre un sistema que empareja investigadores con solicitudes de propuestas (RFP) de financiadores. Construye un perfil del investigador a partir de sus informes y propuestas anteriores, rastrea bases de datos en busca de oportunidades que encajen y presenta al investigador un subconjunto de convocatorias.",
+    "actores": "Investigadores, sus agentes o gestores y las entidades que publican solicitudes de propuestas.",
+    "servicios": "- Perfil del investigador generado de forma automática a partir de sus documentos.\n- Búsqueda de convocatorias en fuentes web y bases de datos.\n- Puntaje de afinidad entre convocatoria, investigador y preferencias del usuario.\n- Sugerencia de equipos de investigación con la experiencia más adecuada para cada convocatoria.",
+    "interacciones": "Emparejamiento entre investigadores y convocatorias, y conformación de equipos entre investigadores con experiencia complementaria. El usuario corrige su perfil y da retroalimentación para que el sistema aprenda.",
+    "modelo_operacion": "Solicitante: RAND Corporation. La página indica estado Abandoned.",
+    "tecnologia": "Cálculo de un puntaje con datos de convocatorias, datos de investigadores y preferencias. Clasificación G06Q10/10.",
+    "ideas": "- Alertar a cada investigador o grupo de Bogotá sobre convocatorias afines a su perfil, sin que deba buscarlas.\n- Proponer equipos entre grupos de distintas instituciones para una convocatoria concreta.\n- Pedir retroalimentación sobre las sugerencias para mejorar el emparejamiento en fases posteriores.",
+    "evidencia": "- Publicación US20120041769A1, ficha en Google Patents: https://patents.google.com/patent/US20120041769A1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C06",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT430",
+     "sim": 0.519
+    },
+    {
+     "id": "CT414",
+     "sim": 0.469
+    },
+    {
+     "id": "CT413",
+     "sim": 0.437
+    },
+    {
+     "id": "CT428",
+     "sim": 0.396
+    },
+    {
+     "id": "CT308",
+     "sim": 0.393
+    }
+   ]
+  },
+  {
+   "id": "CT426",
+   "file": "CT426.md",
+   "titulo": "A system and method for recommending expert reviewers for performing quality assessment of an electronic work",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "Intelligent Review Technologies Inc",
+   "anio": 2020,
+   "temas": [
+    "F12",
+    "F13"
+   ],
+   "actores": [
+    "evaluador-jurado",
+    "investigador",
+    "agencia-financiadora"
+   ],
+   "servicios": [
+    "red-expertos",
+    "perfil-investigador"
+   ],
+   "interacciones": [
+    "evaluacion-pares",
+    "seleccion-jurados"
+   ],
+   "evidencia": [
+    "WO2022115966A1",
+    "https://patents.google.com/patent/WO2022115966A1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, publicada el 2022-06-09, sobre un método que crea perfiles de expertos evaluadores a partir de su historial documentado (publicaciones, solicitudes de financiación, presentaciones, patentes u hojas de vida). Con esos perfiles recomienda quién debe evaluar un trabajo según su competencia temática.",
+    "actores": "Expertos evaluadores, autores de trabajos y entidades que deben asignar revisores, entre ellas las que evalúan solicitudes de financiación.",
+    "servicios": "- Generación de perfiles de expertos interpretables por máquina a partir de su portafolio.\n- Recomendación de evaluadores para uno o varios documentos de entrada.\n- Usos citados: revisión de artículos, conformación de equipos de expertos y evaluación de solicitudes de financiación.",
+    "interacciones": "Selección de evaluadores para una propuesta o un trabajo, con requisitos como la competencia temática.",
+    "modelo_operacion": "Solicitante: Intelligent Review Technologies Inc. La familia tiene solicitudes en Canadá (CA3200219A1) y Estados Unidos (US20240005230A1). La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Representaciones de los portafolios procesables por máquina; el método se denomina Portfolio Expert Alignment (PEA).",
+    "ideas": "- Construir el banco de jurados de las convocatorias a partir de la producción registrada de cada experto y no solo de una inscripción voluntaria.\n- Sugerir evaluadores por afinidad temática con cada propuesta y dejar la decisión final al gestor del programa.\n- Reutilizar los mismos perfiles para conformar equipos de expertos en diagnósticos de capacidades.",
+    "evidencia": "- Publicación WO2022115966A1, ficha en Google Patents: https://patents.google.com/patent/WO2022115966A1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C06",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT406",
+     "sim": 0.581
+    },
+    {
+     "id": "CT405",
+     "sim": 0.54
+    },
+    {
+     "id": "CT311",
+     "sim": 0.46
+    },
+    {
+     "id": "CT324",
+     "sim": 0.449
+    },
+    {
+     "id": "CT431",
+     "sim": 0.434
+    }
+   ]
+  },
+  {
+   "id": "CT427",
+   "file": "CT427.md",
+   "titulo": "Business methods and systems for offering and obtaining research services",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Estados Unidos",
+   "operador": "James Justin Lancaster",
+   "anio": 2007,
+   "temas": [
+    "F03",
+    "F07"
+   ],
+   "actores": [
+    "investigador",
+    "centro-investigacion",
+    "empresa"
+   ],
+   "servicios": [
+    "catalogo-servicios",
+    "acceso-laboratorios"
+   ],
+   "interacciones": [
+    "contratacion-servicios"
+   ],
+   "evidencia": [
+    "US11282088B1",
+    "https://patents.google.com/patent/US11282088B1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Patente estadounidense, publicada el 2022-03-22 y con prioridad reclamada desde 2007, sobre sistemas para ofrecer y obtener servicios de investigación por internet. Los módulos conectan bases de conocimiento, profesionales de investigación, laboratorios automatizados y procesos de análisis de datos, y permiten pedir servicios de investigación médica o biomédica a terceros.",
+    "actores": "Quienes necesitan investigación, proveedores de servicios médicos o biomédicos y laboratorios automatizados.",
+    "servicios": "- Base de datos de proveedores con los servicios que ofrecen y los objetivos biomédicos a los que responden.\n- Proceso de pedido conectado de forma directa con los servicios de investigación.\n- Selección automática de servicios de terceros y actualización de la base de conocimiento con los resultados.",
+    "interacciones": "Contratación de servicios de investigación a terceros a través de la plataforma; los resultados alimentan la siguiente fase de la investigación.",
+    "modelo_operacion": "Titular: una persona natural. La página indica estado Active.",
+    "tecnologia": "Servidor de aplicaciones con base de datos de proveedores y objetivos funcionales. Clasificación G06Q.",
+    "ideas": "- Organizar el catálogo de servicios de laboratorios y centros por la necesidad que resuelven y no solo por el equipo que usan.\n- Permitir que el demandante solicite el servicio desde la ficha del oferente y siga su avance.\n- Guardar los resultados de cada servicio prestado como insumo para recomendar el siguiente.",
+    "evidencia": "- Publicación US11282088B1, ficha en Google Patents: https://patents.google.com/patent/US11282088B1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT400",
+     "sim": 0.569
+    },
+    {
+     "id": "CT326",
+     "sim": 0.509
+    },
+    {
+     "id": "CT327",
+     "sim": 0.507
+    },
+    {
+     "id": "CT433",
+     "sim": 0.504
+    },
+    {
+     "id": "CT403",
+     "sim": 0.453
+    }
+   ]
+  },
+  {
+   "id": "CT428",
+   "file": "CT428.md",
+   "titulo": "Researcher job-offer job-application matching system and joint research/joint venture matching system",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "Intellectual Property Bank Corp",
+   "anio": 2006,
+   "temas": [
+    "F03",
+    "F11"
+   ],
+   "actores": [
+    "investigador",
+    "empresa"
+   ],
+   "servicios": [
+    "emparejamiento-oferta-demanda"
+   ],
+   "interacciones": [
+    "emparejamiento",
+    "colaboracion-investigacion",
+    "consorcio-alianza"
+   ],
+   "evidencia": [
+    "WO2008004563A1",
+    "https://patents.google.com/patent/WO2008004563A1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, publicada el 2008-01-10, sobre un sistema que empareja investigadores con empresas, tanto para empleo como para investigación conjunta o empresas conjuntas. Busca en una base de datos de investigación los investigadores cuyo trabajo se parece al campo técnico que la empresa necesita, y en una base de datos técnica las empresas afines al campo del investigador.",
+    "actores": "Empresas que buscan investigadores o socios técnicos e investigadores que buscan empresas.",
+    "servicios": "- Base de datos de investigación con el campo de cada investigador.\n- Base de datos técnica con el campo de cada empresa.\n- Búsqueda en ambos sentidos por similitud de texto.\n- Detección de parejas en las que el interés es mutuo.",
+    "interacciones": "Emparejamiento bidireccional entre empresa e investigador; se detecta la pareja cuando ambas búsquedas coinciden. La misma lógica se aplica a investigación conjunta y empresas conjuntas.",
+    "modelo_operacion": "Solicitante: Intellectual Property Bank Corp; las reivindicaciones originales están en japonés y hay una fase nacional en Japón (JPWO2008004563A1). La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Búsqueda por similitud sobre textos de campos de investigación y de técnica. Las reivindicaciones están traducidas del japonés.",
+    "ideas": "- Emparejar en ambos sentidos: de la necesidad de la empresa hacia grupos de investigación y del grupo hacia empresas que trabajan su tema.\n- Destacar las coincidencias mutuas como prioridad para la gestión de contactos.\n- Usar el mismo motor para vinculación de talento investigador en empresas.",
+    "evidencia": "- Publicación WO2008004563A1, ficha en Google Patents: https://patents.google.com/patent/WO2008004563A1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT404",
+     "sim": 0.525
+    },
+    {
+     "id": "CT433",
+     "sim": 0.462
+    },
+    {
+     "id": "CT412",
+     "sim": 0.462
+    },
+    {
+     "id": "CT403",
+     "sim": 0.459
+    },
+    {
+     "id": "CT309",
+     "sim": 0.454
+    }
+   ]
+  },
+  {
+   "id": "CT429",
+   "file": "CT429.md",
+   "titulo": "System and method for research analytics",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "Elsevier Inc",
+   "anio": 2010,
+   "temas": [
+    "F08",
+    "F13"
+   ],
+   "actores": [
+    "universidad",
+    "gestor-programa",
+    "agencia-financiadora"
+   ],
+   "servicios": [
+    "observatorio-indicadores"
+   ],
+   "interacciones": [
+    "reporte-indicadores"
+   ],
+   "evidencia": [
+    "WO2011153137A1",
+    "https://patents.google.com/patent/WO2011153137A1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, con prioridad de 2010-05-31 y publicada el 2011-12-08, sobre analítica de investigación para instituciones. Agrupa publicaciones según sus citas, asigna a cada grupo un área y una disciplina y genera una representación gráfica; la primera reivindicación señala qué competencias de la institución están subfinanciadas o sobrefinanciadas.",
+    "actores": "Instituciones de investigación, sus directivos y quienes deciden la asignación de recursos.",
+    "servicios": "- Base de datos de citas de publicaciones.\n- Agrupamiento de publicaciones por relación de citas.\n- Asignación de área general y disciplina a cada grupo.\n- Mapa gráfico de competencias y señal de las que están subfinanciadas o sobrefinanciadas.",
+    "interacciones": "No describe interacciones entre actores; produce información para la toma de decisiones institucionales.",
+    "modelo_operacion": "Solicitante: Elsevier Inc. La familia tiene solicitudes en Japón, China, la Oficina Europea de Patentes y Estados Unidos (US20130204671A1). La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Agrupamiento por relación de citas sobre un periodo seleccionado.",
+    "ideas": "- Mapear las competencias científicas de las instituciones de Bogotá a partir de su producción y cruzarlas con la financiación recibida.\n- Señalar áreas fuertes con poca financiación como candidatas para convocatorias.\n- Mostrar estos mapas en el observatorio de la plataforma para orientar la demanda de servicios.",
+    "evidencia": "- Publicación WO2011153137A1, ficha en Google Patents: https://patents.google.com/patent/WO2011153137A1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C05",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT307",
+     "sim": 0.426
+    },
+    {
+     "id": "CT316",
+     "sim": 0.403
+    },
+    {
+     "id": "CT435",
+     "sim": 0.397
+    },
+    {
+     "id": "CT317",
+     "sim": 0.39
+    },
+    {
+     "id": "CT323",
+     "sim": 0.386
+    }
+   ]
+  },
+  {
+   "id": "CT430",
+   "file": "CT430.md",
+   "titulo": "Systems and methods for providing recommendations for academic and research entities",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Estados Unidos",
+   "operador": "Elsevier Inc",
+   "anio": 2017,
+   "temas": [
+    "F13",
+    "F03"
+   ],
+   "actores": [
+    "investigador",
+    "grupo-investigacion"
+   ],
+   "servicios": [
+    "perfil-investigador",
+    "red-expertos"
+   ],
+   "interacciones": [
+    "colaboracion-investigacion"
+   ],
+   "evidencia": [
+    "US11226999B2",
+    "https://patents.google.com/patent/US11226999B2/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Patente estadounidense, publicada el 2022-01-18, sobre recomendaciones de posibles colaboradores para un investigador. A partir de lo que el usuario consulta, un algoritmo de aprendizaje automático infiere el tema de investigación, busca referencias relacionadas, extrae los nombres de sus autores y los ordena según su relevancia probable para el usuario.",
+    "actores": "Investigadores que buscan colaboradores y los autores que aparecen en la literatura.",
+    "servicios": "- Inferencia del tema de investigación a partir de los artículos que el usuario explora.\n- Generación de términos de búsqueda y consulta de bases de referencias.\n- Lista ordenada de posibles colaboradores.",
+    "interacciones": "Colaboración en investigación: la plataforma sugiere contactos entre investigadores que trabajan temas cercanos.",
+    "modelo_operacion": "Titular: Elsevier Inc. La página indica estado Active.",
+    "tecnologia": "Algoritmo de aprendizaje automático entrenado para inferir el tema y ordenar candidatos.",
+    "ideas": "- Sugerir a investigadores y grupos de Bogotá posibles colaboradores locales según lo que consultan en la plataforma.\n- Extender la sugerencia a empresas o centros que trabajan el mismo tema.\n- Usar estas sugerencias como punto de partida de la red de expertos.",
+    "evidencia": "- Publicación US11226999B2, ficha en Google Patents: https://patents.google.com/patent/US11226999B2/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C06",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT425",
+     "sim": 0.519
+    },
+    {
+     "id": "CT431",
+     "sim": 0.496
+    },
+    {
+     "id": "CT319",
+     "sim": 0.433
+    },
+    {
+     "id": "CT426",
+     "sim": 0.432
+    },
+    {
+     "id": "CT405",
+     "sim": 0.406
+    }
+   ]
+  },
+  {
+   "id": "CT431",
+   "file": "CT431.md",
+   "titulo": "Author disambiguation and publication assignment",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Estados Unidos",
+   "operador": "ResearchGate GmbH",
+   "anio": 2015,
+   "temas": [
+    "F13",
+    "F14"
+   ],
+   "actores": [
+    "investigador"
+   ],
+   "servicios": [
+    "perfil-investigador"
+   ],
+   "interacciones": [],
+   "evidencia": [
+    "US10133807B2",
+    "https://patents.google.com/patent/US10133807B2/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Patente estadounidense, publicada el 2018-11-20, sobre la desambiguación automática de nombres de autor. El sistema agrupa las menciones de un nombre en publicaciones de modo que cada grupo corresponda con alta probabilidad a una sola persona y luego asigna esos grupos a identidades únicas, de forma automática o con intervención de autores, coautores o curadores.",
+    "actores": "Investigadores que tienen un perfil en una red académica y curadores de datos.",
+    "servicios": "- Estructura de datos por cada mención de autor en una publicación.\n- Conjunto de atributos para comparar menciones.\n- Agrupamiento de menciones por identidad probable.\n- Asignación de grupos a perfiles, automática o confirmada por personas.",
+    "interacciones": "Autores, coautores y curadores pueden confirmar o corregir la asignación de publicaciones a un perfil.",
+    "modelo_operacion": "Titular: ResearchGate GmbH. La familia incluye una solicitud europea (EP3113093A1) y otras patentes estadounidenses. La página indica estado Active.",
+    "tecnologia": "Agrupamiento de menciones de autor a partir de atributos de las publicaciones.",
+    "ideas": "- Asociar de forma confiable la producción de cada investigador a su perfil en el directorio, aunque su nombre aparezca escrito de varias maneras.\n- Pedir al investigador que confirme las publicaciones sugeridas, como hace el método.\n- Usar identificadores únicos como ORCID para reducir el trabajo de desambiguación.",
+    "evidencia": "- Publicación US10133807B2, ficha en Google Patents: https://patents.google.com/patent/US10133807B2/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C06",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT430",
+     "sim": 0.496
+    },
+    {
+     "id": "CT320",
+     "sim": 0.459
+    },
+    {
+     "id": "CT318",
+     "sim": 0.44
+    },
+    {
+     "id": "CT426",
+     "sim": 0.434
+    },
+    {
+     "id": "CT414",
+     "sim": 0.427
+    }
+   ]
+  },
+  {
+   "id": "CT432",
+   "file": "CT432.md",
+   "titulo": "System and method for enabling seekers to create and post challenges for solvers",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "InnoCentive Inc; Eli Lilly and Co",
+   "anio": 2003,
+   "temas": [
+    "F03"
+   ],
+   "actores": [
+    "empresa",
+    "investigador",
+    "mentor-experto"
+   ],
+   "servicios": [
+    "retos-innovacion-abierta"
+   ],
+   "interacciones": [
+    "reto-solucion"
+   ],
+   "evidencia": [
+    "WO2005036318A2",
+    "https://patents.google.com/patent/WO2005036318A2/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, publicada el 2005-04-21, sobre un sistema para que quienes buscan soluciones (seekers) creen y publiquen retos dirigidos a quienes los resuelven (solvers). La primera reivindicación describe una interfaz basada en plantillas que guía la redacción del reto paso a paso.",
+    "actores": "Organizaciones que plantean retos técnicos y personas o equipos que proponen soluciones.",
+    "servicios": "- Creación de un reto nuevo o edición de uno ya guardado.\n- Plantillas que piden identificación, antecedentes, información detallada y otros datos del reto.\n- Publicación del reto en un sistema en red.",
+    "interacciones": "Reto y solución: el demandante publica un problema y los solucionadores responden con propuestas.",
+    "modelo_operacion": "Solicitantes: InnoCentive Inc y Eli Lilly and Co. La familia incluye la solicitud estadounidense US20070244840A1. La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Interfaz basada en plantillas en un sistema en red.",
+    "ideas": "- Ofrecer a empresas y entidades públicas una plantilla guiada para redactar retos dirigidos a grupos de investigación y startups.\n- Guardar retos en borrador para que el gestor del programa los revise antes de publicarlos.\n- Combinar los retos con la validación previa del problema que describe CT419.",
+    "evidencia": "- Publicación WO2005036318A2, ficha en Google Patents: https://patents.google.com/patent/WO2005036318A2/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT434",
+     "sim": 0.659
+    },
+    {
+     "id": "CT315",
+     "sim": 0.499
+    },
+    {
+     "id": "CT433",
+     "sim": 0.454
+    },
+    {
+     "id": "CT419",
+     "sim": 0.45
+    },
+    {
+     "id": "CT403",
+     "sim": 0.419
+    }
+   ]
+  },
+  {
+   "id": "CT433",
+   "file": "CT433.md",
+   "titulo": "Systems and methods for facilitating research and development",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Estados Unidos",
+   "operador": "NineSigma Inc",
+   "anio": 2000,
+   "temas": [
+    "F03",
+    "F09"
+   ],
+   "actores": [
+    "empresa",
+    "centro-investigacion",
+    "investigador"
+   ],
+   "servicios": [
+    "emparejamiento-oferta-demanda",
+    "retos-innovacion-abierta"
+   ],
+   "interacciones": [
+    "emparejamiento",
+    "contratacion-servicios"
+   ],
+   "evidencia": [
+    "US7130802B1",
+    "https://patents.google.com/patent/US7130802B1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Patente estadounidense, con prioridad de 2000-10-02 y publicada el 2006-10-31, sobre un sistema para emparejar a quien necesita bienes o servicios para un proyecto con quienes pueden proveerlos. La primera reivindicación se centra en proyectos de investigación y desarrollo y en limitar la divulgación de la descripción del proyecto a los proveedores que más se ajustan.",
+    "actores": "Organizaciones que contratan investigación y desarrollo y proveedores de esos servicios.",
+    "servicios": "- Especificación del proyecto por parámetros físicos, funcionales, temporales, financieros y de transacción.\n- Conversión automática del proyecto en solicitudes de bienes o servicios.\n- Selección de proveedores por grado de correspondencia con el proyecto.\n- Espacio para negociar y formar contratos.",
+    "interacciones": "Emparejamiento entre demandante y proveedores; solo los proveedores con mayor correspondencia acceden a la descripción completa, lo que protege la información del demandante. Luego se negocia y se contrata.",
+    "modelo_operacion": "Titular: NineSigma Inc. La página indica estado Expired - Lifetime.",
+    "tecnologia": "Cálculo de un grado cuantitativo de correspondencia entre datos agregados del proyecto y de los proveedores.",
+    "ideas": "- Mostrar primero un resumen anónimo de la necesidad y abrir el detalle solo a los oferentes preseleccionados.\n- Pedir la necesidad de servicios CTeI con parámetros estructurados (plazo, presupuesto, resultado esperado).\n- Integrar la negociación y la contratación del servicio en la misma plataforma.",
+    "evidencia": "- Publicación US7130802B1, ficha en Google Patents: https://patents.google.com/patent/US7130802B1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT427",
+     "sim": 0.504
+    },
+    {
+     "id": "CT404",
+     "sim": 0.501
+    },
+    {
+     "id": "CT403",
+     "sim": 0.484
+    },
+    {
+     "id": "CT428",
+     "sim": 0.462
+    },
+    {
+     "id": "CT400",
+     "sim": 0.46
+    }
+   ]
+  },
+  {
+   "id": "CT434",
+   "file": "CT434.md",
+   "titulo": "Method and system for matching technical needs to solutions",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "BASF SE",
+   "anio": 2013,
+   "temas": [
+    "F03",
+    "F12"
+   ],
+   "actores": [
+    "empresa",
+    "mentor-experto",
+    "investigador"
+   ],
+   "servicios": [
+    "retos-innovacion-abierta",
+    "red-expertos"
+   ],
+   "interacciones": [
+    "reto-solucion"
+   ],
+   "evidencia": [
+    "EP2765543A1",
+    "https://patents.google.com/patent/EP2765543A1/en"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud europea de patente, con prioridad de 2013-02-11 y publicada el 2014-08-13, sobre una red de intercambio de innovación que empareja necesidades técnicas con soluciones. La red recibe la descripción de un proyecto con una necesidad técnica no resuelta, la categoriza, avisa a los expertos con experiencia relevante y recibe sus propuestas de solución.",
+    "actores": "Quien tiene una necesidad técnica y los expertos que participan en la red.",
+    "servicios": "- Descripción del proyecto con parámetros de la necesidad técnica.\n- Categorización del proyecto.\n- Identificación y notificación de los expertos cuya experiencia coincide con las categorías.\n- Recepción de soluciones propuestas.",
+    "interacciones": "Reto y solución con notificación dirigida: la red no publica la necesidad a todos, sino que avisa a los expertos que pueden aportar.",
+    "modelo_operacion": "Solicitante: BASF SE. La página indica estado Withdrawn.",
+    "tecnologia": "No publicada más allá de la categorización y el cruce con perfiles de expertos.",
+    "ideas": "- Avisar de cada necesidad publicada solo a los grupos y expertos cuyo perfil coincide, en lugar de difundirla a todo el directorio.\n- Categorizar las necesidades con el mismo vocabulario de temas del directorio para facilitar el cruce.\n- Registrar qué expertos responden para medir la actividad de la red.",
+    "evidencia": "- Publicación EP2765543A1, ficha en Google Patents: https://patents.google.com/patent/EP2765543A1/en (consultado el 2026-11-01)."
+   },
+   "cluster": "C02",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT432",
+     "sim": 0.659
+    },
+    {
+     "id": "CT403",
+     "sim": 0.459
+    },
+    {
+     "id": "CT405",
+     "sim": 0.449
+    },
+    {
+     "id": "CT433",
+     "sim": 0.436
+    },
+    {
+     "id": "CT315",
+     "sim": 0.416
+    }
+   ]
+  },
+  {
+   "id": "CT435",
+   "file": "CT435.md",
+   "titulo": "Metodologia de apoio à decisão e avaliação do impacto dos programas de inovação e de conhecimento baseados em investigação e desenvolvimento tecnológico",
+   "tipo": "patente",
+   "alcance": "internacional",
+   "pais": "Internacional",
+   "operador": "RAIZ - Instituto de Investigação da Floresta e Papel",
+   "anio": 2018,
+   "temas": [
+    "F09",
+    "F08",
+    "F04"
+   ],
+   "actores": [
+    "centro-investigacion",
+    "empresa",
+    "gestor-programa"
+   ],
+   "servicios": [
+    "seguimiento-informes",
+    "observatorio-indicadores",
+    "diagnostico-capacidades"
+   ],
+   "interacciones": [
+    "seguimiento-hitos",
+    "reporte-indicadores"
+   ],
+   "evidencia": [
+    "WO2020067911A1",
+    "https://patents.google.com/patent/WO2020067911A1/pt"
+   ],
+   "consultado": "2026-11-01",
+   "secciones": {
+    "descripcion": "Solicitud internacional PCT, publicada el 2020-04-02, sobre una metodología implementada por computador para evaluar programas de innovación basados en investigación y desarrollo tecnológico. Mide el valor económico y social y los activos intangibles que generan esos programas en cuatro pasos: preevaluación al someter el programa, ponderación anual de indicadores, evaluación al cierre y evaluación de impacto a mediano y largo plazo.",
+    "actores": "Organizaciones que financian o ejecutan programas de I+D y quienes deciden su priorización.",
+    "servicios": "- Recolección de datos de recursos, actividades, metas y entregables por tipo de programa.\n- Preevaluación con nivel de madurez tecnológica y priorización de programas.\n- Seguimiento anual de indicadores clave de desempeño.\n- Evaluación al cierre con análisis de causa y efecto, y evaluación de impacto cada 2,5 a 5 años.",
+    "interacciones": "Seguimiento de hitos e informes de indicadores entre el ejecutor del programa y quien lo evalúa, desde la presentación hasta años después del cierre.",
+    "modelo_operacion": "Solicitante: RAIZ, Instituto de Investigação da Floresta e Papel. Hay una solicitud europea relacionada (EP3859617A1). La página indica estado Ceased para la solicitud PCT.",
+    "tecnologia": "Bases de datos alfanuméricas y funciones parametrizadas en programas de procesamiento o en hojas de cálculo.",
+    "ideas": "- Evaluar los proyectos de las convocatorias en cuatro momentos: presentación, seguimiento anual, cierre e impacto posterior.\n- Medir activos intangibles y valor social, además de los entregables.\n- Usar la preevaluación para priorizar propuestas cuando el presupuesto no alcanza.",
+    "evidencia": "- Publicación WO2020067911A1, ficha en Google Patents: https://patents.google.com/patent/WO2020067911A1/pt (consultado el 2026-11-01)."
+   },
+   "cluster": "C05",
+   "relacionados": [],
+   "top5": [
+    {
+     "id": "CT416",
+     "sim": 0.475
+    },
+    {
+     "id": "CT307",
+     "sim": 0.455
+    },
+    {
+     "id": "CT429",
+     "sim": 0.397
+    },
+    {
+     "id": "CT417",
+     "sim": 0.383
+    },
+    {
+     "id": "CT107",
+     "sim": 0.368
     }
    ]
   },
@@ -8275,23 +9636,23 @@
    "top5": [
     {
      "id": "CT505",
-     "sim": 0.363
+     "sim": 0.357
     },
     {
      "id": "CT506",
      "sim": 0.341
     },
     {
+     "id": "CT416",
+     "sim": 0.337
+    },
+    {
      "id": "CT107",
-     "sim": 0.309
+     "sim": 0.303
     },
     {
      "id": "CT516",
-     "sim": 0.305
-    },
-    {
-     "id": "CT410",
-     "sim": 0.295
+     "sim": 0.302
     }
    ]
   },
@@ -8344,23 +9705,23 @@
    "top5": [
     {
      "id": "CT507",
-     "sim": 0.586
+     "sim": 0.582
     },
     {
      "id": "CT514",
-     "sim": 0.483
+     "sim": 0.48
     },
     {
      "id": "CT508",
-     "sim": 0.436
+     "sim": 0.429
     },
     {
      "id": "CT209",
-     "sim": 0.391
+     "sim": 0.388
     },
     {
      "id": "CT316",
-     "sim": 0.389
+     "sim": 0.381
     }
    ]
   },
@@ -8409,7 +9770,7 @@
    "top5": [
     {
      "id": "CT503",
-     "sim": 0.471
+     "sim": 0.468
     },
     {
      "id": "CT512",
@@ -8417,15 +9778,15 @@
     },
     {
      "id": "CT515",
-     "sim": 0.415
+     "sim": 0.411
     },
     {
      "id": "CT504",
-     "sim": 0.407
+     "sim": 0.406
     },
     {
      "id": "CT517",
-     "sim": 0.398
+     "sim": 0.397
     }
    ]
   },
@@ -8473,19 +9834,19 @@
    "top5": [
     {
      "id": "CT512",
-     "sim": 0.497
+     "sim": 0.494
     },
     {
      "id": "CT118",
-     "sim": 0.488
+     "sim": 0.486
     },
     {
      "id": "CT509",
-     "sim": 0.488
+     "sim": 0.48
     },
     {
      "id": "CT502",
-     "sim": 0.471
+     "sim": 0.468
     },
     {
      "id": "CT517",
@@ -8537,7 +9898,7 @@
    "top5": [
     {
      "id": "CT517",
-     "sim": 0.483
+     "sim": 0.482
     },
     {
      "id": "CT512",
@@ -8545,11 +9906,11 @@
     },
     {
      "id": "CT502",
-     "sim": 0.407
+     "sim": 0.406
     },
     {
      "id": "CT202",
-     "sim": 0.341
+     "sim": 0.34
     },
     {
      "id": "CT518",
@@ -8601,15 +9962,15 @@
    "top5": [
     {
      "id": "CT506",
-     "sim": 0.42
+     "sim": 0.418
     },
     {
      "id": "CT500",
-     "sim": 0.363
+     "sim": 0.357
     },
     {
      "id": "CT103",
-     "sim": 0.262
+     "sim": 0.26
     },
     {
      "id": "CT516",
@@ -8617,7 +9978,7 @@
     },
     {
      "id": "CT116",
-     "sim": 0.251
+     "sim": 0.25
     }
    ]
   },
@@ -8669,15 +10030,15 @@
     },
     {
      "id": "CT505",
-     "sim": 0.42
+     "sim": 0.418
     },
     {
      "id": "CT503",
-     "sim": 0.387
+     "sim": 0.386
     },
     {
      "id": "CT117",
-     "sim": 0.371
+     "sim": 0.372
     },
     {
      "id": "CT516",
@@ -8739,23 +10100,23 @@
    "top5": [
     {
      "id": "CT501",
-     "sim": 0.586
+     "sim": 0.582
     },
     {
      "id": "CT514",
-     "sim": 0.482
+     "sim": 0.48
     },
     {
      "id": "CT510",
-     "sim": 0.473
+     "sim": 0.472
     },
     {
      "id": "CT209",
-     "sim": 0.446
+     "sim": 0.444
     },
     {
      "id": "CT508",
-     "sim": 0.411
+     "sim": 0.408
     }
    ]
   },
@@ -8810,23 +10171,23 @@
    "top5": [
     {
      "id": "CT316",
-     "sim": 0.478
+     "sim": 0.471
     },
     {
      "id": "CT200",
-     "sim": 0.465
+     "sim": 0.457
     },
     {
      "id": "CT501",
-     "sim": 0.436
+     "sim": 0.429
     },
     {
      "id": "CT507",
-     "sim": 0.411
+     "sim": 0.408
     },
     {
      "id": "CT318",
-     "sim": 0.411
+     "sim": 0.406
     }
    ]
   },
@@ -8875,24 +10236,24 @@
    "relacionados": [],
    "top5": [
     {
+     "id": "CT418",
+     "sim": 0.553
+    },
+    {
      "id": "CT313",
-     "sim": 0.496
+     "sim": 0.486
     },
     {
      "id": "CT503",
-     "sim": 0.488
+     "sim": 0.48
     },
     {
      "id": "CT118",
-     "sim": 0.434
+     "sim": 0.424
     },
     {
-     "id": "CT402",
-     "sim": 0.402
-    },
-    {
-     "id": "CT407",
-     "sim": 0.383
+     "id": "CT415",
+     "sim": 0.398
     }
    ]
   },
@@ -8939,23 +10300,23 @@
    "top5": [
     {
      "id": "CT513",
-     "sim": 0.684
+     "sim": 0.683
     },
     {
      "id": "CT214",
-     "sim": 0.494
+     "sim": 0.491
     },
     {
      "id": "CT507",
-     "sim": 0.473
-    },
-    {
-     "id": "CT322",
-     "sim": 0.457
+     "sim": 0.472
     },
     {
      "id": "CT207",
-     "sim": 0.456
+     "sim": 0.455
+    },
+    {
+     "id": "CT322",
+     "sim": 0.452
     }
    ]
   },
@@ -9003,23 +10364,23 @@
    "top5": [
     {
      "id": "CT303",
-     "sim": 0.309
+     "sim": 0.308
     },
     {
      "id": "CT114",
-     "sim": 0.299
+     "sim": 0.298
     },
     {
      "id": "CT517",
-     "sim": 0.298
+     "sim": 0.297
     },
     {
      "id": "CT302",
-     "sim": 0.298
+     "sim": 0.297
     },
     {
      "id": "CT516",
-     "sim": 0.286
+     "sim": 0.285
     }
    ]
   },
@@ -9076,15 +10437,15 @@
     },
     {
      "id": "CT404",
-     "sim": 0.501
+     "sim": 0.5
     },
     {
      "id": "CT503",
-     "sim": 0.497
+     "sim": 0.494
     },
     {
      "id": "CT118",
-     "sim": 0.47
+     "sim": 0.468
     }
    ]
   },
@@ -9132,23 +10493,23 @@
    "top5": [
     {
      "id": "CT510",
-     "sim": 0.684
+     "sim": 0.683
     },
     {
      "id": "CT322",
-     "sim": 0.615
+     "sim": 0.611
     },
     {
      "id": "CT514",
-     "sim": 0.526
+     "sim": 0.525
     },
     {
      "id": "CT321",
-     "sim": 0.512
+     "sim": 0.511
     },
     {
      "id": "CT318",
-     "sim": 0.47
+     "sim": 0.469
     }
    ]
   },
@@ -9195,23 +10556,23 @@
    "top5": [
     {
      "id": "CT513",
-     "sim": 0.526
-    },
-    {
-     "id": "CT501",
-     "sim": 0.483
+     "sim": 0.525
     },
     {
      "id": "CT507",
-     "sim": 0.482
+     "sim": 0.48
+    },
+    {
+     "id": "CT501",
+     "sim": 0.48
     },
     {
      "id": "CT322",
-     "sim": 0.409
+     "sim": 0.405
     },
     {
      "id": "CT320",
-     "sim": 0.397
+     "sim": 0.395
     }
    ]
   },
@@ -9258,23 +10619,23 @@
    "top5": [
     {
      "id": "CT403",
-     "sim": 0.511
+     "sim": 0.501
     },
     {
      "id": "CT502",
-     "sim": 0.415
+     "sim": 0.411
+    },
+    {
+     "id": "CT434",
+     "sim": 0.405
+    },
+    {
+     "id": "CT425",
+     "sim": 0.367
     },
     {
      "id": "CT308",
-     "sim": 0.359
-    },
-    {
-     "id": "CT405",
-     "sim": 0.345
-    },
-    {
-     "id": "CT518",
-     "sim": 0.334
+     "sim": 0.355
     }
    ]
   },
@@ -9323,20 +10684,20 @@
      "sim": 0.351
     },
     {
-     "id": "CT410",
-     "sim": 0.318
-    },
-    {
      "id": "CT500",
-     "sim": 0.305
+     "sim": 0.302
     },
     {
      "id": "CT110",
-     "sim": 0.295
+     "sim": 0.293
     },
     {
      "id": "CT511",
-     "sim": 0.286
+     "sim": 0.285
+    },
+    {
+     "id": "CT515",
+     "sim": 0.274
     }
    ]
   },
@@ -9385,7 +10746,7 @@
    "top5": [
     {
      "id": "CT518",
-     "sim": 0.529
+     "sim": 0.531
     },
     {
      "id": "CT512",
@@ -9393,15 +10754,15 @@
     },
     {
      "id": "CT401",
-     "sim": 0.486
+     "sim": 0.484
     },
     {
      "id": "CT504",
-     "sim": 0.483
+     "sim": 0.482
     },
     {
      "id": "CT402",
-     "sim": 0.461
+     "sim": 0.46
     }
    ]
   },
@@ -9449,7 +10810,7 @@
    "top5": [
     {
      "id": "CT402",
-     "sim": 0.551
+     "sim": 0.55
     },
     {
      "id": "CT412",
@@ -9457,11 +10818,11 @@
     },
     {
      "id": "CT517",
-     "sim": 0.529
+     "sim": 0.531
     },
     {
      "id": "CT401",
-     "sim": 0.523
+     "sim": 0.521
     },
     {
      "id": "CT512",
