@@ -1,15 +1,12 @@
-# Third-party notices — plausibility assets
+# Avisos de terceros
 
-`atlas3d.bundle.js` bundles the following third-party software. It is built by
-`scripts/build-atlas-viewer.mjs` from `atlas3d/viewer.js` and inlined into every
-`sota-pool/atlas.html`.
+`constelacion.html` incluye el visor 3D atlas3d, construido sobre three.js.
 
 ## three.js
 
-- Version: 0.186.1 (npm `three`, pinned in `package.json` devDependencies)
-- Source: https://github.com/mrdoob/three.js
-- Modules used: `three` core and `three/examples/jsm/controls/OrbitControls.js`
-- License: MIT
+- Versión: 0.186.1
+- Fuente: https://github.com/mrdoob/three.js
+- Licencia: MIT
 
 ```text
 The MIT License
@@ -35,5 +32,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
+## Visor 3D atlas3d
 
-The 3D viewer comes from LIAUNAL/papersmith-ai (Apache-2.0, see tools/vendor/papersmith/LICENSE). Modified for panoramaPlataformasCTeI: constelacion.html uses its own page template (tools/constellation_template.html) and adds node tooltips, camera controls and pause/resume to atlas3d.bundle.js at build time (VIEWER_PATCHES in tools/build_landscape.py).
+Visor 3D atlas3d: Apache License 2.0, copia en tools/vendor/atlas3d/LICENSE; modificado para este repositorio (plantilla propia, tooltips, controles de cámara, pausa).

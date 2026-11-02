@@ -1,16 +1,19 @@
 # Fuentes y servidores MCP para el estudio de base tecnológica CTeI
 
-Inventario de lo que ya usan los proyectos del laboratorio y de las fuentes que sirven para buscar plataformas, software, patentes y artículos sobre plataformas de ciencia, tecnología e innovación (CTeI) en Bogotá, Colombia, América Latina y el resto del mundo. Corte: 1 de noviembre de 2026. Lo marcado «sin verificar» no se comprobó en la documentación oficial.
+Inventario de los servidores MCP ya probados y de las fuentes que sirven para buscar plataformas, software, patentes y artículos sobre plataformas de ciencia, tecnología e innovación (CTeI) en Bogotá, Colombia, América Latina y el resto del mundo. Corte: 1 de noviembre de 2026. Lo marcado «sin verificar» no se comprobó en la documentación oficial.
 
-## 1. Lo que ya usamos
+## 1. Servidores MCP ya probados
 
-| Proyecto | Servidores MCP y API | Para qué |
+| Servidor MCP o API | Paquete | Para qué sirve aquí |
 |---|---|---|
-| PaperSmith (`papersmith-ai`) | `banco-lia` en `.mcp.json`; llamadas directas a OpenAlex, Crossref, arXiv, Semantic Scholar y NCBI desde sus scripts | Descubrir y resolver referencias, elegir revista |
-| Morfeo (`RedaccionPropuestas`) | `openalex` (`@cyanheads/openalex-mcp-server`), `semanticscholar`, `crossref`, `pubmed`, `arxiv`, `consensus`, `context7`, `banco-lia` | Bibliografía de propuestas; Consensus filtra por cuartil |
-| Banco LIA (`bancoProyectosPapersLIA`) | Su propio MCP `banco-lia` sobre SQLite FTS5; enriquecimiento con OpenAlex, Crossref y Semantic Scholar | Insumo de redacción de artículos y propuestas |
+| OpenAlex | `@cyanheads/openalex-mcp-server` | Buscar artículos, instituciones y financiadores |
+| Semantic Scholar | `@xbghc/semanticscholar-mcp` | Artículos y citas |
+| Crossref | `@botanicastudios/crossref-mcp` | Verificar DOI |
+| arXiv, PubMed | `@cyanheads/arxiv-mcp-server`, `@cyanheads/pubmed-mcp-server` | Preprints y literatura biomédica |
+| Consensus | MCP por HTTP | Filtrar artículos por cuartil |
+| Índice de fichas sobre SQLite FTS5 | `ctei-landscape` (este repositorio) | Consultar las fichas del panorama |
 
-Ninguno de los tres usa fuentes de patentes, datos abiertos de CTeI ni directorios de software o plataformas. Esa es la parte nueva de este estudio.
+Ninguno cubre patentes, datos abiertos de CTeI ni directorios de software o plataformas. Esa es la parte nueva de este estudio.
 
 ## 2. Fuentes candidatas
 
@@ -37,11 +40,11 @@ Ninguno de los tres usa fuentes de patentes, datos abiertos de CTeI ni directori
 
 ## 3. Recomendación
 
-**Ahora, sin llaves de pago:** OpenAlex, Crossref y Semantic Scholar con los mismos MCP de Morfeo; `patent-client-agents` con Google Patents, más un registro gratuito en EPO OPS para LATIPAT; consulta web de la SIC; búsqueda web y lectura de los sitios oficiales para plataformas; descargas directas de datos.gov.co, STIP Compass y CORDIS; GitHub para software abierto; `banco-lia` para las capacidades del propio laboratorio.
+**Ahora, sin llaves de pago:** OpenAlex, Crossref y Semantic Scholar con los MCP de la sección 1; `patent-client-agents` con Google Patents, más un registro gratuito en EPO OPS para LATIPAT; consulta web de la SIC; búsqueda web y lectura de los sitios oficiales para plataformas; descargas directas de datos.gov.co, STIP Compass y CORDIS y GitHub para software abierto.
 
 **Después, con llaves:** Lens.org para enlazar patentes y artículos (con su atribución en este sitio), CORE, USPTO ODP, la API de CORDIS y una cuenta de Exa o Tavily para búsquedas web más intensas.
 
-**Qué integra `ctei-landscape` y qué no:** el MCP del panorama solo indexa y consulta las fichas, como el banco LIA. El descubrimiento queda en los MCP externos configurados para el agente `aracne-ctei-scout`, que cambian rápido y manejan sus propias llaves. No vale la pena construir ahora servidores propios para Lens, DRIS o STIP, porque sus API están restringidas o sin documentar.
+**Qué integra `ctei-landscape` y qué no:** el MCP del panorama solo indexa y consulta las fichas. El descubrimiento queda en los MCP externos configurados para el agente `aracne-ctei-scout`, que cambian rápido y manejan sus propias llaves. No vale la pena construir ahora servidores propios para Lens, DRIS o STIP, porque sus API están restringidas o sin documentar.
 
 ## 4. Lo que usó la primera campaña
 

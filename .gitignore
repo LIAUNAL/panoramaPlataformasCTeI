@@ -5,3 +5,4 @@ __pycache__/
 .atl/
 data/landscape.db
 data/landscape.db.tmp
+odd/

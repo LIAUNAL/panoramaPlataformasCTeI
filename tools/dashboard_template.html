@@ -3,17 +3,19 @@
 <link rel="icon" type="image/png" href="favicon.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout of the Banco LIA dashboard (UNAL institutional look): gray sticky band with tabs, green hero, detail drawer on the right.
-   The data panels (.stage) stay on a night-sky palette; their tokens are re-scoped below. */
+/* Page frame after agenciaatenea.gov.co: white band with the ATENEA logo, navy tab bar with an orange accent, light hero with
+   summary cards, navy footer. The visualization panels keep their own tokens (--brand, --panel, ...); .stage stays on a night-sky palette. */
 :root {
   --sky: #f6f7f2; --panel: #ffffff; --panel-2: #eef2e6; --line: #d8e2d5;
   --ink: #1f2a1c; --muted: #4f5d4b; --faint: #7d8a78;
   --gold: #c9940f; --green: #5f8f4a; --accent: #466b3f;
-  --brand: #466b3f; --brand-2: #617627; --lime: #94b43b; --unal-gray: #4b4b4b; --unal-gray-2: #3a3a3a;
-  --display: "Ancizar Sans", "Helvetica Neue", system-ui, sans-serif;
-  --body: "Ancizar Sans", "Helvetica Neue", system-ui, sans-serif;
+  --brand: #466b3f; --brand-2: #617627; --lime: #94b43b;
+  --navy: #004884; --navy-2: #003a6b; --orange: #fc7a42; --link: #3366cc; --frame-ink: #4b4b4b; --soft: #e8ebfd;
+  --display: "Work Sans", "Helvetica Neue", system-ui, sans-serif;
+  --body: "Work Sans", "Helvetica Neue", system-ui, sans-serif;
+  --condensed: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   color-scheme: light;
 }
@@ -24,43 +26,38 @@
   color: var(--ink);
 }
 * { box-sizing: border-box; }
-body { background: var(--sky); color: var(--ink); font: 15px/1.55 var(--body); margin: 0; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--unal-gray); }
+body { background: #fff; color: var(--ink); font: 15px/1.55 var(--body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: #fff; }
 .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1440px; margin: 0 auto; }
-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--unal-gray); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
-.bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding-block: 8px 2px; }
-.unal-logo { display: block; flex: 0 0 auto; }
-.unal-logo img { height: 50px; width: auto; display: block; }
-.site { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.site a { color: #fff; text-decoration: none; font: 400 19px/1.2 var(--display); }
-.site a::before { content: ""; display: inline-block; width: 9px; height: 13px; margin-right: 8px; vertical-align: -1px; background: #b9b9b9; clip-path: path("M4.5 0C2 0 0 2 0 4.5 0 8 4.5 13 4.5 13S9 8 9 4.5C9 2 7 0 4.5 0Z"); }
-.site a:hover { color: var(--lime); }
-.site span { font-size: 12px; color: #d2d2d2; letter-spacing: .02em; }
-.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-left: auto; font-family: var(--mono); font-size: 12px; color: #d2d2d2; }
-.stats b { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
-nav { display: flex; gap: 2px; overflow-x: auto; padding-block: 2px 0; scrollbar-width: none; }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: #fff; color: var(--frame-ink); box-shadow: 0 2px 8px rgba(0,40,80,.12); }
+.bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; padding-block: 7px; }
+.logo { display: block; flex: 0 0 auto; }
+.logo img { height: 48px; width: auto; display: block; }
+.site { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 22px; border-left: 1px solid #d5daf0; }
+.site h1 { font: 700 26px/1.05 var(--condensed); color: var(--navy); letter-spacing: .005em; margin: 0; }
+.site p { margin: 0; font-size: 13px; line-height: 1.35; color: var(--frame-ink); max-width: 60ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--frame-ink); }
+.stats b { color: var(--navy); font-weight: 500; font-variant-numeric: tabular-nums; }
+.navbar { background: var(--navy); border-bottom: 3px solid var(--orange); }
+nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
 nav::-webkit-scrollbar { display: none; }
-nav button { font: 600 13px var(--body); text-transform: uppercase; letter-spacing: .03em; color: #fff; background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 12px 7px; cursor: pointer; white-space: nowrap; }
-nav button[aria-selected="true"] { border-bottom-color: var(--lime); color: #fff; }
-nav button:hover:not([aria-selected="true"]) { color: var(--lime); }
+nav button { font: 700 16px/1 var(--condensed); text-transform: uppercase; letter-spacing: .02em; color: #fff; background: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -3px; padding: 10px 14px 8px; cursor: pointer; white-space: nowrap; }
+nav button[aria-selected="true"] { background: var(--navy-2); border-bottom-color: #fff; }
+nav button:hover:not([aria-selected="true"]) { background: var(--navy-2); }
 button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible, td:focus-visible, .row:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
-.hero { background: linear-gradient(160deg, #e3ebd6 0%, #eef3e6 45%, var(--sky) 100%); border-bottom: 1px solid var(--line); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); gap: 12px 32px; align-items: center; padding-block: 14px; }
-.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.brand img { height: 68px; width: auto; flex: 0 0 auto; display: block; }
-h1 { font: 800 30px/1.05 var(--display); color: var(--brand); letter-spacing: -.005em; margin: 0; }
-h1 small { display: block; font: 400 13.5px/1.35 var(--body); color: var(--brand); letter-spacing: 0; margin-top: 6px; }
-h1 small a { color: var(--brand-2); }
-.scopes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
-.scopes li { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--lime); border-radius: 6px; padding: 6px 12px; min-width: 0; }
-.scopes b { display: block; font: 700 22px/1.1 var(--display); color: var(--brand); font-variant-numeric: tabular-nums; }
-.scopes span { font-size: 13px; color: var(--muted); }
-@media (max-width: 1100px) { .hero .wrap { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .scopes { gap: 4px; } .scopes li { padding: 3px 6px; border-left-width: 3px; } .scopes b { font-size: 15px; } .scopes span { display: block; font-size: 10px; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } h1 small { display: none; } #v-constelacion .lede { font-size: 13px; margin-bottom: 8px; } }
+header :focus-visible, .hero :focus-visible, footer :focus-visible { outline-color: var(--orange); }
+.hero { background: linear-gradient(180deg, var(--soft) 0%, #f4f6fe 100%); border-bottom: 1px solid #d5daf0; }
+.hero .wrap { padding-block: 10px; }
+.scopes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.scopes li { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,40,80,.10); border-top: 3px solid var(--orange); padding: 5px 14px 6px; min-width: 0; display: flex; align-items: baseline; gap: 10px; }
+.scopes b { display: block; font: 700 26px/1.05 var(--condensed); color: var(--navy); font-variant-numeric: tabular-nums; }
+.scopes span { font-size: 13px; color: var(--frame-ink); }
+@media (max-width: 640px) { .scopes { gap: 4px; } .scopes li { display: block; padding: 3px 6px; border-top-width: 2px; } .scopes b { font-size: 18px; } .scopes span { display: block; font-size: 10px; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .site p { display: none; } #v-constelacion .lede { font-size: 13px; margin-bottom: 8px; } }
 main { padding-block: 20px 48px; }
 .view[hidden] { display: none !important; }
-.lede { color: var(--muted); max-width: 80ch; margin: 0 0 14px; }
-.lede b { color: var(--brand); font-weight: 700; }
+.lede { color: var(--frame-ink); max-width: 110ch; margin: 0 0 14px; }
+.lede b { color: var(--navy); font-weight: 600; }
+.lede > a.link { color: var(--link); border-bottom-color: var(--link); }
 .empty { color: var(--muted); font-style: italic; padding: 18px; background: var(--panel); border: 1px dashed var(--line); border-radius: 6px; }
 .toolbar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
 .seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
@@ -153,30 +150,28 @@ aside p { margin: 0; max-width: 65ch; white-space: pre-line; }
 aside ul { margin: 0; padding-left: 18px; }
 aside a { color: var(--brand); overflow-wrap: anywhere; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
-footer.lab { background: var(--unal-gray-2); color: #fff; }
-footer.lab .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; padding-block: 20px 28px; }
-footer.lab .badge { display: inline-flex; background: #fff; border-radius: 999px; padding: 6px 18px; }
-footer.lab img { height: 44px; width: auto; display: block; }
-footer.lab strong { display: block; font: 700 14px var(--body); }
-footer.lab span { font-size: 13px; color: #d2d2d2; }
-footer.lab a { color: var(--lime); }
-@media (max-width: 560px) { footer.lab .wrap { flex-direction: column; text-align: center; } }
+footer.site-footer { background: var(--navy); color: #fff; border-top: 3px solid var(--orange); }
+footer.site-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 28px; padding-block: 22px 28px; }
+footer.site-footer .badge { display: inline-flex; background: #fff; border-radius: 10px; padding: 8px 14px; }
+footer.site-footer img { height: 46px; width: auto; display: block; }
+footer.site-footer strong { display: block; font: 700 20px var(--condensed); letter-spacing: .01em; }
+footer.site-footer span { font-size: 13px; color: #d6e2f0; }
+footer.site-footer a { color: #fff; text-decoration-color: var(--orange); text-underline-offset: 3px; }
+@media (max-width: 560px) { footer.site-footer .wrap { flex-direction: column; text-align: center; } }
 @media (max-width: 640px), (max-height: 500px) {
   header { position: static; }
   .bar-top { padding-block: 8px 0; gap: 6px 14px; }
-  .unal-logo img { height: 38px; }
-  .site a { font-size: 16px; }
+  .logo img { height: 38px; }
+  .site { padding-left: 14px; }
+  .site h1 { font-size: 21px; }
   .stats { margin-left: 0; gap: 2px 12px; font-size: 11px; }
-  .hero .wrap { padding-block: 10px; gap: 8px; }
-  .brand img { height: 48px; }
-  h1 { font-size: 24px; }
-  h1 small { font-size: 12px; margin-top: 3px; }
+  .hero .wrap { padding-block: 10px; }
   main { padding-block: 12px 32px; }
   .frame3d { height: calc(100svh - 24px); min-height: 380px; }
   .card { padding: 14px; }
 }
 @media (pointer: coarse) {
-  nav button { padding: 11px 12px 9px; }
+  nav button { padding: 13px 12px 11px; }
   .seg button { padding: 9px 14px; }
   .chip { padding: 6px 12px 6px 10px; }
   .btn { padding: 9px 14px; }
@@ -188,13 +183,16 @@ footer.lab a { color: var(--lime); }
 <header>
   <div class="wrap">
     <div class="bar-top">
-      <a class="unal-logo" href="https://unal.edu.co/" target="_blank" rel="noopener" title="Universidad Nacional de Colombia"><img src="escudo_unal.svg" alt="Universidad Nacional de Colombia"></a>
+      <a class="logo" href="./" title="Panorama de plataformas CTeI"><img src="logo_atenea_horizontal.png" alt="ATENEA, Agencia Distrital para la Educación Superior, la Ciencia y la Tecnología" width="182" height="48"></a>
       <div class="site">
-        <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener">lia.manizales.unal.edu.co</a>
-        <span>Laboratorio de Inteligencia Artificial · Sede Manizales</span>
+        <h1>Panorama de plataformas CTeI</h1>
+        <p>Referentes de ciencia, tecnología e innovación para plataformas de articulación como Hēma</p>
       </div>
       <div class="stats" id="stats"></div>
     </div>
+  </div>
+  <div class="navbar">
+    <div class="wrap">
     <nav role="tablist" aria-label="Vistas">
       <button role="tab" data-view="constelacion" aria-selected="true">Constelación 3D</button>
       <button role="tab" data-view="mapa" aria-selected="false">Mapa por alcance</button>
@@ -205,22 +203,19 @@ footer.lab a { color: var(--lime); }
       <button role="tab" data-view="tiempo" aria-selected="false">Línea de tiempo</button>
       <button role="tab" data-view="corridas" aria-selected="false">Corridas del agente</button>
     </nav>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div class="brand">
-      <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener" title="Laboratorio de Inteligencia Artificial, UNAL"><img src="logo_labIA.png" alt="Laboratorio de Inteligencia Artificial UNAL"></a>
-      <h1>Panorama de plataformas CTeI<small>Referentes de ciencia, tecnología e innovación (plataformas, software, patentes y artículos) para plataformas de articulación como Hēma · <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener">LIA</a>, Universidad Nacional de Colombia</small></h1>
-    </div>
     <ul class="scopes" id="scopes" aria-label="Referentes por alcance"></ul>
   </div>
 </section>
 
 <main class="wrap">
   <section class="view" id="v-constelacion">
-    <p class="lede">Visor 3D de <b>papersmith-ai</b>: cada sistema es un referente y sus planetas son su alcance, su tipo, sus temas, los actores que atiende, las interacciones que permite y los servicios que ofrece. <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
+    <p class="lede">Visor 3D de la constelación: cada sistema es un referente y sus planetas son su alcance, su tipo, sus temas, los actores que atiende, las interacciones que permite y los servicios que ofrece. <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
     <iframe class="frame3d" id="frame3d" title="Constelación 3D de referentes" src="constelacion.html" loading="lazy"></iframe>
   </section>
 
@@ -285,14 +280,12 @@ footer.lab a { color: var(--lime); }
   </section>
 </main>
 
-<footer class="lab">
+<footer class="site-footer">
   <div class="wrap">
-    <a class="badge" href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener" title="Laboratorio de Inteligencia Artificial (LabIA), Universidad Nacional de Colombia">
-      <img src="logo_labIA.png" alt="Laboratorio de Inteligencia Artificial UNAL">
-    </a>
+    <span class="badge"><img src="logo_atenea_horizontal.png" alt="ATENEA" width="175" height="46"></span>
     <div>
-      <strong>Laboratorio de Inteligencia Artificial (LabIA)</strong>
-      <span>Universidad Nacional de Colombia · <a href="@@REPO@@" target="_blank" rel="noopener">Repositorio</a> · <a href="@@REPO@@/blob/main/docs/fuentes-y-mcp.md" target="_blank" rel="noopener">Fuentes y servidores MCP</a> · Solo fuentes públicas: la referencia de Hēma y el análisis de brechas no se publican.</span>
+      <strong>Panorama de plataformas CTeI</strong>
+      <span><a href="@@REPO@@" target="_blank" rel="noopener">Repositorio en GitHub</a> · <a href="@@REPO@@/blob/main/docs/fuentes-y-mcp.md" target="_blank" rel="noopener">Fuentes y servidores MCP</a> · Corte de datos: <span id="cutdate">sin fecha</span> · Solo fuentes públicas: la referencia de Hēma y el análisis de brechas no se publican.</span>
     </div>
   </div>
 </footer>
@@ -327,6 +320,8 @@ const shapeIcon = t => { const s = document.createElementNS('http://www.w3.org/2
     .forEach(([k, v]) => s.append(el('span', {}, el('b', {}, String(v)), ' ' + k)));
   const box = document.getElementById('scopes');
   SCOPES.forEach(sc => box.append(el('li', {}, el('b', {}, String(ITEMS.filter(i => i.alcance === sc).length)), el('span', {}, V.alcances[sc]))));
+  const cut = ITEMS.map(i => i.consultado).filter(Boolean).sort().pop();
+  if (cut) document.getElementById('cutdate').textContent = cut;
 })();
 
 // The constellation iframe renders continuously; tell it when its tab is hidden so it pauses.

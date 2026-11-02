@@ -17,6 +17,7 @@ import argparse
 import importlib.util
 import json
 import math
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -33,7 +34,7 @@ import landscape_core as core  # noqa: E402
 REPO = TOOLS.parent
 SEED = 7
 MAX_CLUSTERS = 12
-ASSETS = ("logo_labIA.png", "escudo_unal.svg", "favicon.png", "favicon.ico", "apple-touch-icon.png")
+ASSETS = ("logo_atenea_horizontal.png", "favicon.png", "favicon.ico", "apple-touch-icon.png")
 REPO_URL = "https://github.com/LIAUNAL/panoramaPlataformasCTeI"
 STOP = """de la el en y a los las del se por con para un una que su al lo como mas o es son sus este esta
 these this that with from into based using use used the of and in for on to an by at as is are be we our
@@ -308,8 +309,8 @@ def atlas(doc):
     return {"systems": systems, "links": links}
 
 
-# Build-time additions to the vendored viewer (tools/vendor/papersmith stays byte-identical to upstream),
-# taken from bancoProyectosPapersLIA: no sprite labels, centred framing, a node's own short tooltip, camera
+# Build-time additions to the vendored viewer (tools/vendor/atlas3d stays byte-identical to upstream):
+# no sprite labels, centred framing, a node's own short tooltip, camera
 # controls, screen projection and pause/resume.
 VIEWER_PATCHES = [
     ("let U=Yh(String(at.title||nt).slice(0,64),r_);U.position.copy(xt),Mt.add(U)", ""),
@@ -343,11 +344,21 @@ VIEWER_PATCHES = [
      "if(j===void 0)return null;v.copy(u[j]).project(P);return{x:(v.x+1)/2*r.width,y:(1-v.y)/2*r.height,"
      "z:v.z,on:v.z<1&&Math.abs(v.x)<1&&Math.abs(v.y)<1}})}}}"),
 ]
-VENDOR = TOOLS / "vendor/papersmith"
+VENDOR = TOOLS / "vendor/atlas3d"
+
+
+# The upstream banner names the project the viewer was built for; the page keeps only the three.js credit
+# that its MIT license requires.
+BANNER = re.compile(r"\A\s*/\*!.*?Bundles (three\.js [\d.]+ \(https://threejs\.org\) Copyright [\d-]+ three\.js authors, "
+                    r"MIT License).*?\*/", re.S)
 
 
 def viewer_bundle():
     bundle = (VENDOR / "atlas3d.bundle.js").read_text(encoding="utf-8")
+    m = BANNER.match(bundle)
+    if not m:
+        raise SystemExit("viewer banner no longer matches: update BANNER in tools/build_landscape.py")
+    bundle = f"/*! {m.group(1)}; see THIRD_PARTY_NOTICES.md. */" + bundle[m.end():]
     for old, new in VIEWER_PATCHES:
         if bundle.count(old) != 1:
             raise SystemExit(f"viewer patch no longer applies: {old[:40]}")
@@ -381,13 +392,25 @@ def render_pages(doc):
             raise SystemExit(f"missing site asset: {src}")
         files[asset] = src
     files["data/landscape.json"] = data
-    notice = (VENDOR / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8")
-    files["THIRD_PARTY_NOTICES.md"] = (
-        notice + "\n\nThe 3D viewer comes from LIAUNAL/papersmith-ai (Apache-2.0, see tools/vendor/papersmith/LICENSE). "
-        "Modified for panoramaPlataformasCTeI: constelacion.html uses its own page template "
-        "(tools/constellation_template.html) and adds node tooltips, camera controls and pause/resume to "
-        "atlas3d.bundle.js at build time (VIEWER_PATCHES in tools/build_landscape.py).\n")
+    files["THIRD_PARTY_NOTICES.md"] = third_party_notices()
     return files
+
+
+def third_party_notices():
+    """Notices for the software inlined in constelacion.html: the full three.js MIT text and the atlas3d viewer."""
+    upstream = (VENDOR / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8")
+    mit = re.search(r"```text\n(The MIT License.*?)```", upstream, re.S)
+    version = re.search(r"Version: ([\d.]+)", upstream)
+    if not (mit and version):
+        raise SystemExit("three.js notice not found in tools/vendor/atlas3d/THIRD_PARTY_NOTICES.md")
+    return (
+        "# Avisos de terceros\n\n"
+        "`constelacion.html` incluye el visor 3D atlas3d, construido sobre three.js.\n\n"
+        f"## three.js\n\n- Versión: {version.group(1)}\n- Fuente: https://github.com/mrdoob/three.js\n"
+        "- Licencia: MIT\n\n```text\n" + mit.group(1) + "```\n\n"
+        "## Visor 3D atlas3d\n\n"
+        "Visor 3D atlas3d: Apache License 2.0, copia en tools/vendor/atlas3d/LICENSE; modificado para este "
+        "repositorio (plantilla propia, tooltips, controles de cámara, pausa).\n")
 
 
 def write_site(files, site):

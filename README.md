@@ -1,6 +1,6 @@
 # Panorama de plataformas CTeI
 
-Repositorio público de la organización [LIAUNAL](https://github.com/LIAUNAL). Reúne un estudio de referentes para plataformas de ciencia, tecnología e innovación (CTeI): plataformas en operación, software, patentes y artículos científicos de Bogotá, Colombia, América Latina y el resto del mundo. Sirve al levantamiento de requisitos de Hēma, la plataforma de articulación CTeI de la Agencia ATENEA, y de plataformas parecidas.
+Estudio de referentes para plataformas de ciencia, tecnología e innovación (CTeI): plataformas en operación, software, patentes y artículos científicos de Bogotá, Colombia, América Latina y el resto del mundo. Sirve al levantamiento de requisitos de Hēma, la plataforma de articulación CTeI de la Agencia ATENEA, y de plataformas parecidas.
 
 El repositorio tiene tres piezas: las fichas de los referentes, un tablero estático para GitHub Pages con constelación 3D y un [servidor MCP](#servidor-mcp) que el agente `aracne-ctei-scout` de Aracne consulta durante la fase de requisitos. Las fuentes y los servidores MCP usados en la búsqueda están en [`docs/fuentes-y-mcp.md`](docs/fuentes-y-mcp.md).
 
@@ -13,14 +13,14 @@ El repositorio tiene tres piezas: las fichas de los referentes, un tablero está
 | `data/landscape.json` | Fuente única generada desde las fichas: registros, clústeres, relaciones tipadas, top 5 por similitud y matriz de actores, servicios e interacciones |
 | `data/cluster_names.json` | Nombres de los clústeres. El build escribe nombres provisionales («Por nombrar: …») que una persona reemplaza |
 | `data/runs.jsonl` | Registro de corridas del agente, una línea JSON por corrida (formato abajo) |
-| `docs/` | Sitio estático de GitHub Pages: `index.html`, `constelacion.html` (visor de papersmith-ai) y `data/landscape.json` |
-| `tools/` | Build, índice SQLite, servidor MCP, plantillas del tablero, pruebas visuales y el visor 3D en `tools/vendor/papersmith/` |
+| `docs/` | Sitio estático de GitHub Pages: `index.html`, `constelacion.html` (visor 3D) y `data/landscape.json` |
+| `tools/` | Build, índice SQLite, servidor MCP, plantillas del tablero, pruebas visuales y el visor 3D en `tools/vendor/atlas3d/` |
 | `tests/` | Pruebas con pytest sobre fichas sintéticas: validación, búsqueda, contrato del MCP y estabilidad de clústeres |
 | `bin/panoramaCTeI` | Comando para ver el tablero, regenerar y servir el MCP desde un clon |
 
 ## Ver el tablero
 
-En línea, cuando el repositorio esté publicado: <https://liaunal.github.io/panoramaPlataformasCTeI/>. GitHub Pages publica la carpeta `docs/` de la rama `main`, de modo que cada push que regenere `docs/` actualiza el sitio en uno o dos minutos.
+En línea: <https://liaunal.github.io/panoramaPlataformasCTeI/>. GitHub Pages publica la carpeta `docs/` de la rama `main`, de modo que cada push que regenere `docs/` actualiza el sitio en uno o dos minutos.
 
 En local:
 
@@ -46,7 +46,7 @@ El tablero tiene ocho vistas:
 | Línea de tiempo | Referentes por año de lanzamiento, publicación o prioridad, apilados por alcance |
 | Corridas del agente | Las corridas de `data/runs.jsonl`; un clic resalta en la constelación las fichas que consultó y exportó |
 
-La constelación conserva el comportamiento del banco de LIAUNAL. Deja de dibujar cuando otra pestaña está a la vista y cambia a una vista 2D cuando el equipo no tiene GPU apropiada para WebGL (`constelacion.html?view=2d` la fuerza). No muestra nombres en reposo: el de un nodo aparece al pasar el cursor y el botón «nombres» muestra los de todos los soles. `constelacion.html?focus=CT101` abre con un referente seleccionado y `constelacion.html?highlight=CT101,CT102` resalta un grupo.
+La constelación deja de dibujar cuando otra pestaña está a la vista y cambia a una vista 2D cuando el equipo no tiene GPU apropiada para WebGL (`constelacion.html?view=2d` la fuerza). No muestra nombres en reposo: el de un nodo aparece al pasar el cursor y el botón «nombres» muestra los de todos los soles. `constelacion.html?focus=CT101` abre con un referente seleccionado y `constelacion.html?highlight=CT101,CT102` resalta un grupo.
 
 ## Servidor MCP
 
@@ -128,4 +128,4 @@ La primera verifica que el grafo quede centrado, sin etiquetas ni tooltip en rep
 
 ## Créditos
 
-El diseño, el índice y el tablero siguen a [bancoProyectosPapersLIA](https://github.com/LIAUNAL/bancoProyectosPapersLIA). El visor 3D de `tools/vendor/papersmith/` proviene de LIAUNAL/papersmith-ai (Apache-2.0) y empaqueta three.js (MIT); se conserva idéntico a upstream y la plantilla `tools/constellation_template.html` y los parches `VIEWER_PATCHES` de `tools/build_landscape.py` se aplican al generar el sitio. Los avisos de terceros se publican en `docs/THIRD_PARTY_NOTICES.md`.
+El visor 3D de `tools/vendor/atlas3d/` se distribuye bajo la licencia Apache 2.0 (copia en `tools/vendor/atlas3d/LICENSE`) y empaqueta three.js (MIT). La plantilla `tools/constellation_template.html` y los parches `VIEWER_PATCHES` de `tools/build_landscape.py` se aplican al generar el sitio. Los avisos de terceros se publican en `docs/THIRD_PARTY_NOTICES.md`.

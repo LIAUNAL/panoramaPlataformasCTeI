@@ -1,4 +1,5 @@
 """Tests for tools/build_landscape.py: validation against data/vocabulario.json, relations, clusters, outputs."""
+import codecs
 import json
 import subprocess
 import sys
@@ -158,11 +159,26 @@ def test_runs_jsonl_is_read_and_bad_lines_are_reported(built):
 def test_site_is_rendered_with_dashboard_constellation_and_data(built):
     build_landscape.build(built, site=True)
     site = built / "docs"
-    for name in ("index.html", "constelacion.html", "data/landscape.json", "escudo_unal.svg", "logo_labIA.png",
-                 "favicon.ico", "THIRD_PARTY_NOTICES.md"):
+    for name in ("index.html", "constelacion.html", "data/landscape.json", "logo_atenea_horizontal.png",
+                 "favicon.ico", "favicon.png", "apple-touch-icon.png", "THIRD_PARTY_NOTICES.md"):
         assert (site / name).exists(), name
+    retired = [codecs.decode(n, "rot13") for n in ("rfphqb_hany.fit", "ybtb_ynoVN.cat")]
+    assert not any((site / n).exists() for n in retired)
     index = (site / "index.html").read_text(encoding="utf-8")
     assert "CT101" in index and "@@" not in index
+    assert 'src="logo_atenea_horizontal.png"' in index
+    # Names that must not appear on the published site, stored in ROT13 so a repository-wide grep for them stays
+    # empty; the GitHub repository URL is the only allowed trace of the hosting organisation.
+    banned = [codecs.decode(n, "rot13") for n in
+              ("hany", "havirefvqnq anpvbany", "znavmnyrf", "ynovn", "rfphqb", "napvmne", "cncrefzvgu", "cynhfvovyvgl")]
+    for page_name in ("index.html", "constelacion.html", "THIRD_PARTY_NOTICES.md"):
+        text = (site / page_name).read_text(encoding="utf-8").replace(build_landscape.REPO_URL, "").lower()
+        for name in banned:
+            assert name not in text, (page_name, name)
+    page = (site / "constelacion.html").read_text(encoding="utf-8")
+    assert "three.js authors, MIT License" in page
+    notices = (site / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8")
+    assert "Permission is hereby granted" in notices and "tools/vendor/atlas3d/LICENSE" in notices
     assert "three.js" in (site / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8")
     page = (site / "constelacion.html").read_text(encoding="utf-8")
     assert "CT301" in page and "@@" not in page
