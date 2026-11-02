@@ -1,0 +1,36 @@
+[project]
+name = "ctei-landscape"
+version = "0.1.0"
+description = "ctei-landscape MCP server: a study of CTeI platforms, software, patents and articles (Bogotá, Colombia, Latin America, international) as input for requirements work"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mcp>=2.3,<3", "pyyaml>=6"]
+
+[project.scripts]
+ctei-landscape-mcp = "ctei_landscape.ctei_landscape_mcp:main"
+
+[dependency-groups]
+# The build (clusters and similarity) and the tests; the MCP server itself needs neither.
+dev = ["pytest>=8", "numpy>=1.26", "scikit-learn>=1.4"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# The wheel holds only the MCP server and the data it serves; the dashboard and build tools stay in the repo.
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
+
+[tool.hatch.build.targets.wheel.force-include]
+"tools/landscape_core.py" = "ctei_landscape/landscape_core.py"
+"tools/landscape_db.py" = "ctei_landscape/landscape_db.py"
+"tools/ctei_landscape_mcp.py" = "ctei_landscape/ctei_landscape_mcp.py"
+"data/landscape.json" = "ctei_landscape/data/landscape.json"
+"fichas" = "ctei_landscape/fichas"
+
+[tool.uv]
+# uv run uses the repository files directly; uvx builds the wheel above.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

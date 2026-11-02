@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Panorama de plataformas CTeI command line.
+#   panoramaCTeI ui [port] [--no-open]   serve the dashboard locally (default port 8000) and open it
+#   panoramaCTeI build [build options]   validate fichas/ and regenerate data/landscape.json and docs/
+#                                        (e.g. --lenient, --recluster, --clusters K)
+#   panoramaCTeI mcp                     run the ctei-landscape MCP server over stdio (for MCP clients)
+set -euo pipefail
+ROOT="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+
+build() {
+  (cd "$ROOT" && uv run -q python tools/build_landscape.py "$@")
+}
+
+ui() {
+  local port=8000 open=1
+  for arg in "$@"; do
+    case "$arg" in
+      --no-open) open=0 ;;
+      ''|*[!0-9]*) echo "panoramaCTeI ui: unknown argument '$arg'" >&2; exit 2 ;;
+      *) port="$arg" ;;
+    esac
+  done
+  if lsof -nP -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then
+    echo "panoramaCTeI ui: port $port is already in use; try 'panoramaCTeI ui $((port + 1))'" >&2
+    exit 1
+  fi
+  [ -f "$ROOT/docs/index.html" ] || build
+  local url="http://localhost:$port/"
+  echo "Panorama CTeI en $url  (Ctrl+C para detener)"
+  if [ "$open" = 1 ] && command -v open >/dev/null; then
+    (sleep 1 && open "$url") &
+  fi
+  exec python3 -m http.server "$port" --bind 127.0.0.1 --directory "$ROOT/docs"
+}
+
+mcp() {
+  exec uv run -q --no-project --directory "$ROOT" --with "mcp>=2.3,<3" --with "pyyaml>=6" python "$ROOT/tools/ctei_landscape_mcp.py"
+}
+
+case "${1:-}" in
+  ui) shift; ui "$@" ;;
+  build) shift; build "$@" ;;
+  mcp) mcp ;;
+  *) echo "usage: panoramaCTeI ui [port] [--no-open] | panoramaCTeI build [--lenient] [--recluster] | panoramaCTeI mcp" >&2; exit 2 ;;
+esac

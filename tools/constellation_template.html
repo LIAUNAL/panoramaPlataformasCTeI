@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@@TITLE@@</title>
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:wght@400;600;700&display=swap">
+<style>
+html,body{height:100%}
+body{font-family:"Ancizar Sans",system-ui,sans-serif;background:#0a0a10;color:#e4e4ed;margin:0;padding:12px 16px;box-sizing:border-box;display:flex;flex-direction:column}
+h1{font-size:18px;font-weight:600;margin:0 0 8px;letter-spacing:.02em}
+#help{color:#9aa3bd;font-size:13px;margin:0 0 8px}
+#rellegend,#toolbar{margin:0 0 6px;font-size:13px;color:#9aa3bd}
+.dot{display:inline-block;width:16px;height:0;border-top:2px solid;margin:0 4px 3px 10px;vertical-align:middle}
+#toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#toolbar button,#toolbar input,#toolbar select{font-size:13px;padding:3px 12px;background:#14172a;color:#e4e4ed;border:1px solid #2a3350;border-radius:6px}
+#toolbar button{cursor:pointer}
+#toolbar button.on{background:#94b43b;color:#0a0a10;border-color:#94b43b}
+#toolbar .sep{width:1px;height:20px;background:#2a3350;margin:0 4px}
+#toolbar input{width:200px;max-width:100%}
+#toolbar select{max-width:220px;cursor:pointer}
+#toolbar select.on{border-color:#94b43b;color:#c7dd8a}
+body.embedded{padding:8px 10px}
+body.embedded h1,body.embedded #help{display:none}
+.atlas-tip{max-width:340px;white-space:normal!important;text-align:center;line-height:1.3;z-index:5}
+#stage{flex:1 1 auto;display:flex;gap:10px;min-height:360px}
+#sky{position:relative}
+#sky canvas{display:block;width:100%;height:100%}
+#gpunote{margin:0 0 6px;font-size:12px;color:#e8b339}
+.atlas-names{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:4}
+.atlas-names div{position:absolute;left:0;top:0;font:11px "Ancizar Sans",system-ui,sans-serif;white-space:nowrap;text-shadow:0 0 3px #0a0a10,0 0 3px #0a0a10,0 0 6px #0a0a10}
+.atlas-names .nm{color:#f3d98b}
+.atlas-names .lit{font-weight:600;color:#fff}
+#gpunote[hidden],#runnote[hidden],#toolbar [hidden]{display:none}
+#runnote{margin:0 0 6px;font-size:12px;color:#c7dd8a}
+.pl{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 4px 0 8px;vertical-align:0}
+.sky{flex:1 1 auto;min-width:0;background:#0a0a10;border:1px solid #1e2236;border-radius:10px;overflow:hidden;cursor:grab}
+.sky:active{cursor:grabbing}
+#side{flex:0 0 360px;display:none;overflow:auto;background:#11131f;border:1px solid #94b43b;border-radius:10px;padding:14px 16px;box-shadow:0 0 40px rgba(148,180,59,.18);font-size:13px;line-height:1.45}
+#side.open{display:block}
+#side h3{margin:4px 0 6px;font-size:15px;line-height:1.3}
+#side h4{margin:12px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#94b43b}
+#side p{margin:0 0 6px;color:#c9cfe2}
+#side .meta{color:#9aa3bd;font-size:12px}
+#side .focus{border-left:3px solid #e8b339;padding-left:10px;color:#e4e4ed}
+#side .pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;margin:0 4px 4px 0;border:1px solid #2a3350;background:#14172a}
+#side .pill.art{border-color:#e8b339;color:#e8b339}
+#side .pill.pro{border-color:#5ad1e6;color:#5ad1e6}
+#side a{color:#c7dd8a;word-break:break-all}
+#side ol{margin:0;padding-left:18px}
+#side li{margin:0 0 6px}
+#side li button{all:unset;cursor:pointer;color:#e4e4ed}
+#side li button:hover,#side li button:focus-visible{color:#e8b339;text-decoration:underline}
+#side .score{color:#9aa3bd;font-size:11px}
+#sideclose{float:right;cursor:pointer;font-size:13px;padding:2px 10px;background:#1a1d2e;color:#e4e4ed;border:1px solid #2a3350;border-radius:6px}
+@media (max-width:820px){html,body{height:auto}body{min-height:100%}#stage{flex-direction:column}.sky{flex:0 0 auto;height:52vh;min-height:280px}#side{flex:0 0 auto;max-height:none}#toolbar .sep{display:none}
+  /* One scrollable row of controls, so the sky keeps most of a phone screen. */
+  #toolbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  #toolbar::-webkit-scrollbar{display:none}
+  #toolbar>*{flex:0 0 auto}
+  #toolbar input{width:170px}
+  #rellegend{font-size:11px;line-height:1.5}
+  body.embedded .sky{height:calc(100vh - 96px)}}
+@media (pointer:coarse){#toolbar button,#toolbar input,#toolbar select{font-size:16px;padding:7px 12px}#sideclose{padding:6px 12px}}
+</style>
+</head>
+<body>
+<h1>@@HEADING@@</h1>
+<div id="help">Arrastre para rotar, clic derecho para desplazar y rueda para acercar. Al pasar el cursor por un nodo aparece su etiqueta; con un clic se ilumina con sus conexiones y se abre su ficha con los 5 referentes más parecidos; con doble clic la vista vuela hasta él.</div>
+<div id="toolbar">
+  <button id="zoomin" title="Acercar">zoom +</button>
+  <button id="zoomout" title="Alejar">zoom −</button>
+  <span class="sep"></span>
+  <button id="spinleft" title="Girar a la izquierda">⟲ girar</button>
+  <button id="spinright" title="Girar a la derecha">girar ⟳</button>
+  <button id="tiltup" title="Inclinar hacia arriba">▲ inclinar</button>
+  <button id="tiltdown" title="Inclinar hacia abajo">▼ inclinar</button>
+  <button id="autorotate" class="on" title="Rotación automática">⏸ rotación</button>
+  <button id="names" title="Mostrar u ocultar los nombres; solo se dibujan los que no se tapan, y acercar muestra más">nombres</button>
+  <span class="sep"></span>
+  <button id="zoomreset" title="Vista inicial y sin selección">reiniciar vista</button>
+  <button id="grouplayout" title="Reordena los sistemas por clúster; púlselo de nuevo para volver">Disposición de grupos</button>
+  <button id="runclear" hidden title="Quitar el resaltado de la corrida del agente">quitar resaltado</button>
+  <span class="sep"></span>
+  <select id="famselect" aria-label="Filtrar por clúster"><option value="">Todos los clústeres</option></select>
+  <input id="find" type="search" list="findlist" placeholder="Buscar ID o título y Enter" aria-label="Buscar referente">
+  <datalist id="findlist"></datalist>
+</div>
+<div id="rellegend"><em>Planetas:</em> <i class="pl" style="background:#5ad1e6"></i>alcance <i class="pl" style="background:#95a5a6"></i>tipo <i class="pl" style="background:#7f6ae6"></i>tema <i class="pl" style="background:#9b7ede"></i>clúster <i class="pl" style="background:#5aa9e6"></i>actor <i class="pl" style="background:#e67e22"></i>interacción <i class="pl" style="background:#2ecc71"></i>servicio · <em>Enlaces declarados:</em> <span class="dot" style="border-color:#2ecc71"></span>similar a <span class="dot" style="border-color:#e8b339"></span>implementa <span class="dot" style="border-color:#5aa9e6"></span>estudiado en <span class="dot" style="border-color:#4a5a80"></span>sol → planeta <span class="dot" style="border-color:#9b7ede;border-top-style:dashed"></span>mismo clúster</div>
+<div id="runnote" role="status" hidden></div>
+<div id="gpunote" role="status" hidden></div>
+<div id="stage">
+  <div id="sky" class="sky"></div>
+  <aside id="side" aria-live="polite"><button id="sideclose">cerrar</button><div id="sidebody"></div></aside>
+</div>
+<script type="application/json" id="atlas-data">@@DATA@@</script>
+<script>
+// Phones and modest machines (few cores or little memory) render at a lower pixel ratio and
+// without antialiasing; the viewer patches in tools/build_landscape.py read this flag.
+window.CTEI_LOW_POWER = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4
+  || matchMedia('(pointer: coarse)').matches;
+window.CTEI_MAX_DPR = window.CTEI_LOW_POWER ? 1.5 : 2;
+</script>
+<script>
+@@VIEWER@@
+</script>
+<script>
+if (window.self !== window.top) document.body.classList.add('embedded');
+const SCENE = JSON.parse(document.getElementById('atlas-data').textContent);
+const ATLAS = SCENE.atlas;
+const PLANETS = new Map();
+const SYSTEMS = new Map();
+ATLAS.systems.forEach(s => {
+  SYSTEMS.set(s.id, s);
+  s.planets.forEach(p => PLANETS.set(s.id + '.' + p.id, {system: s, planet: p}));
+});
+const sideEl = document.getElementById('side');
+const sideBody = document.getElementById('sidebody');
+
+function el(tag, text, cls) {
+  const node = document.createElement(tag);
+  if (text !== undefined && text !== null) node.textContent = text;
+  if (cls) node.className = cls;
+  return node;
+}
+function systemKeys(id) {
+  const s = SYSTEMS.get(id);
+  return s ? s.planets.map(p => id + '.' + p.id) : [];
+}
+function linkedSystems(id) {
+  const out = new Set();
+  SCENE.edges.forEach(e => {
+    if (!e.inter) return;
+    const a = e.from.split('.')[0], b = e.to.split('.')[0];
+    if (a === id) out.add(b);
+    if (b === id) out.add(a);
+  });
+  return out;
+}
+
+// Selection: the clicked node, its whole system, every system it links to and
+// its five most similar items stay lit; everything else dims.
+let selected = null;
+let selectedKeep = null;
+function selectionKeep(key) {
+  const id = key.split('.')[0];
+  const sys = SYSTEMS.get(id);
+  const keep = new Set(systemKeys(id));
+  linkedSystems(id).forEach(other => systemKeys(other).forEach(k => keep.add(k)));
+  ((sys && sys.meta && sys.meta.top5) || []).forEach(r => systemKeys(r.id).forEach(k => keep.add(k)));
+  return keep;
+}
+function section(title, text) {
+  if (!text) return [];
+  return [el('h4', title), el('p', text)];
+}
+function listSection(title, items) {
+  if (!items || !items.length) return [];
+  return [el('h4', title), el('p', items.join(' · '))];
+}
+function evidenceHref(ev) {
+  const v = String(ev).trim();
+  if (/^https?:\/\//.test(v)) return v;
+  if (/^doi:/i.test(v)) return 'https://doi.org/' + v.replace(/^doi:\s*/i, '');
+  if (/^10\.\d{4,9}\//.test(v)) return 'https://doi.org/' + v;
+  return 'https://worldwide.espacenet.com/patent/search?q=pn%3D' + encodeURIComponent(v.replace(/[\s,./-]/g, ''));
+}
+const REL_ES = {'similar-a': 'similar a', 'implementa': 'implementa', 'estudiado-en': 'estudiado en'};
+function showSide(key) {
+  const entry = PLANETS.get(key);
+  if (!entry) return;
+  const sys = entry.system, m = sys.meta || {}, p = entry.planet;
+  const nodes = [];
+  const pills = el('div');
+  pills.append(el('span', m.tipo || m.kind, 'pill art'), el('span', m.scope || '', 'pill pro'));
+  nodes.push(pills, el('h3', m.title || sys.title));
+  nodes.push(el('p', [sys.id, m.years, m.venue].filter(Boolean).join(' · '), 'meta'));
+  if (m.cluster) nodes.push(el('p', 'Clúster: ' + m.cluster, 'meta'));
+  if (m.temas && m.temas.length) nodes.push(el('p', 'Temas: ' + m.temas.join(' · '), 'meta'));
+  if (p.id !== 'sun' && p.label) nodes.push(el('h4', 'Nodo'), el('p', p.tip || p.label, 'focus'));
+  nodes.push(...section('Descripción', m.descripcion), ...listSection('Actores', m.actores),
+             ...listSection('Servicios', m.servicios), ...listSection('Interacciones', m.interacciones),
+             ...section('Ideas para plataformas CTeI', m.ideas));
+  const rels = m.relations || [];
+  if (rels.length) {
+    nodes.push(el('h4', 'Relaciones declaradas'));
+    const ul = el('ol');
+    rels.forEach(r => {
+      const li = el('li');
+      const b = el('button', (r.direction === 'out' ? '' : '← ') + REL_ES[r.tipo] + ' ' + r.id + (SYSTEMS.has(r.id) ? ' · ' + SYSTEMS.get(r.id).meta.title : ''));
+      b.addEventListener('click', () => select(r.id + '.sun', true));
+      li.append(b);
+      ul.append(li);
+    });
+    nodes.push(ul);
+  }
+  const top = m.top5 || [];
+  if (top.length) {
+    nodes.push(el('h4', 'Top 5 más parecidos (similitud)'));
+    const ol = el('ol', null, 'top5');
+    top.forEach(r => {
+      const li = el('li');
+      const b = el('button', r.id + ' · ' + r.title);
+      b.addEventListener('click', () => select(r.id + '.sun', true));
+      li.append(b, el('div', (SYSTEMS.has(r.id) ? SYSTEMS.get(r.id).meta.tipo : r.kind) + ' · similitud ' + r.sim.toFixed(2), 'score'));
+      ol.append(li);
+    });
+    nodes.push(ol);
+  }
+  if (m.evidencia && m.evidencia.length) {
+    nodes.push(el('h4', 'Evidencia'));
+    m.evidencia.forEach(ev => {
+      const a = el('a', ev);
+      a.href = evidenceHref(ev); a.target = '_blank'; a.rel = 'noopener';
+      const line = el('p');
+      line.append(a);
+      nodes.push(line);
+    });
+    if (m.consultado) nodes.push(el('p', 'Consultado: ' + m.consultado, 'meta'));
+  }
+  sideBody.replaceChildren(...nodes);
+  sideEl.classList.add('open');
+  sideEl.scrollTop = 0;
+}
+function select(key, fly) {
+  if (!PLANETS.has(key)) return;
+  selected = key;
+  selectedKeep = selectionKeep(key);
+  if (viewer) {
+    viewer.setDim(selectedKeep);
+    if (fly) viewer.focus(key);
+  }
+  showSide(key);
+  syncRotate();
+}
+function clearSelection() {
+  selected = null;
+  selectedKeep = null;
+  sideEl.classList.remove('open');
+  if (viewer) viewer.setDim(restingKeep());
+}
+document.getElementById('sideclose').addEventListener('click', clearSelection);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') clearSelection(); });
+
+let activeFam = null;
+function familyKeep() {
+  if (activeFam === null) return null;
+  const keep = new Set();
+  ATLAS.systems.forEach(s => {
+    if (s.planets.some(p => p.slot === 'family' && p.label === activeFam))
+      s.planets.forEach(p => keep.add(s.id + '.' + p.id));
+  });
+  return keep;
+}
+let runKeep = null;
+function restingKeep() { return selectedKeep || runKeep || familyKeep(); }
+const runNote = document.getElementById('runnote'), runClear = document.getElementById('runclear');
+function highlight(ids, label) {
+  const keep = new Set();
+  (ids || []).forEach(id => systemKeys(String(id).toUpperCase()).forEach(k => keep.add(k)));
+  runKeep = keep.size ? keep : null;
+  runNote.textContent = runKeep ? (label || 'Corrida del agente') + ': ' + (ids || []).filter(id => SYSTEMS.has(String(id).toUpperCase())).length + ' fichas resaltadas' : '';
+  runNote.hidden = !runKeep;
+  runClear.hidden = !runKeep;
+  if (viewer) viewer.setDim(restingKeep());
+}
+function hoverKeep(key) {
+  const keep = new Set([key]);
+  SCENE.edges.forEach(e => {
+    if (e.from === key || e.to === key) { keep.add(e.from); keep.add(e.to); }
+  });
+  const entry = PLANETS.get(key);
+  if (entry && entry.planet.slot === 'family') {
+    PLANETS.forEach((other, otherKey) => {
+      if (other.planet.slot === 'family' && other.planet.label === entry.planet.label) keep.add(otherKey);
+    });
+  }
+  if (selectedKeep) selectedKeep.forEach(k => keep.add(k));
+  return keep;
+}
+// 'ok' when WebGL runs on a real GPU; 'weak' when only a software renderer is
+// available (failIfMajorPerformanceCaveat); 'none' when WebGL cannot start.
+function webglSupport() {
+  try {
+    const strict = {failIfMajorPerformanceCaveat: true};
+    const c = document.createElement('canvas');
+    const g = c.getContext('webgl2', strict) || c.getContext('webgl', strict);
+    if (g) {
+      const lose = g.getExtension('WEBGL_lose_context');
+      if (lose) lose.loseContext();
+      return 'ok';
+    }
+    const any = document.createElement('canvas');
+    return any.getContext('webgl2') || any.getContext('webgl') ? 'weak' : 'none';
+  } catch (e) {
+    return 'none';
+  }
+}
+// Canvas 2D fallback with the same API as AtlasViewer: an orthographic projection
+// of the atlas positions that can still spin and tilt, rendered only on demand.
+const FlatViewer = {mount(host, scene, opts) {
+  const keys = Object.keys(scene.positions).sort();
+  const index = new Map(keys.map((k, i) => [k, i]));
+  const info = new Map();
+  scene.atlas.systems.forEach(s => s.planets.forEach(p => info.set(s.id + '.' + p.id, {system: s, planet: p})));
+  const color = keys.map(k => {
+    const e = info.get(k);
+    return (e && (e.planet.color || scene.slot_colors[e.planet.slot])) || '#9aa3bd';
+  });
+  const isSun = keys.map(k => k.endsWith('.sun'));
+  const skyPos = keys.map(k => scene.positions[k]);
+  const centroid = [0, 1, 2].map(d => skyPos.reduce((a, p) => a + p[d], 0) / Math.max(1, skyPos.length));
+  // Groups layout: systems of one cluster share a cell; each keeps its own shape.
+  const families = new Map();
+  scene.atlas.systems.forEach(s => {
+    const fam = (s.planets.find(p => p.slot === 'family') || {}).label || '';
+    if (!families.has(fam)) families.set(fam, []);
+    families.get(fam).push(s.id);
+  });
+  const famNames = [...families.keys()].sort();
+  const most = Math.max(1, ...famNames.map(f => families.get(f).length));
+  const cell = 2 * (520 * Math.sqrt(most - 1) + 320) + 600;
+  const cols = Math.ceil(Math.sqrt(famNames.length)), rows = Math.ceil(famNames.length / cols);
+  const anchor = new Map();
+  famNames.forEach((f, n) => {
+    const cx = (n % cols - (cols - 1) / 2) * cell, cy = ((rows - 1) / 2 - Math.floor(n / cols)) * cell;
+    families.get(f).sort().forEach((id, j) => {
+      const r = 520 * Math.sqrt(j), a = j * 2.39996;
+      anchor.set(id, [cx + r * Math.cos(a), cy + r * Math.sin(a), 0]);
+    });
+  });
+  const groupPos = keys.map((k, i) => {
+    const id = k.split('.')[0], f = scene.frames[id], a = anchor.get(id);
+    if (!f || !a) return skyPos[i];
+    return [0, 1, 2].map(d => a[d] + skyPos[i][d] - f.center[d]);
+  });
+  const lines = scene.edges.map(e => ({a: index.get(e.from), b: index.get(e.to), color: e.color, inter: e.inter}))
+    .concat((scene.ties || []).map(t => ({a: index.get(t.from), b: index.get(t.to), color: '#9b7ede', tie: true})))
+    .filter(l => l.a !== undefined && l.b !== undefined);
+
+  const canvas = document.createElement('canvas');
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const tip = document.createElement('div');
+  tip.className = 'atlas-tip';
+  tip.style.cssText = 'position:absolute;pointer-events:none;display:none;padding:3px 8px;border-radius:6px;background:rgba(10,10,16,.88);border:1px solid #2a3350;color:#e4e4ed;font:12px system-ui,sans-serif;white-space:nowrap;transform:translate(-50%,-130%)';
+  host.appendChild(tip);
+
+  let layout = 'sky', yaw = 0, pitch = 0, scale = 1, fit = 1, panX = 0, panY = 0;
+  let dim = null, hover = null, spinning = false, queued = false, last = 0;
+  let W = 0, H = 0, sx = new Float32Array(keys.length), sy = new Float32Array(keys.length);
+  function points() { return layout === 'groups' ? groupPos : skyPos; }
+  function project() {
+    const pts = points(), cy = Math.cos(yaw), sn = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const c = layout === 'groups' ? [0, 0, 0] : centroid;
+    pts.forEach((p, i) => {
+      const dx = p[0] - c[0], dy = p[1] - c[1], dz = p[2] - c[2];
+      const x = dx * cy - dy * sn, y = dx * sn + dy * cy;
+      sx[i] = W / 2 + (x - panX) * scale;
+      sy[i] = H / 2 - (y * cp - dz * sp - panY) * scale;
+    });
+  }
+  function fitView() {
+    const pts = points(), c = layout === 'groups' ? [0, 0, 0] : centroid;
+    let ext = 1;
+    pts.forEach(p => { ext = Math.max(ext, Math.abs(p[0] - c[0]), Math.abs(p[1] - c[1])); });
+    fit = scale = Math.min(W, H) / (2 * ext) * 0.92;
+    panX = panY = 0;
+  }
+  function draw() {
+    queued = false;
+    project();
+    const dpr = Math.min(Math.max(window.devicePixelRatio || 1, 1), window.CTEI_MAX_DPR);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#0a0a10';
+    ctx.fillRect(0, 0, W, H);
+    const lit = i => !dim || dim.has(keys[i]);
+    ctx.lineWidth = 1;
+    lines.forEach(l => {
+      const on = lit(l.a) && lit(l.b);
+      ctx.globalAlpha = on ? (l.inter ? 0.9 : l.tie ? 0.45 : 0.35) : 0.05;
+      ctx.strokeStyle = l.color;
+      ctx.setLineDash(l.tie ? [4, 4] : []);
+      ctx.beginPath();
+      ctx.moveTo(sx[l.a], sy[l.a]);
+      ctx.lineTo(sx[l.b], sy[l.b]);
+      ctx.stroke();
+    });
+    ctx.setLineDash([]);
+    const grow = Math.min(3, Math.max(1, Math.sqrt(scale / fit)));
+    keys.forEach((k, i) => {
+      if (sx[i] < -10 || sy[i] < -10 || sx[i] > W + 10 || sy[i] > H + 10) return;
+      ctx.globalAlpha = lit(i) ? 1 : 0.12;
+      ctx.fillStyle = color[i];
+      ctx.beginPath();
+      ctx.arc(sx[i], sy[i], (isSun[i] ? 4.5 : 2) * grow + (k === hover ? 2 : 0), 0, 2 * Math.PI);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    if (opts.afterDraw) opts.afterDraw(ctx, W, H);
+  }
+  function redraw() {
+    if (!queued) { queued = true; requestAnimationFrame(draw); }
+  }
+  function resize() {
+    const dpr = Math.min(Math.max(window.devicePixelRatio || 1, 1), window.CTEI_MAX_DPR);
+    const first = !W;
+    if (!first && !host.clientWidth) return; // hidden: keep the current canvas
+    W = host.clientWidth || 800;
+    H = host.clientHeight || 600;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    if (first) fitView();
+    redraw();
+  }
+  let hidden = false;
+  function tick(t) {
+    if (!spinning || hidden) return;
+    if (last) yaw += (t - last) * 0.00008;
+    last = t;
+    draw();
+    requestAnimationFrame(tick);
+  }
+  function pick(ev) {
+    const r = canvas.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top;
+    let best = -1, bestD = 64;
+    for (let i = 0; i < keys.length; i++) {
+      const d = (sx[i] - x) ** 2 + (sy[i] - y) ** 2;
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    return best < 0 ? null : {key: keys[best], x: sx[best], y: sy[best]};
+  }
+  let drag = null;
+  canvas.addEventListener('contextmenu', ev => ev.preventDefault());
+  canvas.addEventListener('pointerdown', ev => {
+    drag = {x: ev.clientX, y: ev.clientY, panX, panY, moved: false};
+    canvas.setPointerCapture(ev.pointerId);
+    spinning = false;
+  });
+  canvas.addEventListener('pointermove', ev => {
+    if (drag) {
+      const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true;
+      panX = drag.panX - dx / scale;
+      panY = drag.panY + dy / scale;
+      redraw();
+      return;
+    }
+    const hit = pick(ev);
+    const key = hit ? hit.key : null;
+    if (hit) {
+      const e = info.get(hit.key);
+      tip.textContent = (e && (e.planet.tip || e.planet.label)) || hit.key;
+      tip.style.left = hit.x + 'px';
+      tip.style.top = hit.y + 'px';
+      tip.style.display = 'block';
+    } else {
+      tip.style.display = 'none';
+    }
+    if (key !== hover) {
+      hover = key;
+      if (opts.onHover) opts.onHover(key);
+      redraw();
+    }
+  });
+  canvas.addEventListener('pointerleave', () => {
+    tip.style.display = 'none';
+    if (hover) { hover = null; if (opts.onHover) opts.onHover(null); redraw(); }
+  });
+  canvas.addEventListener('pointerup', ev => {
+    const d = drag;
+    drag = null;
+    if (!d || d.moved || ev.button !== 0) return;
+    const hit = pick(ev);
+    if (hit && opts.onSelect) opts.onSelect(hit.key);
+  });
+  canvas.addEventListener('dblclick', ev => { const hit = pick(ev); if (hit) api.focus(hit.key); });
+  canvas.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    const r = canvas.getBoundingClientRect();
+    const mx = ev.clientX - r.left - W / 2, my = ev.clientY - r.top - H / 2;
+    const f = Math.exp(-ev.deltaY * 0.0015);
+    panX += mx / scale - mx / (scale * f);
+    panY -= my / scale - my / (scale * f);
+    scale *= f;
+    spinning = false;
+    redraw();
+  }, {passive: false});
+  new ResizeObserver(resize).observe(host);
+  resize();
+
+  const api = {
+    setDim(keep) { dim = keep && keep.size ? keep : null; redraw(); },
+    focus(key) {
+      const i = index.get(key);
+      if (i === undefined) return;
+      spinning = false;
+      scale = Math.max(scale, fit * 4);
+      project();
+      panX += (sx[i] - W / 2) / scale;
+      panY -= (sy[i] - H / 2) / scale;
+      redraw();
+    },
+    zoom(f) { scale *= f; redraw(); },
+    spin(a) { spinning = false; yaw += a; redraw(); },
+    tilt(a) { spinning = false; pitch = Math.min(Math.PI / 2, Math.max(-Math.PI / 2, pitch + a)); redraw(); },
+    reset() { spinning = false; yaw = pitch = 0; dim = null; fitView(); redraw(); },
+    rotating() { return spinning; },
+    rotate(on) {
+      spinning = on === undefined ? !spinning : !!on;
+      last = 0;
+      if (spinning) requestAnimationFrame(tick);
+      return spinning;
+    },
+    setLayout(name) { layout = name === 'groups' ? 'groups' : 'sky'; fitView(); redraw(); return layout; },
+    layout() { return layout; },
+    project(ks) {
+      return ks.map(k => {
+        const i = index.get(k);
+        return i === undefined ? null
+          : {x: sx[i], y: sy[i], z: 0, on: sx[i] >= 0 && sy[i] >= 0 && sx[i] <= W && sy[i] <= H};
+      });
+    },
+    refresh() { redraw(); },
+    pause() { hidden = true; },
+    resume() {
+      if (!hidden) return;
+      hidden = false;
+      last = 0;
+      if (spinning) requestAnimationFrame(tick);
+      redraw();
+    },
+  };
+  return api;
+}};
+// Names of articles and projects next to their suns. Placed greedily by priority
+// (selection, hover, lit, then nearer or better connected), a name is skipped
+// when it would overlap one already placed, so zooming in reveals more of them.
+const SUNS = ATLAS.systems.map(s => ({key: s.id + '.sun', id: s.id, kind: (s.meta && s.meta.kind) || '',
+  name: (s.meta && (s.meta.name || s.meta.title)) || s.title}));
+const DEGREE = new Map(SUNS.map(s => [s.id, linkedSystems(s.id).size]));
+const NAME_FONT = '11px system-ui, sans-serif';
+const measureCtx = document.createElement('canvas').getContext('2d');
+measureCtx.font = NAME_FONT;
+const NAME_WIDTH = new Map(SUNS.map(s => [s.key, Math.ceil(measureCtx.measureText(s.name).width)]));
+// No labels at rest: names appear on hover, or for all suns with the «nombres» button.
+let showNames = false;
+let hovered = null;
+// The dim set last sent to the viewer, kept so names need not rebuild it every frame.
+let namesKeep = null;
+let namesDirty = true;
+function placeNames(W, H, pos) {
+  if (!showNames || !viewer || !viewer.project) return [];
+  pos = pos || viewer.project(SUNS.map(s => s.key));
+  const keep = namesKeep;
+  const hoverId = hovered && hovered.split('.')[0], selId = selected && selected.split('.')[0];
+  const cands = [];
+  SUNS.forEach((s, i) => {
+    const p = pos[i];
+    if (!p || !p.on) return;
+    const lit = !keep || keep.has(s.key);
+    const boost = s.id === selId ? 4 : s.id === hoverId ? 3 : 0;
+    if (!lit && !boost) return;
+    cands.push({s, p, lit: keep && lit, prio: boost + (keep && lit ? 2 : 0) + (1 - p.z) + DEGREE.get(s.id) * 0.01});
+  });
+  cands.sort((a, b) => b.prio - a.prio);
+  const placed = [], budget = Math.max(12, Math.floor(W * H / 12000));
+  for (const c of cands) {
+    if (placed.length >= budget) break;
+    const w = NAME_WIDTH.get(c.s.key), h = 14;
+    const box = {x: c.p.x - w / 2, y: c.p.y - h - 7, w, h};
+    if (box.x < 2 || box.y < 2 || box.x + w > W - 2 || box.y + h > H - 2) continue;
+    if (placed.some(o => box.x < o.x + o.w + 6 && o.x < box.x + w + 6 && box.y < o.y + o.h + 2 && o.y < box.y + h + 2)) continue;
+    placed.push(Object.assign(box, {s: c.s, lit: c.lit || c.prio >= 3}));
+  }
+  return placed;
+}
+// 2D: names are drawn on the canvas whenever it redraws.
+function drawNames(ctx, W, H) {
+  ctx.font = NAME_FONT;
+  ctx.textBaseline = 'top';
+  ctx.lineJoin = 'round';
+  placeNames(W, H).forEach(b => {
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#0a0a10';
+    ctx.strokeText(b.s.name, b.x, b.y + 1);
+    ctx.fillStyle = b.lit ? '#ffffff' : '#f3d98b';
+    ctx.fillText(b.s.name, b.x, b.y + 1);
+  });
+}
+// 3D: an HTML layer over the WebGL canvas. Each frame only projects the suns; placement and
+// DOM writes happen when the view moved by half a pixel or the dimming changed.
+const nameLayer = {paused: false, running: false, start() {}};
+function runNameLayer(host) {
+  const layer = document.createElement('div');
+  layer.className = 'atlas-names';
+  host.appendChild(layer);
+  const pool = new Map();
+  const keys = SUNS.map(s => s.key);
+  let last = null, lastW = 0, lastH = 0;
+  function moved(pos, W, H) {
+    if (!last || W !== lastW || H !== lastH) return true;
+    for (let i = 0; i < pos.length; i++) {
+      const a = pos[i], b = last[i];
+      if (!a !== !b || (a && (Math.abs(a.x - b.x) > 0.5 || Math.abs(a.y - b.y) > 0.5 || a.on !== b.on))) return true;
+    }
+    return false;
+  }
+  function frame() {
+    if (nameLayer.paused) { nameLayer.running = false; return; }
+    const W = host.clientWidth, H = host.clientHeight;
+    const pos = showNames ? viewer.project(keys) : null;
+    if (namesDirty || (pos && moved(pos, W, H))) {
+      namesDirty = false;
+      last = pos; lastW = W; lastH = H;
+      const shown = new Set();
+      placeNames(W, H, pos).forEach(b => {
+        let el = pool.get(b.s.key);
+        if (!el) {
+          el = document.createElement('div');
+          el.textContent = b.s.name;
+          pool.set(b.s.key, el);
+          layer.appendChild(el);
+        }
+        el.className = b.lit ? 'lit' : 'nm';
+        el.style.transform = `translate(${Math.round(b.x)}px,${Math.round(b.y)}px)`;
+        el.style.display = '';
+        shown.add(b.s.key);
+      });
+      pool.forEach((el, key) => { if (!shown.has(key)) el.style.display = 'none'; });
+    }
+    requestAnimationFrame(frame);
+  }
+  nameLayer.start = () => {
+    nameLayer.paused = false;
+    if (!nameLayer.running) { nameLayer.running = true; namesDirty = true; requestAnimationFrame(frame); }
+  };
+  nameLayer.start();
+}
+const viewerOpts = {
+  onSelect: key => select(key, false),
+  onHover: key => { hovered = key; if (viewer) viewer.setDim(key ? hoverKeep(key) : restingKeep()); },
+  afterDraw: drawNames,
+};
+const skyHost = document.getElementById('sky');
+const gpu = new URLSearchParams(location.search).get('view') === '2d' ? 'forced' : webglSupport();
+let viewer = gpu === 'ok' ? AtlasViewer.mount(skyHost, SCENE, viewerOpts) : null;
+if (!viewer) {
+  skyHost.textContent = '';
+  viewer = FlatViewer.mount(skyHost, SCENE, viewerOpts);
+  const note = document.getElementById('gpunote');
+  note.textContent = gpu === 'weak'
+    ? '⚠ La GPU de este equipo no es apropiada para la vista 3D: se muestra la constelación en 2D.'
+    : gpu === 'forced'
+      ? 'Vista 2D (forzada con ?view=2d).'
+      : '⚠ No hay GPU disponible para la vista 3D: se muestra la constelación en 2D.';
+  note.hidden = false;
+  document.getElementById('help').textContent = 'Vista 2D: arrastra para desplazar, rueda para acercar; girar e inclinar cambian el ángulo. '
+    + 'Pasa el cursor por un nodo para ver su etiqueta; clic para iluminarlo con sus conexiones y ver su ficha; doble clic para centrarlo.';
+} else {
+  runNameLayer(skyHost);
+}
+// Honour reduced motion: the 3D viewer starts rotating on its own.
+if (matchMedia('(prefers-reduced-motion: reduce)').matches && viewer.rotate) viewer.rotate(false);
+// Every dimming change goes through setDim: remember it for the names and mark them stale.
+const viewerSetDim = viewer.setDim;
+viewer.setDim = keep => { namesKeep = keep; namesDirty = true; viewerSetDim(keep); };
+const namesButton = document.getElementById('names');
+namesButton.addEventListener('click', () => {
+  showNames = !showNames;
+  namesDirty = true;
+  namesButton.classList.toggle('on', showNames);
+  if (viewer.refresh) viewer.refresh();
+});
+// The dashboard hides this page in a background tab: stop rendering until it is shown again.
+function setVisible(on) {
+  if (on) {
+    if (viewer.resume) viewer.resume();
+    if (gpu === 'ok') nameLayer.start();
+  } else {
+    if (viewer.pause) viewer.pause();
+    nameLayer.paused = true;
+  }
+}
+window.addEventListener('message', e => {
+  if (e.origin !== location.origin || !e.data) return;
+  if (e.data.type === 'ctei-visibility') setVisible(!!e.data.visible);
+  if (e.data.type === 'ctei-highlight') highlight(e.data.ids, e.data.label);
+});
+runClear.addEventListener('click', () => highlight(null));
+
+const rotateButton = document.getElementById('autorotate');
+function syncRotate() {
+  if (!viewer) return;
+  const on = viewer.rotating();
+  rotateButton.classList.toggle('on', on);
+  rotateButton.textContent = on ? '⏸ rotación' : '▶ rotación';
+}
+rotateButton.addEventListener('click', () => { if (viewer) { viewer.rotate(); syncRotate(); } });
+document.getElementById('sky').addEventListener('pointerdown', () => setTimeout(syncRotate, 0));
+document.getElementById('sky').addEventListener('wheel', () => setTimeout(syncRotate, 0), {passive: true});
+const STEP = Math.PI / 12;
+function act(id, fn) {
+  document.getElementById(id).addEventListener('click', () => { if (viewer) { fn(); syncRotate(); } });
+}
+act('zoomin', () => viewer.zoom(1.5));
+act('zoomout', () => viewer.zoom(1 / 1.5));
+act('spinleft', () => viewer.spin(STEP));
+act('spinright', () => viewer.spin(-STEP));
+act('tiltup', () => viewer.tilt(STEP / 2));
+act('tiltdown', () => viewer.tilt(-STEP / 2));
+act('zoomreset', () => {
+  activeFam = null;
+  highlight(null);
+  famSelect.value = '';
+  famSelect.classList.remove('on');
+  clearSelection();
+  viewer.reset();
+});
+const layoutButton = document.getElementById('grouplayout');
+act('grouplayout', () => {
+  const now = viewer.setLayout(viewer.layout() === 'groups' ? 'sky' : 'groups');
+  layoutButton.classList.toggle('on', now === 'groups');
+});
+
+const findInput = document.getElementById('find');
+const findList = document.getElementById('findlist');
+ATLAS.systems.forEach(s => {
+  const o = document.createElement('option');
+  o.value = s.id + ' · ' + ((s.meta && s.meta.title) || s.title);
+  findList.append(o);
+});
+findInput.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  const q = findInput.value.trim().toLowerCase();
+  if (!q) return;
+  const id = q.split(' · ')[0].toUpperCase();
+  const hit = SYSTEMS.has(id) ? SYSTEMS.get(id)
+    : ATLAS.systems.find(s => ((s.meta && s.meta.title) || s.title).toLowerCase().includes(q));
+  if (hit) select(hit.id + '.sun', true);
+});
+
+const famSelect = document.getElementById('famselect');
+const fams = {};
+ATLAS.systems.forEach(s => s.planets.forEach(p => {
+  if (p.slot === 'family') fams[p.label] = (fams[p.label] || 0) + 1;
+}));
+Object.keys(fams).sort().forEach(label => {
+  const o = document.createElement('option');
+  o.value = label;
+  o.textContent = label + ' (' + fams[label] + ')';
+  famSelect.append(o);
+});
+famSelect.addEventListener('change', () => {
+  activeFam = famSelect.value || null;
+  famSelect.classList.toggle('on', activeFam !== null);
+  if (viewer) viewer.setDim(restingKeep());
+});
+// Keep the hover label inside the sky: the viewer centres it over the node.
+const skyEl = document.getElementById('sky');
+skyEl.addEventListener('pointermove', () => {
+  const tip = skyEl.querySelector('.atlas-tip');
+  if (!tip || tip.style.display === 'none') return;
+  const w = tip.offsetWidth, h = tip.offsetHeight, W = skyEl.clientWidth;
+  const x = Math.min(Math.max(parseFloat(tip.style.left), w / 2 + 4), W - w / 2 - 4);
+  tip.style.left = x + 'px';
+  if (parseFloat(tip.style.top) < h * 1.3 + 4) tip.style.transform = 'translate(-50%, 30%)';
+  else tip.style.transform = 'translate(-50%,-130%)';
+});
+syncRotate();
+const params = new URLSearchParams(location.search);
+const wanted = params.get('focus');
+if (params.get('highlight')) highlight(params.get('highlight').split(','), 'Resaltado');
+if (wanted && SYSTEMS.has(wanted)) select(wanted + '.sun', true);
+</script>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<title>Panorama de plataformas CTeI</title>
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout of the Banco LIA dashboard (UNAL institutional look): gray sticky band with tabs, green hero, detail drawer on the right.
+   The data panels (.stage) stay on a night-sky palette; their tokens are re-scoped below. */
+:root {
+  --sky: #f6f7f2; --panel: #ffffff; --panel-2: #eef2e6; --line: #d8e2d5;
+  --ink: #1f2a1c; --muted: #4f5d4b; --faint: #7d8a78;
+  --gold: #c9940f; --green: #5f8f4a; --accent: #466b3f;
+  --brand: #466b3f; --brand-2: #617627; --lime: #94b43b; --unal-gray: #4b4b4b; --unal-gray-2: #3a3a3a;
+  --display: "Ancizar Sans", "Helvetica Neue", system-ui, sans-serif;
+  --body: "Ancizar Sans", "Helvetica Neue", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+.stage, #tip {
+  --sky: #090b14; --panel: #10142a; --panel-2: #161b36; --line: #262d52;
+  --ink: #e6e8f4; --muted: #9aa1c2; --faint: #6b7397;
+  --gold: #e8b339; --green: #7fb069; --accent: #94b43b;
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { background: var(--sky); color: var(--ink); font: 15px/1.55 var(--body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--unal-gray); }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1440px; margin: 0 auto; }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--unal-gray); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding-block: 8px 2px; }
+.unal-logo { display: block; flex: 0 0 auto; }
+.unal-logo img { height: 50px; width: auto; display: block; }
+.site { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.site a { color: #fff; text-decoration: none; font: 400 19px/1.2 var(--display); }
+.site a::before { content: ""; display: inline-block; width: 9px; height: 13px; margin-right: 8px; vertical-align: -1px; background: #b9b9b9; clip-path: path("M4.5 0C2 0 0 2 0 4.5 0 8 4.5 13 4.5 13S9 8 9 4.5C9 2 7 0 4.5 0Z"); }
+.site a:hover { color: var(--lime); }
+.site span { font-size: 12px; color: #d2d2d2; letter-spacing: .02em; }
+.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-left: auto; font-family: var(--mono); font-size: 12px; color: #d2d2d2; }
+.stats b { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
+nav { display: flex; gap: 2px; overflow-x: auto; padding-block: 2px 0; scrollbar-width: none; }
+nav::-webkit-scrollbar { display: none; }
+nav button { font: 600 13px var(--body); text-transform: uppercase; letter-spacing: .03em; color: #fff; background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 12px 7px; cursor: pointer; white-space: nowrap; }
+nav button[aria-selected="true"] { border-bottom-color: var(--lime); color: #fff; }
+nav button:hover:not([aria-selected="true"]) { color: var(--lime); }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible, td:focus-visible, .row:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.hero { background: linear-gradient(160deg, #e3ebd6 0%, #eef3e6 45%, var(--sky) 100%); border-bottom: 1px solid var(--line); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); gap: 12px 32px; align-items: center; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand img { height: 68px; width: auto; flex: 0 0 auto; display: block; }
+h1 { font: 800 30px/1.05 var(--display); color: var(--brand); letter-spacing: -.005em; margin: 0; }
+h1 small { display: block; font: 400 13.5px/1.35 var(--body); color: var(--brand); letter-spacing: 0; margin-top: 6px; }
+h1 small a { color: var(--brand-2); }
+.scopes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.scopes li { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--lime); border-radius: 6px; padding: 6px 12px; min-width: 0; }
+.scopes b { display: block; font: 700 22px/1.1 var(--display); color: var(--brand); font-variant-numeric: tabular-nums; }
+.scopes span { font-size: 13px; color: var(--muted); }
+@media (max-width: 1100px) { .hero .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .scopes { gap: 4px; } .scopes li { padding: 3px 6px; border-left-width: 3px; } .scopes b { font-size: 15px; } .scopes span { display: block; font-size: 10px; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } h1 small { display: none; } #v-constelacion .lede { font-size: 13px; margin-bottom: 8px; } }
+main { padding-block: 20px 48px; }
+.view[hidden] { display: none !important; }
+.lede { color: var(--muted); max-width: 80ch; margin: 0 0 14px; }
+.lede b { color: var(--brand); font-weight: 700; }
+.empty { color: var(--muted); font-style: italic; padding: 18px; background: var(--panel); border: 1px dashed var(--line); border-radius: 6px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
+.seg button { background: none; color: var(--muted); border: 0; padding: 5px 12px; font: 600 12px var(--body); cursor: pointer; }
+.seg button.on { background: var(--brand); color: #fff; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.legend svg { vertical-align: -2px; margin-right: 4px; }
+.stage { position: relative; background: radial-gradient(ellipse at 50% 40%, #121735 0%, var(--sky) 70%); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+#orrery { display: block; width: 100%; height: min(78vh, 820px); min-height: 460px; cursor: grab; }
+#orrery:active { cursor: grabbing; }
+.planet-label { font: 600 11px var(--display); fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 4px; }
+.planet-count { font: 400 10px var(--mono); fill: var(--muted); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 3px; }
+.node { cursor: pointer; }
+.dim { opacity: .12; }
+#tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 12px; max-width: 320px; display: none; z-index: 3; }
+#tip b { font-family: var(--mono); font-weight: 500; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+.chip { font: 600 12px var(--body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 3px 10px 3px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip .sw { width: 9px; height: 9px; border-radius: 50%; }
+.chip.on { border-color: var(--brand); background: var(--panel-2); }
+.chip .n { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+.frame3d { width: 100%; height: auto; aspect-ratio: 16 / 10; max-height: calc(100vh - 190px); min-height: 520px; border: 1px solid var(--line); border-radius: 8px; background: #0a0a10; display: block; }
+@media (max-width: 820px) { .frame3d { aspect-ratio: auto; height: calc(100vh - 150px); max-height: none; } }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--brand); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; box-shadow: 0 1px 3px rgba(31,42,28,.05); }
+.card h3 { font: 700 17px/1.25 var(--display); color: var(--brand); margin: 0; display: flex; gap: 10px; align-items: baseline; text-wrap: balance; }
+.card h3 .cid { font: 500 11px var(--mono); color: var(--muted); }
+.meta { font: 12px var(--mono); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.terms { display: flex; flex-wrap: wrap; gap: 4px; }
+.terms span { font-size: 12px; background: var(--panel-2); border-radius: 4px; padding: 1px 7px; color: var(--muted); }
+.bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--panel-2); }
+.card h4 { font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--brand-2); margin: 4px 0 0; }
+.card ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.card li { color: var(--ink); }
+.card li a, .link { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--faint); cursor: pointer; }
+.card li a:hover, .link:hover { color: var(--brand); border-bottom-color: var(--brand); }
+.card li .src { font: 11px var(--mono); color: var(--faint); }
+.btn { align-self: flex-start; font: 600 12px var(--body); color: #fff; background: var(--brand); border: 1px solid var(--brand); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.btn:hover { background: var(--brand-2); border-color: var(--brand-2); }
+.btn.ghost { background: var(--panel); color: var(--brand); }
+/* Map by scope: one column per scope, from the local to the international. */
+.map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: start; }
+@media (max-width: 1100px) { .map { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .map { grid-template-columns: 1fr; } }
+.region { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px; min-width: 0; }
+.region h3 { font: 700 18px/1.2 var(--display); color: var(--brand); margin: 0 0 2px; display: flex; justify-content: space-between; gap: 8px; }
+.region h3 .n { font: 500 13px var(--mono); color: var(--muted); }
+.region .meta { margin-bottom: 8px; }
+.region .cards { display: flex; flex-direction: column; gap: 8px; max-height: 70vh; overflow-y: auto; }
+.mini { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: 6px; padding: 8px 10px; cursor: pointer; min-width: 0; }
+.mini:hover { border-color: var(--brand); }
+.mini b { display: block; font: 700 14px/1.25 var(--display); color: var(--ink); overflow-wrap: anywhere; }
+.mini small { display: block; font: 12px var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+/* Matrix heatmap: labels by scope, darker cells mean more referents. */
+.matrix-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+table.matrix { border-collapse: collapse; width: 100%; font-size: 13px; }
+table.matrix th, table.matrix td { padding: 5px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+table.matrix thead th { position: sticky; top: 0; background: var(--panel-2); font: 700 12px var(--body); text-transform: uppercase; letter-spacing: .04em; color: var(--brand-2); }
+table.matrix th.group { background: var(--brand); color: #fff; font: 700 12px var(--body); text-transform: uppercase; letter-spacing: .08em; }
+table.matrix td.c { text-align: center; font: 500 12px var(--mono); min-width: 78px; cursor: pointer; }
+table.matrix td.c.z { color: var(--faint); cursor: default; }
+table.matrix td.c.sel { outline: 2px solid var(--gold); outline-offset: -2px; }
+table.matrix td.t { font: 600 12px var(--mono); text-align: center; color: var(--muted); }
+table.matrix td.l code { font: 11px var(--mono); color: var(--faint); margin-left: 6px; }
+#cellinfo { margin-top: 10px; }
+.filters { display: grid; grid-template-columns: minmax(0, 2fr) repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+@media (max-width: 760px) { .filters { grid-template-columns: 1fr 1fr; } .filters input { grid-column: 1 / -1; } }
+input, select { width: 100%; font: 14px var(--body); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+.toolbar select { width: auto; min-width: 200px; }
+#count { font: 12px var(--mono); color: var(--muted); margin-bottom: 8px; }
+.list { display: flex; flex-direction: column; border-top: 2px solid var(--brand); background: var(--panel); }
+.row { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; padding: 10px 8px; border-bottom: 1px solid var(--line); cursor: pointer; align-items: baseline; }
+.row:hover { background: var(--panel-2); }
+.row .id { font: 12px var(--mono); color: var(--muted); }
+.row .t { min-width: 0; }
+.row .t small { display: block; color: var(--muted); font-size: 12px; }
+.row .y { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.row.on { background: var(--panel-2); box-shadow: inset 4px 0 0 var(--lime); }
+.pill { display: inline-block; font: 11px var(--mono); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; margin: 0 4px 4px 0; color: var(--muted); background: var(--panel); }
+#timeline { width: 100%; height: auto; display: block; }
+.axis text { font: 10px var(--mono); fill: var(--muted); }
+.axis line, .axis path { stroke: var(--line); }
+pre.schema { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font: 12px/1.5 var(--mono); overflow-x: auto; }
+aside { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--panel); border-left: 4px solid var(--brand); box-shadow: -6px 0 24px rgba(0,0,0,.18); z-index: 20; overflow-y: auto; padding: calc(18px + env(safe-area-inset-top, 0px)) calc(20px + env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) 20px; }
+aside h2 { font: 700 20px/1.3 var(--display); color: var(--brand); margin: 6px 0 10px; text-wrap: balance; }
+aside .close { position: sticky; top: 0; float: right; }
+aside section { margin-top: 14px; }
+aside h5 { font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--brand-2); margin: 0 0 4px; }
+aside p { margin: 0; max-width: 65ch; white-space: pre-line; }
+aside ul { margin: 0; padding-left: 18px; }
+aside a { color: var(--brand); overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+footer.lab { background: var(--unal-gray-2); color: #fff; }
+footer.lab .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; padding-block: 20px 28px; }
+footer.lab .badge { display: inline-flex; background: #fff; border-radius: 999px; padding: 6px 18px; }
+footer.lab img { height: 44px; width: auto; display: block; }
+footer.lab strong { display: block; font: 700 14px var(--body); }
+footer.lab span { font-size: 13px; color: #d2d2d2; }
+footer.lab a { color: var(--lime); }
+@media (max-width: 560px) { footer.lab .wrap { flex-direction: column; text-align: center; } }
+@media (max-width: 640px), (max-height: 500px) {
+  header { position: static; }
+  .bar-top { padding-block: 8px 0; gap: 6px 14px; }
+  .unal-logo img { height: 38px; }
+  .site a { font-size: 16px; }
+  .stats { margin-left: 0; gap: 2px 12px; font-size: 11px; }
+  .hero .wrap { padding-block: 10px; gap: 8px; }
+  .brand img { height: 48px; }
+  h1 { font-size: 24px; }
+  h1 small { font-size: 12px; margin-top: 3px; }
+  main { padding-block: 12px 32px; }
+  .frame3d { height: calc(100svh - 24px); min-height: 380px; }
+  .card { padding: 14px; }
+}
+@media (pointer: coarse) {
+  nav button { padding: 11px 12px 9px; }
+  .seg button { padding: 9px 14px; }
+  .chip { padding: 6px 12px 6px 10px; }
+  .btn { padding: 9px 14px; }
+  input, select { font-size: 16px; padding: 10px; }
+  .row { padding-block: 12px; }
+}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="bar-top">
+      <a class="unal-logo" href="https://unal.edu.co/" target="_blank" rel="noopener" title="Universidad Nacional de Colombia"><img src="escudo_unal.svg" alt="Universidad Nacional de Colombia"></a>
+      <div class="site">
+        <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener">lia.manizales.unal.edu.co</a>
+        <span>Laboratorio de Inteligencia Artificial · Sede Manizales</span>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <nav role="tablist" aria-label="Vistas">
+      <button role="tab" data-view="constelacion" aria-selected="true">Constelación 3D</button>
+      <button role="tab" data-view="mapa" aria-selected="false">Mapa por alcance</button>
+      <button role="tab" data-view="matriz" aria-selected="false">Matriz</button>
+      <button role="tab" data-view="ideas" aria-selected="false">Clústeres e ideas</button>
+      <button role="tab" data-view="sistema" aria-selected="false">Sistema temático</button>
+      <button role="tab" data-view="explorar" aria-selected="false">Explorar</button>
+      <button role="tab" data-view="tiempo" aria-selected="false">Línea de tiempo</button>
+      <button role="tab" data-view="corridas" aria-selected="false">Corridas del agente</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener" title="Laboratorio de Inteligencia Artificial, UNAL"><img src="logo_labIA.png" alt="Laboratorio de Inteligencia Artificial UNAL"></a>
+      <h1>Panorama de plataformas CTeI<small>Referentes de ciencia, tecnología e innovación (plataformas, software, patentes y artículos) para plataformas de articulación como Hēma · <a href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener">LIA</a>, Universidad Nacional de Colombia</small></h1>
+    </div>
+    <ul class="scopes" id="scopes" aria-label="Referentes por alcance"></ul>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="view" id="v-constelacion">
+    <p class="lede">Visor 3D de <b>papersmith-ai</b>: cada sistema es un referente y sus planetas son su alcance, su tipo, sus temas, los actores que atiende, las interacciones que permite y los servicios que ofrece. <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
+    <iframe class="frame3d" id="frame3d" title="Constelación 3D de referentes" src="constelacion.html" loading="lazy"></iframe>
+  </section>
+
+  <section class="view" id="v-mapa" hidden>
+    <p class="lede">Referentes agrupados por <b>alcance</b>, de lo local a lo internacional. Cada columna cuenta sus fichas por tipo; un clic en una tarjeta abre la ficha.</p>
+    <div class="toolbar"><span>Tipo</span><div class="seg" id="maptype"></div></div>
+    <div class="map" id="map"></div>
+  </section>
+
+  <section class="view" id="v-matriz" hidden>
+    <p class="lede">Actores, servicios e interacciones de las fichas por alcance: es la misma agregación que entrega la herramienta <b>actor_service_matrix</b> del servidor MCP. Un color más intenso indica más referentes; un clic en una celda lista las fichas que la respaldan.</p>
+    <div class="toolbar"><span>Tema</span><select id="mtopic" aria-label="Filtrar la matriz por tema"><option value="">Todos los temas</option></select><span id="mcount"></span></div>
+    <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+    <div id="cellinfo"></div>
+  </section>
+
+  <section class="view" id="v-ideas" hidden>
+    <p class="lede">Los clústeres salen de TF‑IDF y de las etiquetas del vocabulario con k‑means; cada referente conserva su clúster entre una campaña y otra. Cada tarjeta reúne sus miembros, las etiquetas más frecuentes y las <b>ideas para plataformas CTeI</b> que registran sus fichas. «Copiar base de redacción» copia un resumen en Markdown.</p>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section class="view" id="v-sistema" hidden>
+    <p class="lede">Cada <b>planeta</b> es una función CTeI de la taxonomía (F01–F14), con tamaño proporcional a su número de referentes, y a su alrededor orbitan las fichas, con forma según el tipo y color según el clúster. Arrastre para mover, use la rueda (dos dedos en pantallas táctiles) para acercar y haga clic en un punto para leer su ficha.</p>
+    <div class="toolbar">
+      <span>Agrupar por</span>
+      <div class="seg" id="groupby"><button class="on" data-g="tema">Tema</button><button data-g="cluster">Clúster</button><button data-g="alcance">Alcance</button></div>
+      <span>Alcance</span>
+      <div class="seg" id="scopesel"></div>
+      <div class="legend" id="shapelegend"></div>
+    </div>
+    <div class="stage"><svg id="orrery" role="img" aria-label="Sistema de funciones CTeI con sus referentes"></svg><div id="tip"></div></div>
+    <div class="chips" id="clusterchips" aria-label="Filtrar por clúster"></div>
+  </section>
+
+  <section class="view" id="v-explorar" hidden>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Buscar en títulos, operadores, descripciones, actores, servicios…" aria-label="Buscar">
+      <select id="fkind" aria-label="Tipo"><option value="">Todo tipo</option></select>
+      <select id="fscope" aria-label="Alcance"><option value="">Todo alcance</option></select>
+      <select id="ftopic" aria-label="Tema"><option value="">Todos los temas</option></select>
+      <select id="fcluster" aria-label="Clúster"><option value="">Todos los clústeres</option></select>
+      <select id="fyear" aria-label="Desde el año"><option value="">Cualquier año</option></select>
+    </div>
+    <div id="count"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section class="view" id="v-tiempo" hidden>
+    <p class="lede">Referentes por año de lanzamiento, publicación o prioridad, apilados por alcance. <span id="noyear"></span></p>
+    <div class="stage" style="padding:12px 8px 4px"><svg id="timeline" role="img" aria-label="Referentes por año"></svg></div>
+    <div class="chips" id="tlegend"></div>
+  </section>
+
+  <section class="view" id="v-corridas" hidden>
+    <p class="lede">Cada corrida del agente <b>aracne-ctei-scout</b> deja una línea en <code>data/runs.jsonl</code> con su consulta, su alcance y las fichas que leyó y exportó. Un clic en una corrida resalta esas fichas en la constelación.</p>
+    <div id="runs"></div>
+    <details style="margin-top:16px"><summary>Formato de <code>data/runs.jsonl</code></summary>
+<pre class="schema">{"date": "2026-11-01T10:30:00-05:00", "query": "emparejamiento de oferta y demanda",
+ "scope": "bogota", "fichas_consulted": ["CT101", "CT102"], "fichas_exported": ["CT101"]}</pre>
+<p class="meta">scope es bogota, nacional, latam, internacional o null; los campos adicionales (por ejemplo agent o project) se muestran si existen.</p>
+    </details>
+  </section>
+</main>
+
+<footer class="lab">
+  <div class="wrap">
+    <a class="badge" href="https://lia.manizales.unal.edu.co/" target="_blank" rel="noopener" title="Laboratorio de Inteligencia Artificial (LabIA), Universidad Nacional de Colombia">
+      <img src="logo_labIA.png" alt="Laboratorio de Inteligencia Artificial UNAL">
+    </a>
+    <div>
+      <strong>Laboratorio de Inteligencia Artificial (LabIA)</strong>
+      <span>Universidad Nacional de Colombia · <a href="@@REPO@@" target="_blank" rel="noopener">Repositorio</a> · <a href="@@REPO@@/blob/main/docs/fuentes-y-mcp.md" target="_blank" rel="noopener">Fuentes y servidores MCP</a> · Solo fuentes públicas: la referencia de Hēma y el análisis de brechas no se publican.</span>
+    </div>
+  </div>
+</footer>
+
+<aside id="drawer" hidden aria-label="Ficha"><button class="btn close" id="dclose">Cerrar</button><div id="dbody"></div></aside>
+
+<script type="application/json" id="landscape">@@LANDSCAPE@@</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const LAND = JSON.parse(document.getElementById('landscape').textContent);
+const V = LAND.vocabulario, ITEMS = LAND.entries, BY = new Map(ITEMS.map(i => [i.id, i]));
+const TOPICS = V.temas, TIDS = Object.keys(TOPICS).sort();
+const SCOPES = Object.keys(V.alcances), TIPOS = V.tipos;
+const TIPO_ES = { plataforma: 'Plataforma', software: 'Software', patente: 'Patente', articulo: 'Artículo', otro: 'Otro' };
+const TIPO_PL = { plataforma: 'Plataformas', software: 'Software', patente: 'Patentes', articulo: 'Artículos', otro: 'Otros' };
+const REL_ES = { 'similar-a': 'Similar a', 'implementa': 'Implementa', 'estudiado-en': 'Estudiado en' };
+const CL = LAND.clusters, CBY = new Map(CL.map(c => [c.id, c]));
+const CCOL = new Map(CL.map((c, k) => [c.id, d3.hsl((k * 360 / Math.max(CL.length, 1) + 200) % 360, 0.62, 0.64).formatHex()]));
+const SCOL = { bogota: '#e8b339', nacional: '#94b43b', latam: '#5ad1e6', internacional: '#9b7ede' };
+const SHAPE = { plataforma: d3.symbolCircle, software: d3.symbolSquare, patente: d3.symbolTriangle, articulo: d3.symbolDiamond, otro: d3.symbolStar };
+const RUNS = LAND.runs || [];
+const yearOf = i => +(i.anio || 0);
+const primary = i => (i.temas && i.temas[0]) || 'F01';
+const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') e.className = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } kids.flat().forEach(k => e.append(k?.nodeType ? k : document.createTextNode(k ?? ''))); return e; };
+const shapeIcon = t => { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('width', 12); s.setAttribute('height', 12); s.setAttribute('viewBox', '-6 -6 12 12'); const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', d3.symbol().type(SHAPE[t]).size(40)()); p.setAttribute('fill', '#466b3f'); s.append(p); return s; };
+
+// Header stats and scope summary
+(() => {
+  const s = document.getElementById('stats');
+  const n = t => ITEMS.filter(i => i.tipo === t).length;
+  [['referentes', ITEMS.length], ['plataformas', n('plataforma')], ['software', n('software')], ['patentes', n('patente')], ['artículos', n('articulo')], ['clústeres', CL.length]]
+    .forEach(([k, v]) => s.append(el('span', {}, el('b', {}, String(v)), ' ' + k)));
+  const box = document.getElementById('scopes');
+  SCOPES.forEach(sc => box.append(el('li', {}, el('b', {}, String(ITEMS.filter(i => i.alcance === sc).length)), el('span', {}, V.alcances[sc]))));
+})();
+
+// The constellation iframe renders continuously; tell it when its tab is hidden so it pauses.
+const frame3d = document.getElementById('frame3d');
+let pendingHighlight = null;
+function post(msg) { if (frame3d.contentWindow && frame3d.src) frame3d.contentWindow.postMessage(msg, location.origin); }
+function notifyConstellation(visible) { post({ type: 'ctei-visibility', visible }); }
+frame3d.addEventListener('load', () => {
+  notifyConstellation(!document.getElementById('v-constelacion').hidden);
+  if (pendingHighlight) post(pendingHighlight);
+});
+
+// Tabs with bookmarkable hash tokens
+const views = [...document.querySelectorAll('nav button')];
+function show(name) {
+  if (!views.some(b => b.dataset.view === name)) name = 'constelacion';
+  views.forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === name)));
+  document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== 'v-' + name);
+  notifyConstellation(name === 'constelacion');
+  if (name !== 'sistema' && sim) sim.stop();
+  if (name === 'sistema' && orreryStale) drawOrrery();
+  if (name === 'tiempo') drawTimeline();
+  try { history.replaceState(null, '', '#' + name); } catch (e) {}
+}
+views.forEach(b => b.addEventListener('click', () => show(b.dataset.view)));
+
+// Drawer (ficha detail)
+const drawer = document.getElementById('drawer'), dbody = document.getElementById('dbody');
+document.getElementById('dclose').addEventListener('click', () => drawer.hidden = true);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') drawer.hidden = true; });
+function evidenceHref(ev) {
+  const v = String(ev).trim();
+  if (/^https?:\/\//.test(v)) return v;
+  if (/^doi:/i.test(v)) return 'https://doi.org/' + v.replace(/^doi:\s*/i, '');
+  if (/^10\.\d{4,9}\//.test(v)) return 'https://doi.org/' + v;
+  return 'https://worldwide.espacenet.com/patent/search?q=pn%3D' + encodeURIComponent(v.replace(/[\s,./-]/g, ''));
+}
+function field(label, value) {
+  if (!value || (Array.isArray(value) && !value.length)) return null;
+  return el('section', {}, el('h5', {}, label), Array.isArray(value) ? el('p', {}, value.join(' · ')) : el('p', {}, value));
+}
+const names = (f, xs) => (xs || []).map(x => V[f][x] || x);
+function openItem(id) {
+  const i = BY.get(id); if (!i) return;
+  const c = CBY.get(i.cluster), sec = i.secciones || {};
+  const kids = [
+    el('span', { class: 'pill' }, i.id), el('span', { class: 'pill' }, TIPO_ES[i.tipo] || i.tipo),
+    el('span', { class: 'pill', style: `border-color:${SCOL[i.alcance]}` }, V.alcances[i.alcance] || i.alcance),
+    el('span', { class: 'pill' }, String(i.anio || 's. f.')),
+    c ? el('span', { class: 'pill', style: `border-color:${CCOL.get(i.cluster)}` }, `${i.cluster} ${c.name}`) : null,
+    el('h2', {}, i.titulo),
+    el('p', { class: 'meta' }, [i.operador, i.pais].filter(Boolean).join(' · ')),
+    el('p', { class: 'meta' }, (i.temas || []).map(t => `${t} ${TOPICS[t] || ''}`).join(' · ')),
+    field('Descripción', sec.descripcion), field('Actores que atiende', names('actores', i.actores)),
+    field('Servicios', names('servicios', i.servicios)), field('Interacciones entre actores', names('interacciones', i.interacciones)),
+    field('Modelo de operación', sec.modelo_operacion), field('Tecnología', sec.tecnologia),
+    field('Ideas para plataformas CTeI como Hēma', sec.ideas),
+  ];
+  if (i.evidencia?.length) kids.push(el('section', {}, el('h5', {}, 'Evidencia'), el('ul', {}, i.evidencia.map(ev => el('li', {}, el('a', { href: evidenceHref(ev), target: '_blank', rel: 'noopener' }, ev)))), el('p', { class: 'meta' }, 'Consultado: ' + (i.consultado || 'sin fecha'))));
+  if (i.relacionados?.length) kids.push(el('section', {}, el('h5', {}, 'Relaciones declaradas'), el('ul', {}, i.relacionados.map(r => el('li', {}, `${r.direction === 'in' ? '← ' : ''}${REL_ES[r.tipo] || r.tipo}: `, el('a', { class: 'link', onclick: () => openItem(r.id) }, `${r.id} · ${BY.get(r.id)?.titulo || ''}`))))));
+  if (i.top5?.length) kids.push(el('section', {}, el('h5', {}, 'Más parecidos (similitud, no vínculo declarado)'), el('ul', {}, i.top5.map(r => el('li', {}, el('a', { class: 'link', onclick: () => openItem(r.id) }, `${r.id} · ${BY.get(r.id)?.titulo || ''}`), ` (${r.sim.toFixed(2)})`)))));
+  kids.push(el('section', {}, el('h5', {}, 'Archivo'), el('p', { class: 'meta' }, `fichas/${i.file}`)));
+  dbody.replaceChildren(...kids.filter(Boolean));
+  drawer.hidden = false; drawer.scrollTop = 0;
+}
+
+// Map by scope
+let mapType = '';
+const mapTypeBox = document.getElementById('maptype');
+[['', 'Todo'], ...TIPOS.map(t => [t, TIPO_PL[t] || t])].forEach(([t, label]) => mapTypeBox.append(el('button', { class: t === '' ? 'on' : '', 'data-t': t, onclick: e => { mapType = t; mapTypeBox.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === e.currentTarget)); drawMap(); } }, label)));
+function drawMap() {
+  const box = document.getElementById('map');
+  box.replaceChildren(...SCOPES.map(sc => {
+    const all = ITEMS.filter(i => i.alcance === sc), rows = all.filter(i => !mapType || i.tipo === mapType).sort((a, b) => yearOf(b) - yearOf(a) || a.id.localeCompare(b.id));
+    const byType = TIPOS.map(t => [t, all.filter(i => i.tipo === t).length]).filter(([, n]) => n).map(([t, n]) => `${n} ${(TIPO_PL[t] || t).toLowerCase()}`);
+    return el('section', { class: 'region', 'data-scope': sc },
+      el('h3', {}, V.alcances[sc], el('span', { class: 'n' }, String(rows.length))),
+      el('div', { class: 'meta' }, byType.join(' · ') || 'sin fichas'),
+      el('div', { class: 'cards' }, rows.length ? rows.map(i => el('div', { class: 'mini', tabindex: '0', style: `border-left-color:${CCOL.get(i.cluster) || '#466b3f'}`, onclick: () => openItem(i.id), onkeydown: e => { if (e.key === 'Enter') openItem(i.id); } },
+        el('b', {}, i.titulo), el('small', {}, `${i.id} · ${TIPO_ES[i.tipo] || i.tipo} · ${[i.operador, i.pais].filter(Boolean).join(', ')}${i.anio ? ' · ' + i.anio : ''}`)))
+        : [el('p', { class: 'empty' }, 'Sin fichas de este tipo en este alcance.')]));
+  }));
+}
+drawMap();
+
+// Actor / service / interaction matrix (same aggregation as actor_service_matrix)
+const FIELDS = [['actores', 'Actores'], ['servicios', 'Servicios'], ['interacciones', 'Interacciones']];
+function aggregate(topic) {
+  const sel = ITEMS.filter(i => !topic || (i.temas || []).includes(topic));
+  const out = { entries: sel.length };
+  FIELDS.forEach(([f]) => {
+    const rows = new Map();
+    sel.forEach(i => (i[f] || []).forEach(l => {
+      if (!rows.has(l)) rows.set(l, { label: l, name: V[f][l] || l, count: 0, entries: [], by_scope: Object.fromEntries(SCOPES.map(s => [s, []])) });
+      const r = rows.get(l); if (r.entries.includes(i.id)) return;
+      r.entries.push(i.id); r.count++; if (r.by_scope[i.alcance]) r.by_scope[i.alcance].push(i.id);
+    }));
+    out[f] = [...rows.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  });
+  return out;
+}
+const mtopic = document.getElementById('mtopic');
+TIDS.forEach(t => mtopic.append(el('option', { value: t }, `${t} ${TOPICS[t]}`)));
+function drawMatrix() {
+  const m = aggregate(mtopic.value), table = document.getElementById('matrix');
+  document.getElementById('mcount').textContent = `${m.entries} fichas`;
+  const max = Math.max(1, ...FIELDS.flatMap(([f]) => m[f].flatMap(r => SCOPES.map(s => r.by_scope[s].length))));
+  const heat = d3.scaleSequential(t => d3.interpolateYlGn(0.08 + 0.85 * t)).domain([0, max]);
+  const head = el('thead', {}, el('tr', {}, el('th', {}, 'Etiqueta'), SCOPES.map(s => el('th', { style: 'text-align:center' }, V.alcances[s])), el('th', { style: 'text-align:center' }, 'Total')));
+  const body = el('tbody');
+  FIELDS.forEach(([f, label]) => {
+    body.append(el('tr', {}, el('th', { class: 'group', colspan: String(SCOPES.length + 2) }, `${label} (${m[f].length})`)));
+    if (!m[f].length) body.append(el('tr', {}, el('td', { colspan: String(SCOPES.length + 2), class: 'empty' }, 'Sin etiquetas.')));
+    m[f].forEach(r => body.append(el('tr', {}, el('td', { class: 'l' }, r.name, el('code', {}, r.label)),
+      SCOPES.map(s => { const ids = r.by_scope[s], n = ids.length; const td = el('td', { class: 'c' + (n ? '' : ' z'), tabindex: n ? '0' : '-1', title: n ? `${r.name} · ${V.alcances[s]}: ${ids.join(', ')}` : '', style: n ? `background:${heat(n)};color:${n / max > .55 ? '#fff' : '#1f2a1c'}` : '' }, String(n));
+        if (n) { const pick = () => cellInfo(td, r, s, ids); td.addEventListener('click', pick); td.addEventListener('keydown', e => { if (e.key === 'Enter') pick(); }); }
+        return td; }),
+      el('td', { class: 't' }, String(r.count)))));
+  });
+  table.replaceChildren(head, body);
+  document.getElementById('cellinfo').replaceChildren();
+}
+function cellInfo(td, r, s, ids) {
+  document.querySelectorAll('#matrix td.sel').forEach(x => x.classList.remove('sel'));
+  td.classList.add('sel');
+  document.getElementById('cellinfo').replaceChildren(el('div', { class: 'card' }, el('h3', {}, `${r.name} · ${V.alcances[s]}`),
+    el('ul', {}, ids.map(id => el('li', {}, el('a', { onclick: () => openItem(id) }, `${id} · ${BY.get(id).titulo}`))))));
+}
+mtopic.addEventListener('input', drawMatrix);
+drawMatrix();
+
+// Cluster cards with ideas
+function brief(c, members) {
+  const lines = [`## ${c.id} ${c.name}`, '', `Términos: ${c.top_terms.join(', ')}`, '', '### Referentes'];
+  members.forEach(i => lines.push(`- [${i.id}] ${i.titulo} (${TIPO_ES[i.tipo]}, ${V.alcances[i.alcance]}${i.anio ? ', ' + i.anio : ''}): ${(i.secciones?.descripcion || '').split('\n')[0]}`));
+  lines.push('', '### Ideas para plataformas CTeI');
+  members.filter(i => i.secciones?.ideas).forEach(i => lines.push(`- ${i.secciones.ideas.split('\n')[0]} [${i.id}]`));
+  return lines.join('\n');
+}
+function topLabels(members, f, n) {
+  const cnt = new Map(); members.forEach(i => (i[f] || []).forEach(l => cnt.set(l, (cnt.get(l) || 0) + 1)));
+  return [...cnt].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n).map(([l, k]) => `${V[f][l] || l} (${k})`);
+}
+const cards = document.getElementById('cards');
+if (!CL.length) cards.append(el('p', { class: 'empty' }, 'Aún no hay fichas en el panorama.'));
+CL.forEach(c => {
+  const members = c.members.map(id => BY.get(id)).filter(Boolean).sort((a, b) => yearOf(b) - yearOf(a));
+  const total = Object.values(c.topics).reduce((a, b) => a + b, 0) || 1;
+  const bar = el('div', { class: 'bar', title: 'Temas principales del clúster' }, Object.entries(c.topics).map(([t, n], j) => el('span', { title: `${t} ${TOPICS[t]}: ${n}`, style: `width:${100 * n / total}%;background:${d3.hsl(200 + j * 47, .45, .6 - j * .06).formatHex()}` })));
+  const copy = el('button', { class: 'btn' }, 'Copiar base de redacción');
+  copy.addEventListener('click', async () => {
+    const text = brief(c, members);
+    try { await navigator.clipboard.writeText(text); copy.textContent = 'Copiado'; }
+    catch (e) { const t = el('textarea', { style: 'width:100%;height:160px' }); t.value = text; copy.after(t); t.select(); copy.textContent = 'Seleccione y copie el texto'; }
+    setTimeout(() => copy.textContent = 'Copiar base de redacción', 2200);
+  });
+  const ideas = members.filter(i => i.secciones?.ideas).slice(0, 4);
+  cards.append(el('article', { class: 'card', style: `border-top:3px solid ${CCOL.get(c.id)}` },
+    el('h3', {}, el('span', { class: 'cid' }, c.id), c.name),
+    el('div', { class: 'meta' }, el('span', {}, `${members.length} referentes`), SCOPES.map(s => { const n = members.filter(i => i.alcance === s).length; return n ? el('span', {}, `${V.alcances[s]} ${n}`) : null; }).filter(Boolean)),
+    bar, el('div', { class: 'terms' }, c.top_terms.slice(0, 7).map(t => el('span', {}, t))),
+    el('h4', {}, 'Referentes'),
+    el('ul', {}, members.slice(0, 5).map(i => el('li', {}, el('a', { onclick: () => openItem(i.id) }, i.titulo), ' ', el('span', { class: 'src' }, `${i.id} · ${TIPO_ES[i.tipo]} · ${V.alcances[i.alcance]}`)))),
+    el('h4', {}, 'Servicios más frecuentes'), el('div', { class: 'terms' }, topLabels(members, 'servicios', 5).map(t => el('span', {}, t))),
+    el('h4', {}, 'Ideas para plataformas CTeI'),
+    ideas.length ? el('ul', {}, ideas.map(i => el('li', {}, i.secciones.ideas.split('\n')[0], ' ', el('span', { class: 'src' }, i.id)))) : el('p', { class: 'meta' }, 'Sin ideas registradas en las fichas.'),
+    copy));
+});
+
+// Orrery: CTeI function planets with fichas in orbit (d3 force)
+const svg = d3.select('#orrery'), tip = document.getElementById('tip');
+let groupBy = 'tema', scopeFilter = 'all', clusterFilter = null, sim, nodeSel, linkSel;
+const groupKeys = () => groupBy === 'tema' ? TIDS : groupBy === 'alcance' ? SCOPES : CL.map(c => c.id);
+const groupName = k => groupBy === 'tema' ? `${k} ${TOPICS[k]}` : groupBy === 'alcance' ? V.alcances[k] : `${k} ${CBY.get(k).name}`;
+const CELL_H = 200;
+const useGrid = W => W < 1100 || innerHeight < 860;
+const gridCols = W => Math.max(2, Math.min(6, Math.floor(W / 210)));
+function centers(W, H) {
+  const keys = groupKeys(), m = new Map();
+  if (useGrid(W)) {
+    const cols = gridCols(W), cw = W / cols;
+    keys.forEach((k, j) => m.set(k, { x: cw * (j % cols + .5), y: CELL_H * (Math.floor(j / cols) + .5) + 10 }));
+    return m;
+  }
+  const rx = W * 0.36, ry = H * 0.36;
+  keys.forEach((k, j) => { const a = -Math.PI / 2 + j * 2 * Math.PI / keys.length; m.set(k, { x: W / 2 + rx * Math.cos(a), y: H / 2 + ry * Math.sin(a) }); });
+  return m;
+}
+const coarse = matchMedia('(pointer: coarse)').matches;
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const zoomFilter = e => e.type.startsWith('touch') ? e.touches.length > 1 : (!e.ctrlKey || e.type === 'wheel') && !e.button;
+function orbitForce(center, radius, strength) {
+  let nodes;
+  const force = alpha => nodes.forEach(n => {
+    const c = center(n), dx = n.x - c.x || 1e-3, dy = n.y - c.y, r = Math.hypot(dx, dy), k = (radius(n) - r) / r * strength * alpha;
+    n.vx += dx * k; n.vy += dy * k;
+  });
+  force.initialize = ns => { nodes = ns; };
+  return force;
+}
+let orreryStale = false;
+function drawOrrery() {
+  if (document.getElementById('v-sistema').hidden) { orreryStale = true; return; }
+  orreryStale = false;
+  const node = document.getElementById('orrery');
+  const W = Math.max(node.getBoundingClientRect().width, 300), grid = useGrid(W), cols = gridCols(W);
+  node.style.height = grid ? `${Math.ceil(groupKeys().length / cols) * CELL_H + 20}px` : '';
+  node.style.touchAction = coarse ? 'pan-y' : '';
+  const H = Math.max(node.getBoundingClientRect().height, 460);
+  if (sim) sim.stop();
+  svg.attr('viewBox', `0 0 ${W} ${H}`).selectAll('*').remove();
+  const root = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([0.4, 6]).filter(zoomFilter).on('zoom', e => root.attr('transform', e.transform)));
+  const C = centers(W, H);
+  const labelChars = Math.floor(W / cols / 7.5);
+  const fitLabel = s => !grid || s.length <= labelChars ? s : s.slice(0, labelChars - 1).replace(/\s+\S*$/, '') + '…';
+  const keyOf = i => groupBy === 'tema' ? primary(i) : groupBy === 'alcance' ? i.alcance : i.cluster;
+  const counts = d3.rollup(ITEMS, v => v.length, keyOf);
+  const pr = k => 10 + Math.sqrt(counts.get(k) || 1) * 2.4;
+  root.append('g').selectAll('circle').data([...C]).join('circle').attr('cx', d => d[1].x).attr('cy', d => d[1].y)
+    .attr('r', d => pr(d[0]) + 22).attr('fill', 'none').attr('stroke', '#262d52').attr('stroke-dasharray', '2 4');
+  const slot = new Map();
+  const nodes = ITEMS.map(i => { const k = keyOf(i); const n = counts.get(k); const j = (slot.get(k) || 0); slot.set(k, j + 1);
+    const ring = pr(k) + 14 + (j % 3) * 9, a = j * 2 * Math.PI / Math.max(n / 3, 1) + (j % 3) * .35;
+    return { i, k, x: C.get(k).x + ring * Math.cos(a), y: C.get(k).y + ring * Math.sin(a) }; });
+  const nb = new Map(nodes.map(n => [n.i.id, n]));
+  const links = LAND.links.map(l => ({ source: nb.get(l.from), target: nb.get(l.to) })).filter(l => l.source && l.target);
+  linkSel = root.append('g').selectAll('line').data(links).join('line').attr('stroke', '#94b43b').attr('stroke-opacity', .3).attr('stroke-width', .9);
+  const pg = root.append('g').selectAll('g').data([...C]).join('g').attr('transform', d => `translate(${d[1].x},${d[1].y})`);
+  pg.append('circle').attr('r', d => pr(d[0])).attr('fill', d => groupBy === 'cluster' ? d3.color(CCOL.get(d[0])).darker(1.6) : groupBy === 'alcance' ? d3.color(SCOL[d[0]]).darker(1.8) : '#1b2147')
+    .attr('stroke', d => groupBy === 'cluster' ? CCOL.get(d[0]) : groupBy === 'alcance' ? SCOL[d[0]] : '#9b7ede').attr('stroke-width', 1.5);
+  pg.append('text').attr('class', 'planet-label').attr('text-anchor', 'middle').attr('dy', d => grid ? -CELL_H / 2 + 12 : -pr(d[0]) - 40)
+    .text(d => fitLabel(groupBy === 'tema' ? `${d[0]} ${TOPICS[d[0]].split(' ').slice(0, 4).join(' ').replace(/ (y|e|de|del)$/, '')}` : groupName(d[0])))
+    .append('title').text(d => groupName(d[0]));
+  pg.append('text').attr('class', 'planet-count').attr('text-anchor', 'middle').attr('dy', 4).text(d => counts.get(d[0]) || 0);
+  const sym = d3.symbol();
+  nodeSel = root.append('g').selectAll('path').data(nodes).join('path').attr('class', 'node')
+    .attr('d', d => sym.type(SHAPE[d.i.tipo] || d3.symbolCircle).size(46)())
+    .attr('fill', d => CCOL.get(d.i.cluster)).attr('stroke', '#090b14').attr('stroke-width', .6)
+    .on('mousemove', (e, d) => { const r = document.querySelector('#v-sistema .stage').getBoundingClientRect(); tip.style.display = 'block'; tip.style.left = Math.min(e.clientX - r.left + 12, r.width - 330) + 'px'; tip.style.top = (e.clientY - r.top + 12) + 'px'; tip.replaceChildren(el('b', {}, `${d.i.id} · ${TIPO_ES[d.i.tipo]} · ${V.alcances[d.i.alcance]}`), el('div', {}, d.i.titulo)); })
+    .on('mouseleave', () => tip.style.display = 'none')
+    .on('click', (e, d) => openItem(d.i.id));
+  sim = d3.forceSimulation(nodes)
+    .force('x', d3.forceX(d => C.get(d.k).x).strength(.03)).force('y', d3.forceY(d => C.get(d.k).y).strength(.03))
+    .force('collide', d3.forceCollide(5))
+    .force('orbit', orbitForce(d => C.get(d.k), d => pr(d.k) + 24, .25))
+    .alpha(1).alphaDecay(.03).stop();
+  sim.tick(160);
+  const paint = () => {
+    nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
+    linkSel.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+  };
+  paint();
+  if (!reducedMotion) sim.alpha(.05).on('tick', paint).restart();
+  applyDim();
+}
+function applyDim() {
+  if (!nodeSel) return;
+  const keep = i => (scopeFilter === 'all' || i.alcance === scopeFilter) && (!clusterFilter || i.cluster === clusterFilter);
+  nodeSel.classed('dim', d => !keep(d.i));
+  linkSel.classed('dim', d => !(keep(d.source.i) && keep(d.target.i)));
+}
+document.querySelectorAll('#groupby button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#groupby button').forEach(x => x.classList.toggle('on', x === b)); groupBy = b.dataset.g; drawOrrery();
+}));
+const scopeSel = document.getElementById('scopesel');
+[['all', 'Todo'], ...SCOPES.map(s => [s, V.alcances[s]])].forEach(([s, label]) => scopeSel.append(el('button', { class: s === 'all' ? 'on' : '', onclick: e => { scopeFilter = s; scopeSel.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === e.currentTarget)); applyDim(); } }, label)));
+const shapeLegend = document.getElementById('shapelegend');
+TIPOS.forEach(t => shapeLegend.append(el('span', {}, shapeIcon(t), TIPO_ES[t] || t)));
+const chipBox = document.getElementById('clusterchips');
+CL.forEach(c => chipBox.append(el('button', { class: 'chip', onclick: e => { clusterFilter = clusterFilter === c.id ? null : c.id; chipBox.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x === e.currentTarget && clusterFilter === c.id)); applyDim(); } },
+  el('span', { class: 'sw', style: `background:${CCOL.get(c.id)}` }), `${c.id} ${c.name}`, el('span', { class: 'n' }, String(c.members.length)))));
+
+// Explorer
+const q = document.getElementById('q'), fk = document.getElementById('fkind'), fsc = document.getElementById('fscope'), ft = document.getElementById('ftopic'), fc = document.getElementById('fcluster'), fy = document.getElementById('fyear');
+TIPOS.forEach(t => fk.append(el('option', { value: t }, TIPO_PL[t] || t)));
+SCOPES.forEach(s => fsc.append(el('option', { value: s }, V.alcances[s])));
+TIDS.forEach(t => ft.append(el('option', { value: t }, `${t} ${TOPICS[t]}`)));
+CL.forEach(c => fc.append(el('option', { value: c.id }, `${c.id} ${c.name}`)));
+[...new Set(ITEMS.map(yearOf).filter(Boolean))].sort((a, b) => b - a).forEach(y => fy.append(el('option', { value: y }, `Desde ${y}`)));
+const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const HAY = new Map(ITEMS.map(i => [i.id, norm([i.id, i.titulo, i.operador, i.pais, Object.values(i.secciones || {}).join(' '),
+  ...['temas', 'actores', 'servicios', 'interacciones'].map(f => names(f, i[f]).join(' '))].join(' '))]));
+function renderList() {
+  const terms = norm(q.value).split(/\s+/).filter(Boolean);
+  const rows = ITEMS.filter(i => (!fk.value || i.tipo === fk.value) && (!fsc.value || i.alcance === fsc.value) && (!ft.value || (i.temas || []).includes(ft.value)) && (!fc.value || i.cluster === fc.value) && (!fy.value || yearOf(i) >= +fy.value) && terms.every(t => HAY.get(i.id).includes(t)))
+    .sort((a, b) => yearOf(b) - yearOf(a) || a.id.localeCompare(b.id));
+  document.getElementById('count').textContent = `${rows.length} de ${ITEMS.length} referentes`;
+  document.getElementById('list').replaceChildren(...rows.slice(0, 300).map(i => el('div', { class: 'row', tabindex: '0', onclick: () => openItem(i.id), onkeydown: e => { if (e.key === 'Enter') openItem(i.id); } },
+    el('span', { class: 'id' }, i.id), el('span', { class: 't' }, i.titulo, el('small', {}, `${TIPO_ES[i.tipo]} · ${V.alcances[i.alcance]} · ${[i.operador, i.pais].filter(Boolean).join(', ')} · ${(i.temas || []).join(', ')}`)), el('span', { class: 'y' }, String(yearOf(i) || 's. f.')))));
+}
+[q, fk, fsc, ft, fc, fy].forEach(x => x.addEventListener('input', renderList));
+renderList();
+
+// Timeline: stacked bars by scope
+let timelineWidth = 0;
+function drawTimeline() {
+  const node = document.getElementById('timeline'); const W = Math.max(node.parentElement.clientWidth - 16, 340), H = 360, m = { t: 10, r: 10, b: 28, l: 34 };
+  if (W === timelineWidth) return;
+  timelineWidth = W;
+  const dated = ITEMS.filter(yearOf);
+  document.getElementById('noyear').textContent = ITEMS.length - dated.length ? `${ITEMS.length - dated.length} fichas sin año en su fuente no aparecen en el gráfico.` : '';
+  const s = d3.select(node).attr('viewBox', `0 0 ${W} ${H}`); s.selectAll('*').remove();
+  if (!dated.length) { s.append('text').attr('x', W / 2).attr('y', H / 2).attr('text-anchor', 'middle').attr('fill', '#9aa1c2').text('Sin fichas con año.'); return; }
+  const ys = d3.range(d3.min(dated, yearOf), d3.max(dated, yearOf) + 1);
+  const rows = ys.map(y => { const r = { y }; SCOPES.forEach(k => r[k] = 0); dated.forEach(i => { if (yearOf(i) === y) r[i.alcance]++; }); return r; });
+  const stack = d3.stack().keys(SCOPES)(rows);
+  const step = Math.max(1, Math.ceil(ys.length / Math.floor(W / 46)));
+  const x = d3.scaleBand().domain(ys).range([m.l, W - m.r]).padding(.18), yS = d3.scaleLinear().domain([0, d3.max(rows, r => d3.sum(SCOPES, k => r[k]))]).nice().range([H - m.b, m.t]);
+  s.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickValues(ys.filter((y, j) => j % step === 0)).tickSizeOuter(0));
+  s.append('g').attr('class', 'axis').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(yS).ticks(5).tickFormat(d3.format('d')).tickSize(-(W - m.l - m.r))).call(g => g.select('.domain').remove()).call(g => g.selectAll('line').attr('stroke-opacity', .5));
+  s.append('g').selectAll('g').data(stack).join('g').attr('fill', d => SCOL[d.key]).selectAll('rect').data(d => d.map(v => Object.assign(v, { key: d.key }))).join('rect')
+    .attr('x', d => x(d.data.y)).attr('width', x.bandwidth()).attr('y', d => yS(d[1])).attr('height', d => Math.max(0, yS(d[0]) - yS(d[1])))
+    .append('title').text(d => `${d.data.y} · ${V.alcances[d.key]}: ${d[1] - d[0]}`);
+  const lg = document.getElementById('tlegend'); if (!lg.childElementCount) SCOPES.forEach(sc => lg.append(el('span', { class: 'chip' }, el('span', { class: 'sw', style: `background:${SCOL[sc]}` }), V.alcances[sc])));
+}
+
+// Agent runs: list them and light their fichas in the constellation
+function highlightRun(ids, label) {
+  pendingHighlight = { type: 'ctei-highlight', ids, label };
+  show('constelacion');
+  post(pendingHighlight);
+}
+(() => {
+  const box = document.getElementById('runs');
+  if (!RUNS.length) { box.append(el('p', { class: 'empty' }, 'Aún no hay corridas registradas en data/runs.jsonl.')); return; }
+  const rows = RUNS.map((r, k) => ({ r, k })).sort((a, b) => String(b.r.date || '').localeCompare(String(a.r.date || '')));
+  box.append(el('div', { class: 'list' }, rows.map(({ r, k }) => {
+    const ids = [...new Set([...(r.fichas_consulted || []), ...(r.fichas_exported || [])])];
+    const label = `Corrida ${String(r.date || '').slice(0, 16)}`;
+    return el('div', { class: 'row', tabindex: '0', 'data-run': String(k), onclick: () => highlightRun(ids, label), onkeydown: e => { if (e.key === 'Enter') highlightRun(ids, label); } },
+      el('span', { class: 'id' }, String(r.date || '').slice(0, 10)),
+      el('span', { class: 't' }, r.query || '(sin consulta)', el('small', {}, `${r.agent || 'agente'}${r.project ? ' · ' + r.project : ''} · ${r.scope ? V.alcances[r.scope] || r.scope : 'todo alcance'} · consultadas: ${(r.fichas_consulted || []).join(', ') || 'ninguna'} · exportadas: ${(r.fichas_exported || []).join(', ') || 'ninguna'}`)),
+      el('span', { class: 'y' }, `${(r.fichas_consulted || []).length} / ${(r.fichas_exported || []).length}`));
+  })));
+})();
+
+drawOrrery();
+show(location.hash.slice(1) || 'constelacion');
+let rt, lastW = innerWidth;
+window.addEventListener('resize', () => {
+  if (innerWidth === lastW) return;
+  lastW = innerWidth;
+  clearTimeout(rt);
+  rt = setTimeout(() => { drawOrrery(); if (!document.getElementById('v-tiempo').hidden) drawTimeline(); }, 250);
+});
+</script>
